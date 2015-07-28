@@ -1,0 +1,10 @@
+source 'http://10.57.13.204/CocoaPods/Specs.git'
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '8.0'
+
+pod "AFNetworking", "~> 2.0"
+
+pod 'UMengAnalytics-NO-IDFA'
+
+pod 'ReactiveCocoa'
