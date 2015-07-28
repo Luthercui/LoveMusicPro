@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MeViewController : UIViewController
+@interface MeViewController : UINavigationController
 
 @end

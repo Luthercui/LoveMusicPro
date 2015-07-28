@@ -9,5 +9,8 @@
 #import "FoundViewController.h"
 
 @implementation FoundViewController
-
+-(void)viewDidLoad{
+    [super viewDidLoad];
+    [self setTitle:@"发现"];
+}
 @end

@@ -9,5 +9,7 @@
 #import "RecommendViewController.h"
 
 @implementation RecommendViewController
-
+-(void)viewDidLoad{
+    [super viewDidLoad];
+}
 @end

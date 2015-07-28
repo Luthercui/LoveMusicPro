@@ -10,4 +10,11 @@
 
 @implementation MeViewController
 
+
+
+-(void)viewDidLoad{
+    [super viewDidLoad];
+    [self setTitle:@"我的"];
+}
+
 @end

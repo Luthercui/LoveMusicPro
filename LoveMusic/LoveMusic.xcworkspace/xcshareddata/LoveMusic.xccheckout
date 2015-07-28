@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>0F419EED-F2C5-4CA3-AE4E-BCE47885065F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>LoveMusic</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1E93A936620D1DD15E3E8F0C9231E3010662271E</key>
+		<string>https://github.com/Luthercui/LoveMusicPro.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>LoveMusic/LoveMusic.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1E93A936620D1DD15E3E8F0C9231E3010662271E</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Luthercui/LoveMusicPro.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1E93A936620D1DD15E3E8F0C9231E3010662271E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1E93A936620D1DD15E3E8F0C9231E3010662271E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>LoveMusicPro</string>
+		</dict>
+	</array>
+</dict>
+</plist>
