@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RecommendViewController : UINavigationController
+@interface RecommendViewController : UIViewController
 
 @end

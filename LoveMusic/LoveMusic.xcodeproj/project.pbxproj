@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4FAF16DE29D05F9C737FAB9E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 421CB365677CCA81C7469684 /* libPods.a */; };
+		A7714CB61B6A0F2800611808 /* SongInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A7714CB51B6A0F2800611808 /* SongInfo.m */; };
+		A7714CB91B6A111900611808 /* NetFm.m in Sources */ = {isa = PBXBuildFile; fileRef = A7714CB81B6A111900611808 /* NetFm.m */; };
+		A7714CBC1B6A154B00611808 /* ChannelInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A7714CBB1B6A154B00611808 /* ChannelInfo.m */; };
 		A79F45961B60D733008D8A4B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A79F45951B60D733008D8A4B /* main.m */; };
 		A79F45991B60D733008D8A4B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A79F45981B60D733008D8A4B /* AppDelegate.m */; };
 		A79F45A21B60D733008D8A4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A79F45A01B60D733008D8A4B /* Main.storyboard */; };
@@ -33,6 +36,12 @@
 		127ED1B5ACAAF7BB044D228D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		421CB365677CCA81C7469684 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CC0C1F8255561FC77FE3909 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		A7714CB41B6A0F2800611808 /* SongInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongInfo.h; sourceTree = "<group>"; };
+		A7714CB51B6A0F2800611808 /* SongInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongInfo.m; sourceTree = "<group>"; };
+		A7714CB71B6A111900611808 /* NetFm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetFm.h; sourceTree = "<group>"; };
+		A7714CB81B6A111900611808 /* NetFm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetFm.m; sourceTree = "<group>"; };
+		A7714CBA1B6A154B00611808 /* ChannelInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelInfo.h; sourceTree = "<group>"; };
+		A7714CBB1B6A154B00611808 /* ChannelInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelInfo.m; sourceTree = "<group>"; };
 		A79F45901B60D733008D8A4B /* LoveMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A79F45941B60D733008D8A4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A79F45951B60D733008D8A4B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -88,6 +97,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A7714CB31B6A0F0E00611808 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A7714CB41B6A0F2800611808 /* SongInfo.h */,
+				A7714CB51B6A0F2800611808 /* SongInfo.m */,
+				A7714CB71B6A111900611808 /* NetFm.h */,
+				A7714CB81B6A111900611808 /* NetFm.m */,
+				A7714CBA1B6A154B00611808 /* ChannelInfo.h */,
+				A7714CBB1B6A154B00611808 /* ChannelInfo.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		A79F45871B60D733008D8A4B = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +133,7 @@
 		A79F45921B60D733008D8A4B /* LoveMusic */ = {
 			isa = PBXGroup;
 			children = (
+				A7714CB31B6A0F0E00611808 /* Model */,
 				A79F45C61B60DA21008D8A4B /* ViewController */,
 				A79F45C41B60DA12008D8A4B /* View */,
 				A79F45971B60D733008D8A4B /* AppDelegate.h */,
@@ -306,9 +329,12 @@
 			files = (
 				A79F45991B60D733008D8A4B /* AppDelegate.m in Sources */,
 				A79F45961B60D733008D8A4B /* main.m in Sources */,
+				A7714CB61B6A0F2800611808 /* SongInfo.m in Sources */,
 				A79F45C91B60DA4E008D8A4B /* RecommendViewController.m in Sources */,
 				A79F45CC1B60DA71008D8A4B /* FoundViewController.m in Sources */,
+				A7714CBC1B6A154B00611808 /* ChannelInfo.m in Sources */,
 				A79F45CF1B60DA84008D8A4B /* MeViewController.m in Sources */,
+				A7714CB91B6A111900611808 /* NetFm.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
