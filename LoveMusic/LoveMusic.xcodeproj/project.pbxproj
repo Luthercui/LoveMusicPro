@@ -12,6 +12,7 @@
 		A7714CB91B6A111900611808 /* NetFm.m in Sources */ = {isa = PBXBuildFile; fileRef = A7714CB81B6A111900611808 /* NetFm.m */; };
 		A7714CBC1B6A154B00611808 /* ChannelInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A7714CBB1B6A154B00611808 /* ChannelInfo.m */; };
 		A7714CBF1B6A30A300611808 /* AssistiveTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = A7714CBE1B6A30A300611808 /* AssistiveTouch.m */; };
+		A7714CC21B6A621F00611808 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7714CC11B6A621F00611808 /* PlayerViewController.m */; };
 		A79F45961B60D733008D8A4B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A79F45951B60D733008D8A4B /* main.m */; };
 		A79F45991B60D733008D8A4B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A79F45981B60D733008D8A4B /* AppDelegate.m */; };
 		A79F45A21B60D733008D8A4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A79F45A01B60D733008D8A4B /* Main.storyboard */; };
@@ -45,6 +46,8 @@
 		A7714CBB1B6A154B00611808 /* ChannelInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelInfo.m; sourceTree = "<group>"; };
 		A7714CBD1B6A30A300611808 /* AssistiveTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssistiveTouch.h; sourceTree = "<group>"; };
 		A7714CBE1B6A30A300611808 /* AssistiveTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssistiveTouch.m; sourceTree = "<group>"; };
+		A7714CC01B6A621F00611808 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerViewController.h; path = ViewController/PlayerViewController.h; sourceTree = "<group>"; };
+		A7714CC11B6A621F00611808 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerViewController.m; path = ViewController/PlayerViewController.m; sourceTree = "<group>"; };
 		A79F45901B60D733008D8A4B /* LoveMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A79F45941B60D733008D8A4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A79F45951B60D733008D8A4B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -193,6 +196,8 @@
 				A79F45CB1B60DA71008D8A4B /* FoundViewController.m */,
 				A79F45CD1B60DA84008D8A4B /* MeViewController.h */,
 				A79F45CE1B60DA84008D8A4B /* MeViewController.m */,
+				A7714CC01B6A621F00611808 /* PlayerViewController.h */,
+				A7714CC11B6A621F00611808 /* PlayerViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -341,6 +346,7 @@
 				A7714CBC1B6A154B00611808 /* ChannelInfo.m in Sources */,
 				A79F45CF1B60DA84008D8A4B /* MeViewController.m in Sources */,
 				A7714CB91B6A111900611808 /* NetFm.m in Sources */,
+				A7714CC21B6A621F00611808 /* PlayerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

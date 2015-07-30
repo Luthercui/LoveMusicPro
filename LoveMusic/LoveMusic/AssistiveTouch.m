@@ -99,7 +99,7 @@
     if(p.state == UIGestureRecognizerStateBegan)
     {
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(changeColor) object:nil];
-        _imageView.alpha = 0.8;
+        _imageView.alpha = 0.6;
     }
     else if (p.state == UIGestureRecognizerStateEnded)
     {
@@ -172,7 +172,7 @@
 //点击事件
 -(void)click:(UITapGestureRecognizer*)t
 {
-    _imageView.alpha = 0.8;
+    _imageView.alpha = 0.6;
     [self performSelector:@selector(changeColor) withObject:nil afterDelay:4.0];
     if(_assistiveDelegate && [_assistiveDelegate respondsToSelector:@selector(assistiveTocuhs)])
     {

@@ -16,8 +16,11 @@
 #import "ChannelInfo.h"
 #import "SongInfo.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
+#import "PlayerViewController.h"
 
-@interface AppDelegate ()<AssistiveTouchDelegate>
+@interface AppDelegate ()<AssistiveTouchDelegate>{
+    UITabBarController *tabBarController;
+}
 @property(nonatomic, strong) NSTimer *kTimer;
 @end
 
@@ -37,7 +40,7 @@
     UINavigationController *recommend = [[UINavigationController alloc] initWithRootViewController:recommendVc];
     UINavigationController *found = [[UINavigationController alloc] initWithRootViewController:foundVc];
     UINavigationController *me = [[UINavigationController alloc] initWithRootViewController:meVc];
-    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    tabBarController = [[UITabBarController alloc] init];
     tabBarController.viewControllers = @[recommend,found,me];
     self.window.rootViewController = tabBarController;
     
@@ -92,6 +95,11 @@
     }
 }
 -(void)assistiveTocuhs{
+    self.assistiveTouch.hidden = YES;
+    PlayerViewController *viewController = [[PlayerViewController alloc] init];
+    viewController.view.backgroundColor = [UIColor yellowColor];
+    [tabBarController presentViewController:viewController animated:YES completion:^{
+    }];
 }
 -(void)musicToPlay{
     [self.player play];
