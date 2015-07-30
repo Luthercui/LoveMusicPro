@@ -15,8 +15,10 @@
 #import "NetFm.h"
 #import "ChannelInfo.h"
 #import "SongInfo.h"
-@interface AppDelegate ()
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
+@interface AppDelegate ()<AssistiveTouchDelegate>
+@property(nonatomic, strong) NSTimer *kTimer;
 @end
 
 @implementation AppDelegate
@@ -40,7 +42,13 @@
     self.window.rootViewController = tabBarController;
     
     
+    [MobClick startWithAppkey:@"55af9294e0f55a5ac1001f11" reportPolicy:BATCH channelId:@"App Store"];
+    [self initplayer];
     
+    [self.window makeKeyAndVisible];
+    return YES;
+}
+-(void)initplayer{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _player = [[MPMoviePlayerController alloc]init];
@@ -48,17 +56,20 @@
         
         NSNotificationCenter* notificationCenter = [NSNotificationCenter defaultCenter];
         [notificationCenter addObserver:self selector:@selector(moviePlayerPreloadFinish) name:MPMoviePlayerPlaybackDidFinishNotification object:_player];
+        [notificationCenter addObserver:self selector:@selector(moviePlayerPlaybackStateDidChangeNotification:) name:MPMoviePlayerPlaybackStateDidChangeNotification object:_player];
+
         
         //后台播放
         AVAudioSession *session = [AVAudioSession sharedInstance];
         [session setCategory:AVAudioSessionCategoryPlayback error:nil];
         [session setActive:YES error:nil];
     });
-    
-    [MobClick startWithAppkey:@"55af9294e0f55a5ac1001f11" reportPolicy:BATCH channelId:@"App Store"];
-    
-    [self.window makeKeyAndVisible];
-    return YES;
+    self.assistiveTouch = [[AssistiveTouch alloc] initWithFrame:CGRectMake(0, 200, 90, 50)];
+    self.assistiveTouch.assistiveDelegate = self;
+    [self fireTimer];
+}
+-(void)moviePlayerPlaybackStateDidChangeNotification:(NSNotification*)not{
+    NSLog(@"%@",not);
 }
 -(void)moviePlayerPreloadFinish{
     ChannelInfo *info = [ChannelInfo currentChannel];
@@ -73,9 +84,38 @@
                     [SongInfo setCurrentSong:[weakSelf.playList objectAtIndex:[SongInfo currentSongIndex]]];
                     [weakSelf.player setContentURL:[NSURL URLWithString:[SongInfo currentSong].url]];
                     [weakSelf.player play];
+                    [weakSelf.assistiveTouch upDatePlayButton:YES];
+                    [weakSelf.assistiveTouch upDatePlayImage:[SongInfo currentSong].picture];
                 }
             }
         }];
+    }
+}
+-(void)assistiveTocuhs{
+}
+-(void)musicToPlay{
+    [self.player play];
+}
+-(void)musicToPause{
+    [self.player pause];
+}
+-(void)musicToNext{
+}
+- (void)fireTimer {
+    [self invalidateTimer];
+    _kTimer = [NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(updateProgress) userInfo:nil repeats:YES];
+}
+-(void)updateProgress{
+    if (self.player && self.player.playbackState == MPMoviePlaybackStatePlaying) {
+        if (!self.assistiveTouch.hidden) {
+            [self.assistiveTouch transformRotatePlayImage];
+        }
+    }
+}
+- (void)invalidateTimer {
+    if (_kTimer) {
+        [_kTimer invalidate];
+        _kTimer = nil;
     }
 }
 - (void)applicationWillResignActive:(UIApplication *)application {

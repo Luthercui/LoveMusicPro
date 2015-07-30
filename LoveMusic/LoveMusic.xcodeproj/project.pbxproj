@@ -11,6 +11,7 @@
 		A7714CB61B6A0F2800611808 /* SongInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A7714CB51B6A0F2800611808 /* SongInfo.m */; };
 		A7714CB91B6A111900611808 /* NetFm.m in Sources */ = {isa = PBXBuildFile; fileRef = A7714CB81B6A111900611808 /* NetFm.m */; };
 		A7714CBC1B6A154B00611808 /* ChannelInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A7714CBB1B6A154B00611808 /* ChannelInfo.m */; };
+		A7714CBF1B6A30A300611808 /* AssistiveTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = A7714CBE1B6A30A300611808 /* AssistiveTouch.m */; };
 		A79F45961B60D733008D8A4B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A79F45951B60D733008D8A4B /* main.m */; };
 		A79F45991B60D733008D8A4B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A79F45981B60D733008D8A4B /* AppDelegate.m */; };
 		A79F45A21B60D733008D8A4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A79F45A01B60D733008D8A4B /* Main.storyboard */; };
@@ -42,6 +43,8 @@
 		A7714CB81B6A111900611808 /* NetFm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetFm.m; sourceTree = "<group>"; };
 		A7714CBA1B6A154B00611808 /* ChannelInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelInfo.h; sourceTree = "<group>"; };
 		A7714CBB1B6A154B00611808 /* ChannelInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelInfo.m; sourceTree = "<group>"; };
+		A7714CBD1B6A30A300611808 /* AssistiveTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssistiveTouch.h; sourceTree = "<group>"; };
+		A7714CBE1B6A30A300611808 /* AssistiveTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssistiveTouch.m; sourceTree = "<group>"; };
 		A79F45901B60D733008D8A4B /* LoveMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A79F45941B60D733008D8A4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A79F45951B60D733008D8A4B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -100,6 +103,8 @@
 		A7714CB31B6A0F0E00611808 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A7714CBD1B6A30A300611808 /* AssistiveTouch.h */,
+				A7714CBE1B6A30A300611808 /* AssistiveTouch.m */,
 				A7714CB41B6A0F2800611808 /* SongInfo.h */,
 				A7714CB51B6A0F2800611808 /* SongInfo.m */,
 				A7714CB71B6A111900611808 /* NetFm.h */,
@@ -329,6 +334,7 @@
 			files = (
 				A79F45991B60D733008D8A4B /* AppDelegate.m in Sources */,
 				A79F45961B60D733008D8A4B /* main.m in Sources */,
+				A7714CBF1B6A30A300611808 /* AssistiveTouch.m in Sources */,
 				A7714CB61B6A0F2800611808 /* SongInfo.m in Sources */,
 				A79F45C91B60DA4E008D8A4B /* RecommendViewController.m in Sources */,
 				A79F45CC1B60DA71008D8A4B /* FoundViewController.m in Sources */,

@@ -125,6 +125,8 @@
                     [SongInfo setCurrentSong:[delegate.playList objectAtIndex:[SongInfo currentSongIndex]]];
                     [delegate.player setContentURL:[NSURL URLWithString:[SongInfo currentSong].url]];
                     [delegate.player play];
+                    [delegate.assistiveTouch upDatePlayButton:YES];
+                    [delegate.assistiveTouch upDatePlayImage:[SongInfo currentSong].picture];
                 }
             }
         }];
