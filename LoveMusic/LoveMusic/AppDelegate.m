@@ -94,17 +94,20 @@
                     [weakSelf.player play];
                     [weakSelf.assistiveTouch upDatePlayButton:YES];
                     [weakSelf.assistiveTouch upDatePlayImage:[SongInfo currentSong].picture];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"PlayerViewUpdate" object:nil];
                 }
             }
         }];
     }
 }
 -(void)assistiveTocuhs{
-    self.assistiveTouch.hidden = YES;
-    PlayerViewController *viewController = [[PlayerViewController alloc] init];
-    viewController.view.backgroundColor = [UIColor whiteColor];
-    [tabBarController presentViewController:viewController animated:YES completion:^{
-    }];
+    if (self.player && self.player.playbackState == MPMoviePlaybackStatePlaying) {
+        self.assistiveTouch.hidden = YES;
+        PlayerViewController *viewController = [[PlayerViewController alloc] init];
+        viewController.view.backgroundColor = [UIColor whiteColor];
+        [tabBarController presentViewController:viewController animated:YES completion:^{
+        }];
+    }
 }
 -(void)musicToPlay{
     [self.player play];
