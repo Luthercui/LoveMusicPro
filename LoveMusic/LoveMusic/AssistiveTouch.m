@@ -54,7 +54,7 @@
     return self;
 }
 -(void)upDatePlayImage:(NSString*)imageUrl{
-    [_palyImageView setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:nil usingActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [_palyImageView setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:nil usingActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
 }
 -(void)transformRotatePlayImage{
     _palyImageView.transform = CGAffineTransformRotate(_palyImageView.transform, M_PI / 1440);

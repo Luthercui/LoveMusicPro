@@ -53,7 +53,7 @@
 }
 -(void)initLib{
     [MobClick startWithAppkey:@"55af9294e0f55a5ac1001f11" reportPolicy:BATCH channelId:@"App Store"];
-    [ChangyanSDK registerApp:@"" appKey:@"" redirectUrl:@"" anonymousAccessToken:@""];
+    [ChangyanSDK registerApp:@"cyrIx3gqd" appKey:@"5c1468d9c900bae32aade384db3901fd" redirectUrl:@"" anonymousAccessToken:@""];
     [ChangyanSDK setAllowAnonymous:YES];
 }
 -(void)initplayer{
@@ -102,7 +102,7 @@
 -(void)assistiveTocuhs{
     self.assistiveTouch.hidden = YES;
     PlayerViewController *viewController = [[PlayerViewController alloc] init];
-    viewController.view.backgroundColor = [UIColor yellowColor];
+    viewController.view.backgroundColor = [UIColor whiteColor];
     [tabBarController presentViewController:viewController animated:YES completion:^{
     }];
 }

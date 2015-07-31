@@ -14,6 +14,8 @@
 		A7714CBF1B6A30A300611808 /* AssistiveTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = A7714CBE1B6A30A300611808 /* AssistiveTouch.m */; };
 		A7714CC21B6A621F00611808 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7714CC11B6A621F00611808 /* PlayerViewController.m */; };
 		A7714CCB1B6B135D00611808 /* libChangyanSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7714CC91B6B135D00611808 /* libChangyanSDK.a */; };
+		A7714CCE1B6B1FB000611808 /* FeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A7714CCD1B6B1FB000611808 /* FeedCell.m */; };
+		A7714CD11B6B497600611808 /* Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = A7714CD01B6B497600611808 /* Tool.m */; };
 		A79F45961B60D733008D8A4B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A79F45951B60D733008D8A4B /* main.m */; };
 		A79F45991B60D733008D8A4B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A79F45981B60D733008D8A4B /* AppDelegate.m */; };
 		A79F45A21B60D733008D8A4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A79F45A01B60D733008D8A4B /* Main.storyboard */; };
@@ -51,6 +53,10 @@
 		A7714CC11B6A621F00611808 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerViewController.m; path = ViewController/PlayerViewController.m; sourceTree = "<group>"; };
 		A7714CC81B6B135D00611808 /* ChangyanSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChangyanSDK.h; path = Lib/changyan/ChangyanSDK.h; sourceTree = "<group>"; };
 		A7714CC91B6B135D00611808 /* libChangyanSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libChangyanSDK.a; path = Lib/changyan/libChangyanSDK.a; sourceTree = "<group>"; };
+		A7714CCC1B6B1FB000611808 /* FeedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedCell.h; sourceTree = "<group>"; };
+		A7714CCD1B6B1FB000611808 /* FeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedCell.m; sourceTree = "<group>"; };
+		A7714CCF1B6B497600611808 /* Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tool.h; sourceTree = "<group>"; };
+		A7714CD01B6B497600611808 /* Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tool.m; sourceTree = "<group>"; };
 		A79F45901B60D733008D8A4B /* LoveMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A79F45941B60D733008D8A4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A79F45951B60D733008D8A4B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -118,6 +124,8 @@
 				A7714CB81B6A111900611808 /* NetFm.m */,
 				A7714CBA1B6A154B00611808 /* ChannelInfo.h */,
 				A7714CBB1B6A154B00611808 /* ChannelInfo.m */,
+				A7714CCF1B6B497600611808 /* Tool.h */,
+				A7714CD01B6B497600611808 /* Tool.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -205,6 +213,8 @@
 		A79F45C41B60DA12008D8A4B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A7714CCC1B6B1FB000611808 /* FeedCell.h */,
+				A7714CCD1B6B1FB000611808 /* FeedCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -362,6 +372,8 @@
 				A79F45991B60D733008D8A4B /* AppDelegate.m in Sources */,
 				A79F45961B60D733008D8A4B /* main.m in Sources */,
 				A7714CBF1B6A30A300611808 /* AssistiveTouch.m in Sources */,
+				A7714CD11B6B497600611808 /* Tool.m in Sources */,
+				A7714CCE1B6B1FB000611808 /* FeedCell.m in Sources */,
 				A7714CB61B6A0F2800611808 /* SongInfo.m in Sources */,
 				A79F45C91B60DA4E008D8A4B /* RecommendViewController.m in Sources */,
 				A79F45CC1B60DA71008D8A4B /* FoundViewController.m in Sources */,
