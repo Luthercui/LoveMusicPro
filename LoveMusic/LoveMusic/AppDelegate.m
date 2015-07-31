@@ -77,7 +77,7 @@
     [self fireTimer];
 }
 -(void)moviePlayerPlaybackStateDidChangeNotification:(NSNotification*)not{
-    NSLog(@"%@",not);
+
 }
 -(void)moviePlayerPreloadFinish{
     ChannelInfo *info = [ChannelInfo currentChannel];
@@ -85,17 +85,20 @@
         __weak typeof(self) weakSelf = self;
         [NetFm playBillWithChannelId:info.ID withType:@"n" completionHandler:^(NSError *error, NSArray *playBills) {
             if (playBills) {
-                [weakSelf.playList removeAllObjects];
-                [weakSelf.playList addObjectsFromArray:playBills];
-                if ([weakSelf.playList count] != 0) {
-                    [SongInfo setCurrentSongIndex:0];
-                    [SongInfo setCurrentSong:[weakSelf.playList objectAtIndex:[SongInfo currentSongIndex]]];
-                    [weakSelf.player setContentURL:[NSURL URLWithString:[SongInfo currentSong].url]];
-                    [weakSelf.player play];
-                    [weakSelf.assistiveTouch upDatePlayButton:YES];
-                    [weakSelf.assistiveTouch upDatePlayImage:[SongInfo currentSong].picture];
-                    [[NSNotificationCenter defaultCenter] postNotificationName:@"PlayerViewUpdate" object:nil];
-                }
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [weakSelf.playList removeAllObjects];
+                    [weakSelf.playList addObjectsFromArray:playBills];
+                    if ([weakSelf.playList count] != 0) {
+                        [SongInfo setCurrentSongIndex:0];
+                        [SongInfo setCurrentSong:[weakSelf.playList objectAtIndex:[SongInfo currentSongIndex]]];
+                        [weakSelf.player setContentURL:[NSURL URLWithString:[SongInfo currentSong].url]];
+                        [weakSelf.player play];
+                        [weakSelf.assistiveTouch upDatePlayButton:YES];
+                        [weakSelf.assistiveTouch upDatePlayImage:[SongInfo currentSong].picture];
+                        [[NSNotificationCenter defaultCenter] postNotificationName:@"PlayerViewUpdate" object:nil];
+                    }
+                });
+
             }
         }];
     }

@@ -14,6 +14,7 @@
 #import "Tool.h"
 #import "NetFm.h"
 #import "ChannelInfo.h"
+#import <CoreMedia/CoreMedia.h>
 
 @interface PlayerViewController (){
     NSInteger currentBackImageIndex;
@@ -102,7 +103,9 @@
     AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     float currentPlayPorgress = delegate.player.currentPlaybackTime/delegate.player.duration;
     float progressw = self.view.frame.size.width*currentPlayPorgress;
-    self.playProgress.frame = CGRectMake(0, self.view.frame.size.height-85, progressw, 5);
+    if (!isnan(progressw)) {
+        self.playProgress.frame = CGRectMake(0, self.view.frame.size.height-85, progressw, 5);
+    }
 }
 - (void)invalidateTimer {
     if (_kTimer) {
@@ -179,24 +182,25 @@
     if (info) {
         [NetFm playBillWithChannelId:info.ID withType:@"n" completionHandler:^(NSError *error, NSArray *playBills) {
             if (playBills) {
-                AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-                [delegate.playList removeAllObjects];
-                [delegate.playList addObjectsFromArray:playBills];
-                if ([delegate.playList count] != 0) {
-                    [SongInfo setCurrentSongIndex:0];
-                    [SongInfo setCurrentSong:[delegate.playList objectAtIndex:[SongInfo currentSongIndex]]];
-                    [delegate.player setContentURL:[NSURL URLWithString:[SongInfo currentSong].url]];
-                    [delegate.player play];
-                    [delegate.assistiveTouch upDatePlayButton:YES];
-                    [delegate.assistiveTouch upDatePlayImage:[SongInfo currentSong].picture];
-                    
-                    __weak typeof(self) weakSelf = self;
-                    dispatch_async(dispatch_get_main_queue(), ^{
+                __weak typeof(self) weakSelf = self;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+                    [delegate.playList removeAllObjects];
+                    [delegate.playList addObjectsFromArray:playBills];
+                    if ([delegate.playList count] != 0) {
+                        [SongInfo setCurrentSongIndex:0];
+                        [SongInfo setCurrentSong:[delegate.playList objectAtIndex:[SongInfo currentSongIndex]]];
+                        [delegate.player setContentURL:[NSURL URLWithString:[SongInfo currentSong].url]];
+                        [delegate.player play];
+                        [delegate.assistiveTouch upDatePlayButton:YES];
+                        [delegate.assistiveTouch upDatePlayImage:[SongInfo currentSong].picture];
+                        
+                        
                         weakSelf.artistLabel.text = [SongInfo currentSong].artist;
                         weakSelf.titleLable.text = [SongInfo currentSong].title;
-                    });
-                }
-                
+                        
+                    }
+                });
             }
         }];
     }
@@ -234,6 +238,8 @@
     }
 }
 -(void)back{
+    [self invalidateTimer];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self dismissViewControllerAnimated:YES completion:^{
         AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
         delegate.assistiveTouch.hidden = NO;
