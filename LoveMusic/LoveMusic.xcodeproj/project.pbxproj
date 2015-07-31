@@ -13,6 +13,7 @@
 		A7714CBC1B6A154B00611808 /* ChannelInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A7714CBB1B6A154B00611808 /* ChannelInfo.m */; };
 		A7714CBF1B6A30A300611808 /* AssistiveTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = A7714CBE1B6A30A300611808 /* AssistiveTouch.m */; };
 		A7714CC21B6A621F00611808 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7714CC11B6A621F00611808 /* PlayerViewController.m */; };
+		A7714CCB1B6B135D00611808 /* libChangyanSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7714CC91B6B135D00611808 /* libChangyanSDK.a */; };
 		A79F45961B60D733008D8A4B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A79F45951B60D733008D8A4B /* main.m */; };
 		A79F45991B60D733008D8A4B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A79F45981B60D733008D8A4B /* AppDelegate.m */; };
 		A79F45A21B60D733008D8A4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A79F45A01B60D733008D8A4B /* Main.storyboard */; };
@@ -48,6 +49,8 @@
 		A7714CBE1B6A30A300611808 /* AssistiveTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssistiveTouch.m; sourceTree = "<group>"; };
 		A7714CC01B6A621F00611808 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerViewController.h; path = ViewController/PlayerViewController.h; sourceTree = "<group>"; };
 		A7714CC11B6A621F00611808 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerViewController.m; path = ViewController/PlayerViewController.m; sourceTree = "<group>"; };
+		A7714CC81B6B135D00611808 /* ChangyanSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChangyanSDK.h; path = Lib/changyan/ChangyanSDK.h; sourceTree = "<group>"; };
+		A7714CC91B6B135D00611808 /* libChangyanSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libChangyanSDK.a; path = Lib/changyan/libChangyanSDK.a; sourceTree = "<group>"; };
 		A79F45901B60D733008D8A4B /* LoveMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A79F45941B60D733008D8A4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A79F45951B60D733008D8A4B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -73,6 +76,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FAF16DE29D05F9C737FAB9E /* libPods.a in Frameworks */,
+				A7714CCB1B6B135D00611808 /* libChangyanSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +122,23 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		A7714CC31B6B12E700611808 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				A7714CC61B6B134E00611808 /* changyan */,
+			);
+			name = Lib;
+			sourceTree = "<group>";
+		};
+		A7714CC61B6B134E00611808 /* changyan */ = {
+			isa = PBXGroup;
+			children = (
+				A7714CC81B6B135D00611808 /* ChangyanSDK.h */,
+				A7714CC91B6B135D00611808 /* libChangyanSDK.a */,
+			);
+			name = changyan;
+			sourceTree = "<group>";
+		};
 		A79F45871B60D733008D8A4B = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +162,7 @@
 		A79F45921B60D733008D8A4B /* LoveMusic */ = {
 			isa = PBXGroup;
 			children = (
+				A7714CC31B6B12E700611808 /* Lib */,
 				A7714CB31B6A0F0E00611808 /* Model */,
 				A79F45C61B60DA21008D8A4B /* ViewController */,
 				A79F45C41B60DA12008D8A4B /* View */,
@@ -477,6 +499,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LoveMusic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LoveMusic/Lib/changyan",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -488,6 +514,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LoveMusic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LoveMusic/Lib/changyan",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

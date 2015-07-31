@@ -17,6 +17,7 @@
 #import "SongInfo.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "PlayerViewController.h"
+#import "ChangyanSDK.h"
 
 @interface AppDelegate ()<AssistiveTouchDelegate>{
     UITabBarController *tabBarController;
@@ -44,12 +45,16 @@
     tabBarController.viewControllers = @[recommend,found,me];
     self.window.rootViewController = tabBarController;
     
-    
-    [MobClick startWithAppkey:@"55af9294e0f55a5ac1001f11" reportPolicy:BATCH channelId:@"App Store"];
+    [self initLib];
     [self initplayer];
     
     [self.window makeKeyAndVisible];
     return YES;
+}
+-(void)initLib{
+    [MobClick startWithAppkey:@"55af9294e0f55a5ac1001f11" reportPolicy:BATCH channelId:@"App Store"];
+    [ChangyanSDK registerApp:@"" appKey:@"" redirectUrl:@"" anonymousAccessToken:@""];
+    [ChangyanSDK setAllowAnonymous:YES];
 }
 -(void)initplayer{
     static dispatch_once_t onceToken;
