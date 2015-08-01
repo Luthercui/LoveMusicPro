@@ -90,4 +90,12 @@
     
     return returnImage;
 }
++(NSAttributedString *)attributeStringWithTypeName:(NSString *)name message:(NSString *)message time:(NSString*)time {
+    NSMutableAttributedString *logging = [[NSMutableAttributedString alloc] initWithString:name attributes: @{NSForegroundColorAttributeName: [UIColor blueColor], NSFontAttributeName : [UIFont boldSystemFontOfSize:10.f]}];
+    NSString *extra = [NSString stringWithFormat:@"[%@]-%@\n", message, time];
+    NSAttributedString *attributedMessage = [[NSAttributedString alloc] initWithString:extra attributes: @{NSForegroundColorAttributeName: [UIColor blackColor], NSFontAttributeName : [UIFont italicSystemFontOfSize:10.f]}];
+    [logging appendAttributedString:attributedMessage];
+    return logging;
+}
+
 @end

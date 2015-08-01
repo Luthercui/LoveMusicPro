@@ -10,4 +10,6 @@
 #import <Accelerate/Accelerate.h>
 @interface Tool : NSObject
 +(UIImage *)blurryImage:(UIImage *)image withBlurLevel:(CGFloat)blur;
+
++(NSAttributedString *)attributeStringWithTypeName:(NSString *)name message:(NSString *)message time:(NSString*)time;
 @end
