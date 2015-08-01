@@ -16,6 +16,7 @@
 		A7714CCB1B6B135D00611808 /* libChangyanSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7714CC91B6B135D00611808 /* libChangyanSDK.a */; };
 		A7714CCE1B6B1FB000611808 /* FeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A7714CCD1B6B1FB000611808 /* FeedCell.m */; };
 		A7714CD11B6B497600611808 /* Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = A7714CD01B6B497600611808 /* Tool.m */; };
+		A7714CD41B6C763C00611808 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A7714CD31B6C763C00611808 /* UserInfo.m */; };
 		A79F45961B60D733008D8A4B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A79F45951B60D733008D8A4B /* main.m */; };
 		A79F45991B60D733008D8A4B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A79F45981B60D733008D8A4B /* AppDelegate.m */; };
 		A79F45A21B60D733008D8A4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A79F45A01B60D733008D8A4B /* Main.storyboard */; };
@@ -57,6 +58,8 @@
 		A7714CCD1B6B1FB000611808 /* FeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedCell.m; sourceTree = "<group>"; };
 		A7714CCF1B6B497600611808 /* Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tool.h; sourceTree = "<group>"; };
 		A7714CD01B6B497600611808 /* Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tool.m; sourceTree = "<group>"; };
+		A7714CD21B6C763C00611808 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		A7714CD31B6C763C00611808 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
 		A79F45901B60D733008D8A4B /* LoveMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A79F45941B60D733008D8A4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A79F45951B60D733008D8A4B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -126,6 +129,8 @@
 				A7714CBB1B6A154B00611808 /* ChannelInfo.m */,
 				A7714CCF1B6B497600611808 /* Tool.h */,
 				A7714CD01B6B497600611808 /* Tool.m */,
+				A7714CD21B6C763C00611808 /* UserInfo.h */,
+				A7714CD31B6C763C00611808 /* UserInfo.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -369,6 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7714CD41B6C763C00611808 /* UserInfo.m in Sources */,
 				A79F45991B60D733008D8A4B /* AppDelegate.m in Sources */,
 				A79F45961B60D733008D8A4B /* main.m in Sources */,
 				A7714CBF1B6A30A300611808 /* AssistiveTouch.m in Sources */,

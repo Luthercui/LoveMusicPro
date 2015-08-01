@@ -15,6 +15,7 @@
 #import "NetFm.h"
 #import "ChannelInfo.h"
 #import <CoreMedia/CoreMedia.h>
+#import "ChangyanSDK.h"
 
 @interface PlayerViewController (){
     NSInteger currentBackImageIndex;
@@ -33,6 +34,10 @@
 
 @property(nonatomic,strong)UILabel *artistLabel;
 @property(nonatomic,strong)UILabel *titleLable;
+
+@property(nonatomic,strong)UIImageView *playImageView;
+
+@property(nonatomic,strong)UITextView *changyanTextView;
 @end
 
 @implementation PlayerViewController
@@ -70,7 +75,7 @@
     _backImageView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     [self.view addSubview:_backImageView];
     UIImage *image = [UIImage imageNamed:[self.backImageArray objectAtIndex:currentBackImageIndex]];
-    [self.backImageView setImage:[Tool blurryImage:image withBlurLevel:0.3]];
+    [self.backImageView setImage:image];
 //     __weak typeof(self) weakSelf = self;
 //    if ([SongInfo currentSong].picture && [SongInfo currentSong].picture.length >3) {
 //        [_backImageView setImageWithURL:[NSURL URLWithString:[SongInfo currentSong].picture] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
@@ -105,6 +110,7 @@
     float progressw = self.view.frame.size.width*currentPlayPorgress;
     if (!isnan(progressw)) {
         self.playProgress.frame = CGRectMake(0, self.view.frame.size.height-85, progressw, 5);
+        [self transformRotatePlayImage];
     }
 }
 - (void)invalidateTimer {
@@ -160,6 +166,20 @@
     _artistLabel.text = [SongInfo currentSong].artist;
     [self.view addSubview:_artistLabel];
     
+    
+    self.playImageView = [[UIImageView alloc] initWithFrame:CGRectMake((self.view.frame.size.width-80)/2, self.view.frame.size.height-85-130, 80, 80)];
+    _playImageView.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:_playImageView];
+    _playImageView.layer.masksToBounds = YES;
+    _playImageView.layer.cornerRadius = 80/2.0;
+    [self updatePlayImage:[SongInfo currentSong].picture];
+    
+    
+    self.changyanTextView  = [[UITextView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height-85-160-64)];
+    _changyanTextView.backgroundColor = [UIColor clearColor];
+    _changyanTextView.editable = NO;
+    [self.view addSubview:_changyanTextView];
+    
 }
 -(void)play{
     AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
@@ -167,13 +187,13 @@
         _isPlay = NO;
         [_playButton setImage:[UIImage imageNamed:@"player_btn_play_highlight"] forState:UIControlStateNormal];
         [_playButton setImage:[UIImage imageNamed:@"player_btn_play_normal"] forState:UIControlStateHighlighted];
-        [delegate.assistiveTouch upDatePlayButton:YES];
+        [delegate.assistiveTouch upDatePlayButton:NO];
         [delegate.player pause];
     }else{
         _isPlay = YES;
         [_playButton setImage:[UIImage imageNamed:@"player_btn_pause_highlight"] forState:UIControlStateNormal];
         [_playButton setImage:[UIImage imageNamed:@"player_btn_pause_normal"] forState:UIControlStateHighlighted];
-        [delegate.assistiveTouch upDatePlayButton:NO];
+        [delegate.assistiveTouch upDatePlayButton:YES];
         [delegate.player play];
     }
 }
@@ -195,9 +215,15 @@
                         [delegate.assistiveTouch upDatePlayButton:YES];
                         [delegate.assistiveTouch upDatePlayImage:[SongInfo currentSong].picture];
                         
+                        _isPlay = YES;
+                        [_playButton setImage:[UIImage imageNamed:@"player_btn_pause_highlight"] forState:UIControlStateNormal];
+                        [_playButton setImage:[UIImage imageNamed:@"player_btn_pause_normal"] forState:UIControlStateHighlighted];
+                        [delegate.assistiveTouch upDatePlayButton:YES];
+                        
                         
                         weakSelf.artistLabel.text = [SongInfo currentSong].artist;
                         weakSelf.titleLable.text = [SongInfo currentSong].title;
+                        [weakSelf updatePlayImage:[SongInfo currentSong].picture];
                         
                     }
                 });
@@ -205,6 +231,12 @@
         }];
     }
 
+}
+-(void)updatePlayImage:(NSString*)url{
+     [_playImageView setImageWithURL:[NSURL URLWithString:url] placeholderImage:nil usingActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+}
+-(void)transformRotatePlayImage{
+    _playImageView.transform = CGAffineTransformRotate(_playImageView.transform, M_PI / 1440);
 }
 -(void)upDateTitle{
     __weak typeof(self) weakSelf = self;
@@ -223,7 +255,7 @@
         }
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:currentBackImageIndex] forKey:@"backImageIndex"];
         UIImage *image = [UIImage imageNamed:[self.backImageArray objectAtIndex:currentBackImageIndex]];
-        [self.backImageView setImage:[Tool blurryImage:image withBlurLevel:0.3]];
+        [self.backImageView setImage:image];
 
     }
     if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
@@ -234,7 +266,7 @@
         }
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:currentBackImageIndex] forKey:@"backImageIndex"];
         UIImage *image = [UIImage imageNamed:[self.backImageArray objectAtIndex:currentBackImageIndex]];
-        [self.backImageView setImage:[Tool blurryImage:image withBlurLevel:0.3]];
+        [self.backImageView setImage:image];
     }
 }
 -(void)back{
@@ -259,5 +291,23 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+//    [RACObserve(self.mediaPlayerViewController, currentLogMessage) subscribeNext:^(NSAttributedString *logging) {
+//        if (logging) {
+//            NSAttributedString *existingString = _playInfoView.attributedText;
+//            NSMutableAttributedString *entireLogging = [[NSMutableAttributedString alloc] initWithAttributedString:existingString];
+//
+//            if (entireLogging) {
+//                [entireLogging appendAttributedString:logging];
+//
+//            }
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                _playInfoView.attributedText = entireLogging;
+//                CGRect rect = CGRectMake(0, _playInfoView.contentSize.height - _playInfoView.frame.size.height, _playInfoView.contentSize.width, _playInfoView.frame.size.height);
+//                [_playInfoView scrollRectToVisible:rect animated:YES];
+//            });
+//        }
+//    }];
+
 
 @end
