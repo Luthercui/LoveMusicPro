@@ -38,6 +38,8 @@
 @property(nonatomic,strong)UIImageView *playImageView;
 
 @property(nonatomic,strong)UITextView *changyanTextView;
+
+@property(nonatomic,strong)NSString *logMessage;
 @end
 
 @implementation PlayerViewController
