@@ -40,6 +40,10 @@
 @property(nonatomic,strong)UITextView *changyanTextView;
 
 @property(nonatomic,strong)NSString *logMessage;
+
+@property(nonatomic,strong)UIButton *commentButton;
+
+@property(nonatomic,strong)UITextField *commentField;
 @end
 
 @implementation PlayerViewController
@@ -155,6 +159,19 @@
     [_nextButton addTarget:self action:@selector(next) forControlEvents:UIControlEventTouchUpInside];
     [_bbar addSubview:_nextButton];
     
+    self.commentField = [[UITextField alloc] init];
+    _commentField.frame =CGRectMake(nextx+64+15, (_bbar.frame.size.height-64)/2, 64, 64);
+    _commentField.backgroundColor = [UIColor clearColor];
+    [_bbar addSubview:_commentField];
+    self.commentButton =[UIButton buttonWithType:UIButtonTypeCustom];
+    
+    _commentButton.frame =CGRectMake(nextx+64+15, (_bbar.frame.size.height-64)/2, 64, 64);
+    [_commentButton setTitle:@". . ." forState:UIControlStateNormal];
+    [_commentButton.titleLabel setFont:[UIFont boldSystemFontOfSize:16]];
+    [_commentButton setTitleColor:[UIColor colorWithRed:35.0/255.0 green:199.0/255.0 blue:125.0/255.0 alpha:1.0] forState:UIControlStateNormal];
+    [_commentButton addTarget:self action:@selector(commentClickButton) forControlEvents:UIControlEventTouchUpInside];
+    [_bbar addSubview:_commentButton];
+    
     
     self.playProgress = [[UILabel alloc] initWithFrame:CGRectZero];
     _playProgress.backgroundColor = [UIColor colorWithRed:35.0/255.0 green:199.0/255.0 blue:125.0/255.0 alpha:1.0];
@@ -181,6 +198,8 @@
     _changyanTextView.backgroundColor = [UIColor clearColor];
     _changyanTextView.editable = NO;
     [self.view addSubview:_changyanTextView];
+    
+    
     
 }
 -(void)play{
@@ -233,6 +252,9 @@
         }];
     }
 
+}
+-(void)commentClickButton{
+    [self.commentField becomeFirstResponder];
 }
 -(void)updatePlayImage:(NSString*)url{
      [_playImageView setImageWithURL:[NSURL URLWithString:url] placeholderImage:nil usingActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
