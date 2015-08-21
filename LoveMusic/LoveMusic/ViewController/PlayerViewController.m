@@ -16,8 +16,8 @@
 #import "ChannelInfo.h"
 #import <CoreMedia/CoreMedia.h>
 #import "ChangyanSDK.h"
-
-@interface PlayerViewController (){
+#import "YFInputBar.h"
+@interface PlayerViewController ()<YFInputBarDelegate>{
     NSInteger currentBackImageIndex;
 }
 @property(nonatomic,strong)UIImageView *backImageView;
@@ -43,7 +43,7 @@
 
 @property(nonatomic,strong)UIButton *commentButton;
 
-@property(nonatomic,strong)UITextField *commentField;
+@property(nonatomic,strong)YFInputBar *commentField;
 @end
 
 @implementation PlayerViewController
@@ -159,12 +159,7 @@
     [_nextButton addTarget:self action:@selector(next) forControlEvents:UIControlEventTouchUpInside];
     [_bbar addSubview:_nextButton];
     
-    self.commentField = [[UITextField alloc] init];
-    _commentField.frame =CGRectMake(nextx+64+15, (_bbar.frame.size.height-64)/2, 64, 64);
-    _commentField.backgroundColor = [UIColor clearColor];
-    [_bbar addSubview:_commentField];
     self.commentButton =[UIButton buttonWithType:UIButtonTypeCustom];
-    
     _commentButton.frame =CGRectMake(nextx+64+15, (_bbar.frame.size.height-64)/2, 64, 64);
     [_commentButton setTitle:@". . ." forState:UIControlStateNormal];
     [_commentButton.titleLabel setFont:[UIFont boldSystemFontOfSize:16]];
@@ -200,7 +195,20 @@
     [self.view addSubview:_changyanTextView];
     
     
+    self.commentField = [[YFInputBar alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY([UIScreen mainScreen].bounds)-44, self.view.frame.size.width, 44)];
     
+    _commentField.backgroundColor = [UIColor grayColor];
+    
+    _commentField.delegate = self;
+    _commentField.clearInputWhenSend = YES;
+    _commentField.resignFirstResponderWhenSend = YES;
+    
+    [self.view addSubview:_commentField];
+    _commentField.hidden = YES;
+    
+}
+-(void)inputBar:(YFInputBar*)inputBar sendBtnPress:(UIButton*)sendBtn withInputString:(NSString*)str{
+    _commentField.hidden = YES;
 }
 -(void)play{
     AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
@@ -254,7 +262,7 @@
 
 }
 -(void)commentClickButton{
-    [self.commentField becomeFirstResponder];
+   _commentField.hidden = NO;
 }
 -(void)updatePlayImage:(NSString*)url{
      [_playImageView setImageWithURL:[NSURL URLWithString:url] placeholderImage:nil usingActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];

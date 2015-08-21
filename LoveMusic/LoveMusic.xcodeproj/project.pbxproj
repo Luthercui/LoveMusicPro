@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4FAF16DE29D05F9C737FAB9E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 421CB365677CCA81C7469684 /* libPods.a */; };
+		A703E09A1B8723BD00FC056F /* YFInputBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A703E0991B8723BD00FC056F /* YFInputBar.m */; };
 		A7714CB61B6A0F2800611808 /* SongInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A7714CB51B6A0F2800611808 /* SongInfo.m */; };
 		A7714CB91B6A111900611808 /* NetFm.m in Sources */ = {isa = PBXBuildFile; fileRef = A7714CB81B6A111900611808 /* NetFm.m */; };
 		A7714CBC1B6A154B00611808 /* ChannelInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A7714CBB1B6A154B00611808 /* ChannelInfo.m */; };
@@ -42,6 +43,8 @@
 		127ED1B5ACAAF7BB044D228D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		421CB365677CCA81C7469684 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CC0C1F8255561FC77FE3909 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		A703E0981B8723BD00FC056F /* YFInputBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YFInputBar.h; sourceTree = "<group>"; };
+		A703E0991B8723BD00FC056F /* YFInputBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YFInputBar.m; sourceTree = "<group>"; };
 		A7714CB41B6A0F2800611808 /* SongInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongInfo.h; sourceTree = "<group>"; };
 		A7714CB51B6A0F2800611808 /* SongInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongInfo.m; sourceTree = "<group>"; };
 		A7714CB71B6A111900611808 /* NetFm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetFm.h; sourceTree = "<group>"; };
@@ -218,6 +221,8 @@
 		A79F45C41B60DA12008D8A4B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A703E0981B8723BD00FC056F /* YFInputBar.h */,
+				A703E0991B8723BD00FC056F /* YFInputBar.m */,
 				A7714CCC1B6B1FB000611808 /* FeedCell.h */,
 				A7714CCD1B6B1FB000611808 /* FeedCell.m */,
 			);
@@ -375,6 +380,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7714CD41B6C763C00611808 /* UserInfo.m in Sources */,
+				A703E09A1B8723BD00FC056F /* YFInputBar.m in Sources */,
 				A79F45991B60D733008D8A4B /* AppDelegate.m in Sources */,
 				A79F45961B60D733008D8A4B /* main.m in Sources */,
 				A7714CBF1B6A30A300611808 /* AssistiveTouch.m in Sources */,
