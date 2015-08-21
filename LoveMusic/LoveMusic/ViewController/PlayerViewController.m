@@ -64,8 +64,8 @@
     
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-    backButton.frame = CGRectMake(0, 20, 44, 44);
-    [backButton setTitle:@"返回" forState:UIControlStateNormal];
+    backButton.frame = CGRectMake(15, 30, 12, 21);
+    [backButton setImage:[UIImage imageNamed:@"bt_back_press"] forState:UIControlStateNormal];
     [backButton setTitleColor:[UIColor colorWithRed:35.0/255.0 green:199.0/255.0 blue:125.0/255.0 alpha:1.0] forState:UIControlStateNormal];
     [nav addSubview:backButton];
     
