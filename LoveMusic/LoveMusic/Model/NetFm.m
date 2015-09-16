@@ -92,6 +92,37 @@
         completionHandler(error,nil);
     }];
 }
-
++(void)getSongInformationWith:(long long)songID
+            completionHandler:(void (^)(NSError *error, SongInfo *songInfo))completionHandler{
+    NSString *urlWithString = [NSString stringWithFormat:@"%lld",songID];
+  
+    AFHTTPRequestOperationManager *manager =  [AFHTTPRequestOperationManager manager];
+    [manager GET:urlWithString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        SongInfo  * song = [SongInfo new];
+        NSDictionary * dictionary = responseObject;
+        if ([[dictionary allKeys] count]>1) {
+            NSDictionary * data = [dictionary objectForKey:@"data"];
+            NSArray * songList = [data objectForKey:@"songList"];
+            for (NSDictionary * sub in songList) {
+                song.url = [sub objectForKey:@"songLink"];
+                song.title = [sub objectForKey:@"songName"];
+                song.picture = [sub objectForKey:@"songPicBig"];
+                song.length = [[sub objectForKey:@"time"] stringValue];
+                song.artist = [sub objectForKey:@"artistName"];
+                song.sid = [[sub objectForKey:@"songId"]stringValue];
+            }
+        }else{
+            int errorcode = [[dictionary objectForKey:@"error_code"] intValue];
+            NSLog(@"%d",errorcode);
+        }
+        if (completionHandler&&song.url) {
+            completionHandler(nil,song);
+        }else{
+            completionHandler(nil,nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completionHandler(error,nil);
+    }];
+}
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class SongInfo;
 @interface NetFm : NSObject
 +(void)playBillWithChannelId:(NSString *)channelId
                     withType:(NSString *)type
@@ -15,4 +15,8 @@
 
 +(void)playChannelsChannelId:(NSInteger)cannelIndex
            completionHandler:(void (^)(NSError *error, NSArray *channels))completionHandler;
+
++(void)getSongInformationWith:(long long)songID
+    completionHandler:(void (^)(NSError *error, SongInfo *songInfo))completionHandler;
+
 @end
