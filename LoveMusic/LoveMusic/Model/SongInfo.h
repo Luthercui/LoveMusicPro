@@ -17,6 +17,7 @@
 @property (nonatomic) NSString *like;
 @property (nonatomic) NSString *url;
 @property (nonatomic) NSString *sid;
+@property (nonatomic) NSInteger type;//1 fm //2 推荐
 
 - (instancetype) initWithDictionary:(NSDictionary *)dictionary;
 

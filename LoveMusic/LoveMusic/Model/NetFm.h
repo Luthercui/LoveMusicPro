@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @class SongInfo;
+@class SongListModel;
 @interface NetFm : NSObject
 +(void)playBillWithChannelId:(NSString *)channelId
                     withType:(NSString *)type
@@ -18,5 +19,15 @@
 
 +(void)getSongInformationWith:(long long)songID
     completionHandler:(void (^)(NSError *error, SongInfo *songInfo))completionHandler;
+
+
+/*
+ type: //1、新歌榜，2、热歌榜，
+11、摇滚榜，12、爵士，16、流行
+21、欧美金曲榜，22、经典老歌榜，23、情歌对唱榜，24、影视金曲榜，25、网络歌曲榜
+ http://www.fddcn.cn/music-api-wang-yi-bai-du.html*/
++(void)getSongListWith:(NSInteger)type
+              withPage:(NSInteger)page
+            completionHandler:(void (^)(NSError *error, NSArray *songListModelArray))completionHandler;
 
 @end
