@@ -6,6 +6,16 @@
 //  Copyright (c) 2015年 xiaocui. All rights reserved.
 //
 
+/*
+ http://www.zhiyurencai.cn/music/api/recommend
+ 
+ http://www.zhiyurencai.cn/music/api/category
+ 
+ http://www.zhiyurencai.cn/music/api/category_album/music
+ 
+ http://www.zhiyurencai.cn/music/api/tracks/2508
+ */
+
 #import <Foundation/Foundation.h>
 @class SongInfo;
 @class SongListModel;
