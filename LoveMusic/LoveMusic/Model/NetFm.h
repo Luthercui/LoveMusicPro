@@ -40,4 +40,12 @@
               withPage:(NSInteger)page
             completionHandler:(void (^)(NSError *error, NSArray *songListModelArray))completionHandler;
 
+
+//////////////////
++(void)getRecommendAlbumCompletionHandler:(void (^)(NSError *error, NSArray *songDicArray))completionHandler;
+
++(void)getSongRecommendAlbumListWithPageSize:(NSInteger)pageSize
+              withPage:(NSInteger)page
+     completionHandler:(void (^)(NSError *error, NSArray *songDicArray))completionHandler;
+
 @end

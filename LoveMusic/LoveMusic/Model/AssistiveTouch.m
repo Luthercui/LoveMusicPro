@@ -23,7 +23,9 @@
     {
         self.backgroundColor = [UIColor clearColor];
         self.windowLevel = UIWindowLevelAlert;
-        [self makeKeyAndVisible];
+        
+        [self makeKeyWindow];
+        
         _imageView = [[UIView alloc]initWithFrame:(CGRect){0, 0,frame.size.width, frame.size.height}];
         _imageView.backgroundColor = [UIColor blackColor];
         _imageView.alpha = 0.3;
@@ -50,6 +52,7 @@
         [self addGestureRecognizer:pan];
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(click:)];
         [self addGestureRecognizer:tap];
+        
     }
     return self;
 }

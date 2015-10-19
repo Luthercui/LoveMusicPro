@@ -215,4 +215,112 @@
         completionHandler(error,nil);
     }];
 }
+
++(void)getRecommendAlbumCompletionHandler:(void (^)(NSError *error, NSArray *songDicArray))completionHandler{
+
+    NSURL *url = [NSURL URLWithString:@"http://www.zhiyurencai.cn/music/api/recommend"];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0f];
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+    NSURLSessionDataTask *vodtask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        
+        if (error) {
+            completionHandler(error,nil);
+        }else{
+            
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+            NSDictionary * dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            
+            switch ([httpResponse statusCode]) {
+                case 200:
+                {
+                    if ([[dict allKeys] count]>1) {
+                        NSDictionary * dataArray = dict[@"data"];
+                        if (dataArray && [dataArray isKindOfClass:[NSArray class]]) {
+                            NSMutableArray *array = [NSMutableArray array];
+                            for (NSDictionary * dict in dataArray) {
+                                [array addObject:dict];
+                            }
+                            if (completionHandler&&array.count>0) {
+                                completionHandler(nil,array);
+                            }else{
+                                completionHandler(nil,nil);
+                            }
+                        }else{
+                            completionHandler(nil,nil);
+                        }
+                    }else{
+                         completionHandler(nil,nil);
+                    }
+        
+                    
+                }
+                    break;
+                default:{
+                    
+                    completionHandler(error,nil);
+                }
+                    break;
+            }
+        }
+    }];
+    [vodtask resume];
+}
+
++(void)getSongRecommendAlbumListWithPageSize:(NSInteger)pageSize
+                                    withPage:(NSInteger)page
+                           completionHandler:(void (^)(NSError *error, NSArray *songDicArray))completionHandler{
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.zhiyurencai.cn/music/api/tracks/316141/%d/%d",page,pageSize]];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0f];
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+    NSURLSessionDataTask *vodtask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        
+        if (error) {
+            completionHandler(error,nil);
+        }else{
+            
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+            NSDictionary * dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            
+            switch ([httpResponse statusCode]) {
+                case 200:
+                {
+                    if ([[dict allKeys] count]>1) {
+                        NSDictionary * dataArray = dict[@"data"];
+                        if (dataArray && [dataArray isKindOfClass:[NSArray class]]) {
+                            NSMutableArray *array = [NSMutableArray array];
+                            for (NSDictionary * dict in dataArray) {
+                                [array addObject:dict];
+                            }
+                            if (completionHandler&&array.count>0) {
+                                completionHandler(nil,array);
+                            }else{
+                                completionHandler(nil,nil);
+                            }
+                        }else{
+                            completionHandler(nil,nil);
+                        }
+                    }else{
+                        completionHandler(nil,nil);
+                    }
+                    
+                    
+                }
+                    break;
+                default:{
+                    
+                    completionHandler(error,nil);
+                }
+                    break;
+            }
+        }
+    }];
+    [vodtask resume];
+}
+
 @end

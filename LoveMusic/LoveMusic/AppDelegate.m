@@ -43,7 +43,7 @@
     UINavigationController *me = [[UINavigationController alloc] initWithRootViewController:meVc];
     tabBarController = [[UITabBarController alloc] init];
     tabBarController.viewControllers = @[recommend,found,me];
-    self.window.rootViewController = tabBarController;
+    [self.window setRootViewController:tabBarController];
     
     [self initLib];
     [self initplayer];
@@ -72,9 +72,8 @@
         [session setCategory:AVAudioSessionCategoryPlayback error:nil];
         [session setActive:YES error:nil];
     });
-    self.assistiveTouch = [[AssistiveTouch alloc] initWithFrame:CGRectMake(0, 200, 90, 50)];
-    self.assistiveTouch.assistiveDelegate = self;
-    [self fireTimer];
+//    self.assistiveTouch = [[AssistiveTouch alloc] initWithFrame:CGRectMake(0, 200, 90, 50)];
+//    self.assistiveTouch.assistiveDelegate = self;
 }
 -(void)moviePlayerPlaybackStateDidChangeNotification:(NSNotification*)not{
 

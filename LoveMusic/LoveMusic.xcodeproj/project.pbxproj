@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4FAF16DE29D05F9C737FAB9E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 421CB365677CCA81C7469684 /* libPods.a */; };
+		71D8F9AA1BD4A1A90092C0A0 /* RecommendSongListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D8F9A91BD4A1A90092C0A0 /* RecommendSongListViewController.m */; settings = {ASSET_TAGS = (); }; };
+		71D8F9AD1BD4A90B0092C0A0 /* PlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D8F9AC1BD4A90B0092C0A0 /* PlayView.m */; settings = {ASSET_TAGS = (); }; };
 		A7714CC21B6A621F00611808 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7714CC11B6A621F00611808 /* PlayerViewController.m */; };
 		A7714CCB1B6B135D00611808 /* libChangyanSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7714CC91B6B135D00611808 /* libChangyanSDK.a */; };
 		A79F45961B60D733008D8A4B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A79F45951B60D733008D8A4B /* main.m */; };
@@ -44,6 +46,10 @@
 		127ED1B5ACAAF7BB044D228D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		421CB365677CCA81C7469684 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CC0C1F8255561FC77FE3909 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		71D8F9A81BD4A1A90092C0A0 /* RecommendSongListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecommendSongListViewController.h; path = ViewController/RecommendSongListViewController.h; sourceTree = "<group>"; };
+		71D8F9A91BD4A1A90092C0A0 /* RecommendSongListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecommendSongListViewController.m; path = ViewController/RecommendSongListViewController.m; sourceTree = "<group>"; };
+		71D8F9AB1BD4A90B0092C0A0 /* PlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayView.h; path = View/PlayView.h; sourceTree = "<group>"; };
+		71D8F9AC1BD4A90B0092C0A0 /* PlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayView.m; path = View/PlayView.m; sourceTree = "<group>"; };
 		A7714CC01B6A621F00611808 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerViewController.h; path = ViewController/PlayerViewController.h; sourceTree = "<group>"; };
 		A7714CC11B6A621F00611808 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerViewController.m; path = ViewController/PlayerViewController.m; sourceTree = "<group>"; };
 		A7714CC81B6B135D00611808 /* ChangyanSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChangyanSDK.h; path = Lib/changyan/ChangyanSDK.h; sourceTree = "<group>"; };
@@ -230,6 +236,8 @@
 				A7DA05C51BA920A200C55B89 /* FeedCell.m */,
 				A7DA05C61BA920A200C55B89 /* YFInputBar.h */,
 				A7DA05C71BA920A200C55B89 /* YFInputBar.m */,
+				71D8F9AB1BD4A90B0092C0A0 /* PlayView.h */,
+				71D8F9AC1BD4A90B0092C0A0 /* PlayView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -245,6 +253,8 @@
 				A79F45CE1B60DA84008D8A4B /* MeViewController.m */,
 				A7714CC01B6A621F00611808 /* PlayerViewController.h */,
 				A7714CC11B6A621F00611808 /* PlayerViewController.m */,
+				71D8F9A81BD4A1A90092C0A0 /* RecommendSongListViewController.h */,
+				71D8F9A91BD4A1A90092C0A0 /* RecommendSongListViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -392,12 +402,14 @@
 				A7DA05BE1BA9206E00C55B89 /* AssistiveTouch.m in Sources */,
 				A7DA05C01BA9206E00C55B89 /* NetFm.m in Sources */,
 				A7DA05BF1BA9206E00C55B89 /* ChannelInfo.m in Sources */,
+				71D8F9AA1BD4A1A90092C0A0 /* RecommendSongListViewController.m in Sources */,
 				A7DA05C31BA9206E00C55B89 /* UserInfo.m in Sources */,
 				A79F45961B60D733008D8A4B /* main.m in Sources */,
 				A79F45C91B60DA4E008D8A4B /* RecommendViewController.m in Sources */,
 				A7DA05C11BA9206E00C55B89 /* SongInfo.m in Sources */,
 				A79F45CC1B60DA71008D8A4B /* FoundViewController.m in Sources */,
 				A79F45CF1B60DA84008D8A4B /* MeViewController.m in Sources */,
+				71D8F9AD1BD4A90B0092C0A0 /* PlayView.m in Sources */,
 				A7714CC21B6A621F00611808 /* PlayerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

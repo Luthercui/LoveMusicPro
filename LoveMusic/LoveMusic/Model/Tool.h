@@ -12,4 +12,8 @@
 +(UIImage *)blurryImage:(UIImage *)image withBlurLevel:(CGFloat)blur;
 
 +(NSAttributedString *)attributeStringWithTypeName:(NSString *)name message:(NSString *)message time:(NSString*)time;
+
++(UIColor *)colorWithHexColorString:(NSString *)hexColorString;
+
++ (NSString *)totalTimeText:(CGFloat)totalTime;
 @end
