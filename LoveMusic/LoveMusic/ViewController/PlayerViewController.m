@@ -15,7 +15,6 @@
 #import "NetFm.h"
 #import "ChannelInfo.h"
 #import <CoreMedia/CoreMedia.h>
-#import "ChangyanSDK.h"
 #import "YFInputBar.h"
 @interface PlayerViewController ()<YFInputBarDelegate>{
     NSInteger currentBackImageIndex;

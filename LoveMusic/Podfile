@@ -1,4 +1,3 @@
-source 'http://10.57.13.204/CocoaPods/Specs.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '8.0'
@@ -7,6 +6,6 @@ pod "AFNetworking", "~> 2.0"
 
 pod 'UIActivityIndicator-for-SDWebImage'
 
-pod 'UMengAnalytics-NO-IDFA'
-
 pod 'ReactiveCocoa'
+
+pod 'UMengAnalyticsExt', '~> 1.0.0'
