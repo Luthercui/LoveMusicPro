@@ -17,7 +17,7 @@
 #import "SongInfo.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "PlayerViewController.h"
-
+#import "BaseNavigationController.h"
 
 @interface AppDelegate ()<AssistiveTouchDelegate>{
     UITabBarController *tabBarController;
@@ -38,7 +38,7 @@
     RecommendViewController *recommendVc = [[RecommendViewController alloc] init];
     FoundViewController *foundVc = [[FoundViewController alloc] init];
     MeViewController *meVc = [[MeViewController alloc] init];
-    UINavigationController *recommend = [[UINavigationController alloc] initWithRootViewController:recommendVc];
+    BaseNavigationController *recommend = [[BaseNavigationController alloc] initWithRootViewController:recommendVc];
     UINavigationController *found = [[UINavigationController alloc] initWithRootViewController:foundVc];
     UINavigationController *me = [[UINavigationController alloc] initWithRootViewController:meVc];
     tabBarController = [[UITabBarController alloc] init];
