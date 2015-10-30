@@ -160,7 +160,7 @@
               withPage:(NSInteger)page
      completionHandler:(void (^)(NSError *error, NSArray *songListModelArray))completionHandler{
     
-    NSString *urlWithString = [NSString stringWithFormat:@"http://tingapi.ting.baidu.com/v1/restserver/ting?from=ios&version=2.4.0&method=baidu.ting.billboard.billList&format=json&type=%ld&offset=%ld&limits=20",(long)type,(long)page];
+    NSString *urlWithString = [NSString stringWithFormat:@"http://tingapi.ting.baidu.com/v1/restserver/ting?from=ios&version=2.4.0&method=baidu.ting.billboard.billList&format=json&type=%ld&offset=%ld&limits=40",(long)type,(long)page];
     
     AFHTTPRequestOperationManager *manager =  [AFHTTPRequestOperationManager manager];
     [manager GET:urlWithString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {

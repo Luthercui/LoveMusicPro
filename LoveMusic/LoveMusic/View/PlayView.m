@@ -70,6 +70,10 @@
 //点击事件
 -(void)click:(UITapGestureRecognizer*)t
 {
+    if(_playDelegate && [_playDelegate respondsToSelector:@selector(playTocuhs)])
+    {
+        [_playDelegate playTocuhs];
+    }
 
 }
 /*

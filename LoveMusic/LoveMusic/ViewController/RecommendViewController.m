@@ -16,7 +16,7 @@
 #import "RecommendSongListViewController.h"
 @interface RecommendViewController()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic ,strong) UITableView *tableView;
-@property (nonatomic ,strong) NSArray   *dataArray;
+@property (nonatomic ,strong) NSMutableArray   *dataArray;
 @property (nonatomic ,assign) NSInteger currentPlayIndex;
 @property (nonatomic ,strong) UIActivityIndicatorView *activityIndicatorView;
 @end
@@ -33,6 +33,7 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
+    _dataArray = [[NSMutableArray alloc] init];
     self.tableView = [[UITableView alloc] init];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -40,22 +41,42 @@
     [self.view addSubview:_tableView];
     self.currentPlayIndex = -1;
     [self addConstraints];
-    [NetFm getRecommendAlbumCompletionHandler:^(NSError *error, NSArray *songListModelArray) {
+//    [NetFm getRecommendAlbumCompletionHandler:^(NSError *error, NSArray *songListModelArray) {
+//        if (songListModelArray) {
+//            _dataArray = songListModelArray;
+//            __weak typeof(self) weakSelf = self;
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                [weakSelf.tableView reloadData];
+//            });
+//        }
+//    }];
+    
+    [NetFm getSongListWith:1 withPage:0 completionHandler:^(NSError *error, NSArray *songListModelArray) {
+        
+        
         if (songListModelArray) {
-            _dataArray = songListModelArray;
-            __weak typeof(self) weakSelf = self;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [weakSelf.tableView reloadData];
-            });
+            [_dataArray addObjectsFromArray:songListModelArray];
+            [NetFm getSongListWith:2 withPage:1 completionHandler:^(NSError *error, NSArray *songListModelArray) {
+                if (songListModelArray) {
+                    [_dataArray addObjectsFromArray:songListModelArray];
+                    __weak typeof(self) weakSelf = self;
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [weakSelf.tableView reloadData];
+                    });
+                }
+            }];
+
         }
+        
     }];
+    
 }
 - (void)addConstraints {
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_tableView]-0-|"
                                                                       options:0
                                                                       metrics:nil
                                                                         views:NSDictionaryOfVariableBindings(_tableView)]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[_tableView]-0-|"
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[_tableView]-120-|"
                                                                       options:0
                                                                       metrics:nil
                                                                         views:NSDictionaryOfVariableBindings(_tableView)]];
@@ -73,10 +94,10 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellIdentifier"];
         cell.selectionStyle =  UITableViewCellSelectionStyleNone;
     }
-    NSDictionary *info = [_dataArray objectAtIndex:indexPath.row];
-    cell.textLabel.text = info[@"title"];
-    if (info[@"cover_url_142"]) {
-        [cell.imageView setImageWithURL:[NSURL URLWithString:info[@"cover_url_142"]] placeholderImage:nil usingActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    SongListModel *info = [_dataArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = info.title;
+    if (info && info.pic_small) {
+        [cell.imageView setImageWithURL:[NSURL URLWithString:info.pic_small] placeholderImage:nil usingActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     }
     cell.textLabel.textColor = [UIColor colorWithRed:35.0/255.0 green:199.0/255.0 blue:125.0/255.0 alpha:1.0];
     cell.backgroundColor =  [Tool colorWithHexColorString:@"fafafa"];
@@ -96,25 +117,19 @@
         
     }else{
         self.currentPlayIndex = indexPath.row;
-        NSDictionary *info = [_dataArray objectAtIndex:indexPath.row];
         [self.tableView reloadData];
-        RecommendSongListViewController *recommendSong = [[RecommendSongListViewController alloc] init];
-        recommendSong.title = info[@"title"];
-        [recommendSong setHidesBottomBarWhenPushed:YES];
-        [self.navigationController pushViewController:recommendSong animated:YES];
-        
-//        SongListModel *info = [_dataArray objectAtIndex:indexPath.row];
-//        [NetFm getSongInformationWith:info.song_id completionHandler:^(NSError *error, SongInfo *songInfo) {
-//            if (songInfo) {
-//                 AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-//                [SongInfo setCurrentSongIndex:0];
-//                [SongInfo setCurrentSong:songInfo];
-//                [delegate.player setContentURL:[NSURL URLWithString:[SongInfo currentSong].url]];
-//                [delegate.player play];
-//                [delegate.assistiveTouch upDatePlayButton:YES];
-//                [delegate.assistiveTouch upDatePlayImage:[SongInfo currentSong].picture];
-//            }
-//        }];
+        SongListModel *info = [_dataArray objectAtIndex:indexPath.row];
+        [NetFm getSongInformationWith:info.song_id completionHandler:^(NSError *error, SongInfo *songInfo) {
+            if (songInfo) {
+                 AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+                [SongInfo setCurrentSongIndex:0];
+                [SongInfo setCurrentSong:songInfo];
+                [delegate.player setContentURL:[NSURL URLWithString:[SongInfo currentSong].url]];
+                [delegate.player play];
+                [delegate.playView upDatePlayButton:YES];
+                [delegate.playView upDatePlayImage:[SongInfo currentSong].picture];
+            }
+        }];
     }
 }
 @end

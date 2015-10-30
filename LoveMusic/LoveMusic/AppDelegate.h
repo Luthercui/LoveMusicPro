@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
-#import "AssistiveTouch.h"
+#import "PlayView.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic,strong) MPMoviePlayerController *player;
 @property (nonatomic,strong) NSMutableArray *playList;
-@property(nonatomic,strong) AssistiveTouch *assistiveTouch;
+@property(nonatomic,strong) PlayView *playView;
 @end
 

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4FAF16DE29D05F9C737FAB9E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 421CB365677CCA81C7469684 /* libPods.a */; };
 		711848F91BDDCF3100EB8382 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 711848F81BDDCF3100EB8382 /* BaseNavigationController.m */; };
+		7124781E1BE3523D00FCC74A /* XHPaggingNavbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7124781B1BE3523D00FCC74A /* XHPaggingNavbar.m */; };
+		7124781F1BE3523D00FCC74A /* XHTwitterPaggingViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7124781D1BE3523D00FCC74A /* XHTwitterPaggingViewer.m */; };
 		71CB4AB51BD77B6900F30D10 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CB4AB41BD77B6900F30D10 /* AboutViewController.m */; };
 		71D8F9AA1BD4A1A90092C0A0 /* RecommendSongListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D8F9A91BD4A1A90092C0A0 /* RecommendSongListViewController.m */; };
 		71D8F9AD1BD4A90B0092C0A0 /* PlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D8F9AC1BD4A90B0092C0A0 /* PlayView.m */; };
@@ -48,6 +50,10 @@
 		4CC0C1F8255561FC77FE3909 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		711848F71BDDCF3100EB8382 /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseNavigationController.h; path = ViewController/BaseNavigationController.h; sourceTree = "<group>"; };
 		711848F81BDDCF3100EB8382 /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseNavigationController.m; path = ViewController/BaseNavigationController.m; sourceTree = "<group>"; };
+		7124781A1BE3523D00FCC74A /* XHPaggingNavbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XHPaggingNavbar.h; path = Lib/Page/XHPaggingNavbar.h; sourceTree = "<group>"; };
+		7124781B1BE3523D00FCC74A /* XHPaggingNavbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XHPaggingNavbar.m; path = Lib/Page/XHPaggingNavbar.m; sourceTree = "<group>"; };
+		7124781C1BE3523D00FCC74A /* XHTwitterPaggingViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XHTwitterPaggingViewer.h; path = Lib/Page/XHTwitterPaggingViewer.h; sourceTree = "<group>"; };
+		7124781D1BE3523D00FCC74A /* XHTwitterPaggingViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XHTwitterPaggingViewer.m; path = Lib/Page/XHTwitterPaggingViewer.m; sourceTree = "<group>"; };
 		71848F511BE314AB005BB1DF /* LoveMusic_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoveMusic_Prefix.pch; sourceTree = "<group>"; };
 		71CB4AB31BD77B6900F30D10 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = ViewController/AboutViewController.h; sourceTree = "<group>"; };
 		71CB4AB41BD77B6900F30D10 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = ViewController/AboutViewController.m; sourceTree = "<group>"; };
@@ -121,6 +127,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		712478191BE3522E00FCC74A /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				7124781A1BE3523D00FCC74A /* XHPaggingNavbar.h */,
+				7124781B1BE3523D00FCC74A /* XHPaggingNavbar.m */,
+				7124781C1BE3523D00FCC74A /* XHTwitterPaggingViewer.h */,
+				7124781D1BE3523D00FCC74A /* XHTwitterPaggingViewer.m */,
+			);
+			name = Page;
+			sourceTree = "<group>";
+		};
 		7578AEA90388BC587D355896 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +170,7 @@
 		A7714CC31B6B12E700611808 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				712478191BE3522E00FCC74A /* Page */,
 			);
 			name = Lib;
 			sourceTree = "<group>";
@@ -301,7 +319,7 @@
 		A79F45881B60D733008D8A4B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = xiaocui;
 				TargetAttributes = {
 					A79F458F1B60D733008D8A4B = {
@@ -409,6 +427,7 @@
 				A7DA05CC1BA920B600C55B89 /* SongListModel.m in Sources */,
 				A7DA05C91BA920A200C55B89 /* YFInputBar.m in Sources */,
 				A7DA05C21BA9206E00C55B89 /* Tool.m in Sources */,
+				7124781F1BE3523D00FCC74A /* XHTwitterPaggingViewer.m in Sources */,
 				A79F45991B60D733008D8A4B /* AppDelegate.m in Sources */,
 				A7DA05BE1BA9206E00C55B89 /* AssistiveTouch.m in Sources */,
 				A7DA05C01BA9206E00C55B89 /* NetFm.m in Sources */,
@@ -420,6 +439,7 @@
 				A79F45C91B60DA4E008D8A4B /* RecommendViewController.m in Sources */,
 				711848F91BDDCF3100EB8382 /* BaseNavigationController.m in Sources */,
 				A7DA05C11BA9206E00C55B89 /* SongInfo.m in Sources */,
+				7124781E1BE3523D00FCC74A /* XHPaggingNavbar.m in Sources */,
 				A79F45CC1B60DA71008D8A4B /* FoundViewController.m in Sources */,
 				A79F45CF1B60DA84008D8A4B /* MeViewController.m in Sources */,
 				71D8F9AD1BD4A90B0092C0A0 /* PlayView.m in Sources */,
@@ -478,6 +498,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -548,10 +569,8 @@
 				INFOPLIST_FILE = LoveMusic/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Pods/UMengAnalytics-NO-IDFA/umsdk_IOS_analytics_no-idfa_v3.5.11/UMAnalytics_Sdk_3.5.11\"/**",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xiaocui.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -566,10 +585,8 @@
 				INFOPLIST_FILE = LoveMusic/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Pods/UMengAnalytics-NO-IDFA/umsdk_IOS_analytics_no-idfa_v3.5.11/UMAnalytics_Sdk_3.5.11\"/**",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xiaocui.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -589,6 +606,7 @@
 				);
 				INFOPLIST_FILE = LoveMusicTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xiaocui.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LoveMusic.app/LoveMusic";
 			};
@@ -604,6 +622,7 @@
 				);
 				INFOPLIST_FILE = LoveMusicTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xiaocui.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LoveMusic.app/LoveMusic";
 			};

@@ -186,25 +186,7 @@
     _playImageView.layer.masksToBounds = YES;
     _playImageView.layer.cornerRadius = 80/2.0;
     [self updatePlayImage:[SongInfo currentSong].picture];
-    
-    
-    self.changyanTextView  = [[UITextView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height-85-160-64)];
-    _changyanTextView.backgroundColor = [UIColor clearColor];
-    _changyanTextView.editable = NO;
-    [self.view addSubview:_changyanTextView];
-    
-    
-    self.commentField = [[YFInputBar alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY([UIScreen mainScreen].bounds)-44, self.view.frame.size.width, 44)];
-    
-    _commentField.backgroundColor = [UIColor grayColor];
-    
-    _commentField.delegate = self;
-    _commentField.clearInputWhenSend = YES;
-    _commentField.resignFirstResponderWhenSend = YES;
-    
-    [self.view addSubview:_commentField];
-    _commentField.hidden = YES;
-    
+        
 }
 -(void)inputBar:(YFInputBar*)inputBar sendBtnPress:(UIButton*)sendBtn withInputString:(NSString*)str{
     _commentField.hidden = YES;
@@ -215,14 +197,16 @@
         _isPlay = NO;
         [_playButton setImage:[UIImage imageNamed:@"player_btn_play_highlight"] forState:UIControlStateNormal];
         [_playButton setImage:[UIImage imageNamed:@"player_btn_play_normal"] forState:UIControlStateHighlighted];
-        [delegate.assistiveTouch upDatePlayButton:NO];
+        [delegate.playView upDatePlayButton:NO];
         [delegate.player pause];
+        [self invalidateTimer];
     }else{
         _isPlay = YES;
         [_playButton setImage:[UIImage imageNamed:@"player_btn_pause_highlight"] forState:UIControlStateNormal];
         [_playButton setImage:[UIImage imageNamed:@"player_btn_pause_normal"] forState:UIControlStateHighlighted];
-        [delegate.assistiveTouch upDatePlayButton:YES];
+        [delegate.playView upDatePlayButton:YES];
         [delegate.player play];
+        [self fireTimer];
     }
 }
 -(void)next{
@@ -240,13 +224,13 @@
                         [SongInfo setCurrentSong:[delegate.playList objectAtIndex:[SongInfo currentSongIndex]]];
                         [delegate.player setContentURL:[NSURL URLWithString:[SongInfo currentSong].url]];
                         [delegate.player play];
-                        [delegate.assistiveTouch upDatePlayButton:YES];
-                        [delegate.assistiveTouch upDatePlayImage:[SongInfo currentSong].picture];
+                        [delegate.playView upDatePlayButton:YES];
+                        [delegate.playView upDatePlayImage:[SongInfo currentSong].picture];
                         
                         _isPlay = YES;
                         [_playButton setImage:[UIImage imageNamed:@"player_btn_pause_highlight"] forState:UIControlStateNormal];
                         [_playButton setImage:[UIImage imageNamed:@"player_btn_pause_normal"] forState:UIControlStateHighlighted];
-                        [delegate.assistiveTouch upDatePlayButton:YES];
+                        [delegate.playView upDatePlayButton:YES];
                         
                         
                         weakSelf.artistLabel.text = [SongInfo currentSong].artist;
@@ -261,7 +245,6 @@
 
 }
 -(void)commentClickButton{
-   _commentField.hidden = NO;
 }
 -(void)updatePlayImage:(NSString*)url{
      [_playImageView setImageWithURL:[NSURL URLWithString:url] placeholderImage:nil usingActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
@@ -304,8 +287,6 @@
     [self invalidateTimer];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self dismissViewControllerAnimated:YES completion:^{
-        AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-        delegate.assistiveTouch.hidden = NO;
     }];
 }
 - (void)didReceiveMemoryWarning {

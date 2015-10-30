@@ -68,7 +68,7 @@
                                                                       options:0
                                                                       metrics:nil
                                                                         views:NSDictionaryOfVariableBindings(_tableView)]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[_tableView]-0-|"
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[_tableView]-120-|"
                                                                       options:0
                                                                       metrics:nil
                                                                         views:NSDictionaryOfVariableBindings(_tableView)]];
@@ -158,8 +158,8 @@
                     [SongInfo setCurrentSong:[delegate.playList objectAtIndex:[SongInfo currentSongIndex]]];
                     [delegate.player setContentURL:[NSURL URLWithString:[SongInfo currentSong].url]];
                     [delegate.player play];
-                    [delegate.assistiveTouch upDatePlayButton:YES];
-                    [delegate.assistiveTouch upDatePlayImage:[SongInfo currentSong].picture];
+                    [delegate.playView upDatePlayButton:YES];
+                    [delegate.playView upDatePlayImage:[SongInfo currentSong].picture];
                 }
             }
         }];

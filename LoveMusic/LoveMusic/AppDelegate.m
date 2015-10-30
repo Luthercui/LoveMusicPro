@@ -18,8 +18,13 @@
 #import "PlayerViewController.h"
 #import "BaseNavigationController.h"
 
-@interface AppDelegate ()<AssistiveTouchDelegate>{
+#import "XHTwitterPaggingViewer.h"
+
+#import "PlayView.h"
+
+@interface AppDelegate ()<PlayTouchDelegate>{
     UITabBarController *tabBarController;
+    XHTwitterPaggingViewer *twitterPaggingViewer;
 }
 @property(nonatomic, strong) NSTimer *kTimer;
 @end
@@ -33,16 +38,63 @@
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
+//    
+//    RecommendViewController *recommendVc = [[RecommendViewController alloc] init];
+//    FoundViewController *foundVc = [[FoundViewController alloc] init];
+//    MeViewController *meVc = [[MeViewController alloc] init];
+//    BaseNavigationController *recommend = [[BaseNavigationController alloc] initWithRootViewController:recommendVc];
+//    UINavigationController *found = [[UINavigationController alloc] initWithRootViewController:foundVc];
+//    UINavigationController *me = [[UINavigationController alloc] initWithRootViewController:meVc];
+//    tabBarController = [[UITabBarController alloc] init];
+//    tabBarController.viewControllers = @[recommend,found,me];
+//    [self.window setRootViewController:tabBarController];
+//    
+//    
+    twitterPaggingViewer = [[XHTwitterPaggingViewer alloc] init];
     
-    RecommendViewController *recommendVc = [[RecommendViewController alloc] init];
-    FoundViewController *foundVc = [[FoundViewController alloc] init];
-    MeViewController *meVc = [[MeViewController alloc] init];
-    BaseNavigationController *recommend = [[BaseNavigationController alloc] initWithRootViewController:recommendVc];
-    UINavigationController *found = [[UINavigationController alloc] initWithRootViewController:foundVc];
-    UINavigationController *me = [[UINavigationController alloc] initWithRootViewController:meVc];
-    tabBarController = [[UITabBarController alloc] init];
-    tabBarController.viewControllers = @[recommend,found,me];
-    [self.window setRootViewController:tabBarController];
+    NSMutableArray *viewControllers = [[NSMutableArray alloc] initWithCapacity:7];
+    
+    NSArray *titles = @[@"推荐音乐", @"分类音乐", @"我的"];
+    
+    [titles enumerateObjectsUsingBlock:^(NSString *title, NSUInteger idx, BOOL *stop) {
+        switch (idx) {
+            case 0:
+            {
+                RecommendViewController *recommendVc = [[RecommendViewController alloc] init];
+                recommendVc.title = title;
+                [viewControllers addObject:recommendVc];
+            }
+                break;
+            case 1:
+            {
+                 FoundViewController *foundVc = [[FoundViewController alloc] init];
+                foundVc.title = title;
+                [viewControllers addObject:foundVc];
+            }
+                break;
+            case 2:
+            {
+                MeViewController *meVc = [[MeViewController alloc] init];
+                meVc.title = title;
+                [viewControllers addObject:meVc];
+            }
+                break;
+                
+            default:
+                break;
+        }
+    }];
+    
+    
+    twitterPaggingViewer.viewControllers = viewControllers;
+    
+    twitterPaggingViewer.didChangedPageCompleted = ^(NSInteger cuurentPage, NSString *title) {
+        // NSLog(@"cuurentPage : %ld on title : %@", (long)cuurentPage, title);
+    };
+    
+    
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:twitterPaggingViewer];
+    
     
     [self initLib];
     [self initplayer];
@@ -69,12 +121,21 @@
         [session setCategory:AVAudioSessionCategoryPlayback error:nil];
         [session setActive:YES error:nil];
     });
-//    self.assistiveTouch = [[AssistiveTouch alloc] initWithFrame:CGRectMake(0, 200, 90, 50)];
-//    self.assistiveTouch.assistiveDelegate = self;
+    _playView = [[PlayView alloc] initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height-55,  [UIScreen mainScreen].bounds.size.width, 55)];
+    _playView.playDelegate = self;
+    [twitterPaggingViewer.view addSubview:_playView];
+    [twitterPaggingViewer.view bringSubviewToFront:_playView];
+    
 }
--(void)moviePlayerPlaybackStateDidChangeNotification:(NSNotification*)not{
 
+-(void)moviePlayerPlaybackStateDidChangeNotification:(NSNotification*)not{
+    if (self.player && self.player.playbackState == MPMoviePlaybackStatePlaying) {
+        [self fireTimer];
+    }else{
+        [self invalidateTimer];
+    }
 }
+
 -(void)moviePlayerPreloadFinish{
     ChannelInfo *info = [ChannelInfo currentChannel];
     if (info) {
@@ -89,9 +150,6 @@
                         [SongInfo setCurrentSong:[weakSelf.playList objectAtIndex:[SongInfo currentSongIndex]]];
                         [weakSelf.player setContentURL:[NSURL URLWithString:[SongInfo currentSong].url]];
                         [weakSelf.player play];
-                        [weakSelf.assistiveTouch upDatePlayButton:YES];
-                        [weakSelf.assistiveTouch upDatePlayImage:[SongInfo currentSong].picture];
-                        [[NSNotificationCenter defaultCenter] postNotificationName:@"PlayerViewUpdate" object:nil];
                     }
                 });
 
@@ -99,14 +157,11 @@
         }];
     }
 }
--(void)assistiveTocuhs{
-    if (self.player && self.player.playbackState == MPMoviePlaybackStatePlaying) {
-        self.assistiveTouch.hidden = YES;
-        PlayerViewController *viewController = [[PlayerViewController alloc] init];
-        viewController.view.backgroundColor = [UIColor whiteColor];
-        [tabBarController presentViewController:viewController animated:YES completion:^{
-        }];
-    }
+-(void)playTocuhs{
+    PlayerViewController *viewController = [[PlayerViewController alloc] init];
+    viewController.view.backgroundColor = [UIColor whiteColor];
+    [twitterPaggingViewer presentViewController:viewController animated:YES completion:^{
+    }];
 }
 -(void)musicToPlay{
     [self.player play];
@@ -116,18 +171,16 @@
 }
 -(void)musicToNext{
 }
-- (void)fireTimer {
+- (void)fireTimer{
     [self invalidateTimer];
     _kTimer = [NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(updateProgress) userInfo:nil repeats:YES];
 }
 -(void)updateProgress{
     if (self.player && self.player.playbackState == MPMoviePlaybackStatePlaying) {
-        if (!self.assistiveTouch.hidden) {
-            [self.assistiveTouch transformRotatePlayImage];
-        }
+        [self.playView transformRotatePlayImage];
     }
 }
-- (void)invalidateTimer {
+- (void)invalidateTimer{
     if (_kTimer) {
         [_kTimer invalidate];
         _kTimer = nil;
