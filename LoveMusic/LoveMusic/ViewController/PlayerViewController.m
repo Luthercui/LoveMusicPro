@@ -186,7 +186,7 @@
     _playImageView.layer.masksToBounds = YES;
     _playImageView.layer.cornerRadius = 80/2.0;
     [self updatePlayImage:[SongInfo currentSong].picture];
-        
+    
 }
 -(void)inputBar:(YFInputBar*)inputBar sendBtnPress:(UIButton*)sendBtn withInputString:(NSString*)str{
     _commentField.hidden = YES;
