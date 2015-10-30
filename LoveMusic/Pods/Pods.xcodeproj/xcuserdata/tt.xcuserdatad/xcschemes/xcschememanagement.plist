@@ -4,65 +4,55 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-AFNetworking.xcscheme</key>
+		<key>AFNetworking.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>Pods-ReactiveCocoa.xcscheme</key>
+		<key>MagicalRecord.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
-		</dict>
-		<key>Pods-SDWebImage.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>4</integer>
-		</dict>
-		<key>Pods-UIActivityIndicator-for-SDWebImage.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>5</integer>
-		</dict>
-		<key>Pods-UMengAnalytics-NO-IDFA.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>6</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>UIActivityIndicator-for-SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>03FEAE2A1535A8005DA27DC8</key>
+		<key>410B25DF16EA5C5B3E2698F74F9625FB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>687E70695B044A44B8BE4438</key>
+		<key>88C2DFDBDED1423E88CE9A35D43DEDE9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6AA53CE47A0BB19B2191CC8A</key>
+		<key>A9CDE49035C21EE31000095B68FD9B1B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>741232EBBB1D5ECCAA2FAFE7</key>
+		<key>AF4B06354A55CE9E0B89D839A9A5F13C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>77C196ABAD33CA6DD74C6709</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>BBEC5C13455D0BC956AF5519</key>
+		<key>D54AB3ECEB9A8FBA15D4F73CBE326692</key>
 		<dict>
 			<key>primary</key>
 			<true/>

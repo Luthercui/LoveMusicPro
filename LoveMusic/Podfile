@@ -6,6 +6,6 @@ pod "AFNetworking", "~> 2.0"
 
 pod 'UIActivityIndicator-for-SDWebImage'
 
-pod 'ReactiveCocoa'
+pod 'UMengAnalyticsSDK', '~> 3.6.5'
 
-pod 'UMengAnalyticsExt', '~> 1.0.0'
+pod 'MagicalRecord', '~> 2.3.0'

@@ -9,27 +9,12 @@
 /* Begin PBXBuildFile section */
 		4FAF16DE29D05F9C737FAB9E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 421CB365677CCA81C7469684 /* libPods.a */; };
 		711848F91BDDCF3100EB8382 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 711848F81BDDCF3100EB8382 /* BaseNavigationController.m */; };
-		71CB4AA51BD7792500F30D10 /* CFIconArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CB4A881BD7792500F30D10 /* CFIconArrowView.m */; };
-		71CB4AA61BD7792500F30D10 /* CFLabelArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CB4A8A1BD7792500F30D10 /* CFLabelArrowView.m */; };
-		71CB4AA71BD7792500F30D10 /* CFSaveTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CB4A8C1BD7792500F30D10 /* CFSaveTool.m */; };
-		71CB4AA81BD7792500F30D10 /* CFSettingArrowItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CB4A8E1BD7792500F30D10 /* CFSettingArrowItem.m */; };
-		71CB4AA91BD7792500F30D10 /* CFSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CB4A901BD7792500F30D10 /* CFSettingCell.m */; };
-		71CB4AAA1BD7792500F30D10 /* CFSettingGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CB4A921BD7792500F30D10 /* CFSettingGroup.m */; };
-		71CB4AAB1BD7792500F30D10 /* CFSettingIconArrowItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CB4A941BD7792500F30D10 /* CFSettingIconArrowItem.m */; };
-		71CB4AAC1BD7792500F30D10 /* CFSettingIconItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CB4A961BD7792500F30D10 /* CFSettingIconItem.m */; };
-		71CB4AAD1BD7792500F30D10 /* CFSettingItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CB4A981BD7792500F30D10 /* CFSettingItem.m */; };
-		71CB4AAE1BD7792500F30D10 /* CFSettingLabelArrowItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CB4A9A1BD7792500F30D10 /* CFSettingLabelArrowItem.m */; };
-		71CB4AAF1BD7792500F30D10 /* CFSettingLabelItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CB4A9C1BD7792500F30D10 /* CFSettingLabelItem.m */; };
-		71CB4AB01BD7792500F30D10 /* CFSettingSwitchItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CB4A9E1BD7792500F30D10 /* CFSettingSwitchItem.m */; };
-		71CB4AB11BD7792500F30D10 /* CFSettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CB4AA01BD7792500F30D10 /* CFSettingTableViewController.m */; };
-		71CB4AB21BD7792500F30D10 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CB4AA41BD7792500F30D10 /* UIColor+Hex.m */; };
 		71CB4AB51BD77B6900F30D10 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CB4AB41BD77B6900F30D10 /* AboutViewController.m */; };
 		71D8F9AA1BD4A1A90092C0A0 /* RecommendSongListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D8F9A91BD4A1A90092C0A0 /* RecommendSongListViewController.m */; };
 		71D8F9AD1BD4A90B0092C0A0 /* PlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D8F9AC1BD4A90B0092C0A0 /* PlayView.m */; };
 		A7714CC21B6A621F00611808 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7714CC11B6A621F00611808 /* PlayerViewController.m */; };
 		A79F45961B60D733008D8A4B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A79F45951B60D733008D8A4B /* main.m */; };
 		A79F45991B60D733008D8A4B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A79F45981B60D733008D8A4B /* AppDelegate.m */; };
-		A79F45A21B60D733008D8A4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A79F45A01B60D733008D8A4B /* Main.storyboard */; };
 		A79F45A41B60D733008D8A4B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A79F45A31B60D733008D8A4B /* Images.xcassets */; };
 		A79F45A71B60D733008D8A4B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A79F45A51B60D733008D8A4B /* LaunchScreen.xib */; };
 		A79F45B31B60D733008D8A4B /* LoveMusicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A79F45B21B60D733008D8A4B /* LoveMusicTests.m */; };
@@ -63,36 +48,7 @@
 		4CC0C1F8255561FC77FE3909 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		711848F71BDDCF3100EB8382 /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseNavigationController.h; path = ViewController/BaseNavigationController.h; sourceTree = "<group>"; };
 		711848F81BDDCF3100EB8382 /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseNavigationController.m; path = ViewController/BaseNavigationController.m; sourceTree = "<group>"; };
-		71CB4A871BD7792500F30D10 /* CFIconArrowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFIconArrowView.h; path = Lib/TableViewSetting/CFIconArrowView.h; sourceTree = "<group>"; };
-		71CB4A881BD7792500F30D10 /* CFIconArrowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFIconArrowView.m; path = Lib/TableViewSetting/CFIconArrowView.m; sourceTree = "<group>"; };
-		71CB4A891BD7792500F30D10 /* CFLabelArrowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFLabelArrowView.h; path = Lib/TableViewSetting/CFLabelArrowView.h; sourceTree = "<group>"; };
-		71CB4A8A1BD7792500F30D10 /* CFLabelArrowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFLabelArrowView.m; path = Lib/TableViewSetting/CFLabelArrowView.m; sourceTree = "<group>"; };
-		71CB4A8B1BD7792500F30D10 /* CFSaveTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFSaveTool.h; path = Lib/TableViewSetting/CFSaveTool.h; sourceTree = "<group>"; };
-		71CB4A8C1BD7792500F30D10 /* CFSaveTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFSaveTool.m; path = Lib/TableViewSetting/CFSaveTool.m; sourceTree = "<group>"; };
-		71CB4A8D1BD7792500F30D10 /* CFSettingArrowItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFSettingArrowItem.h; path = Lib/TableViewSetting/CFSettingArrowItem.h; sourceTree = "<group>"; };
-		71CB4A8E1BD7792500F30D10 /* CFSettingArrowItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFSettingArrowItem.m; path = Lib/TableViewSetting/CFSettingArrowItem.m; sourceTree = "<group>"; };
-		71CB4A8F1BD7792500F30D10 /* CFSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFSettingCell.h; path = Lib/TableViewSetting/CFSettingCell.h; sourceTree = "<group>"; };
-		71CB4A901BD7792500F30D10 /* CFSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFSettingCell.m; path = Lib/TableViewSetting/CFSettingCell.m; sourceTree = "<group>"; };
-		71CB4A911BD7792500F30D10 /* CFSettingGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFSettingGroup.h; path = Lib/TableViewSetting/CFSettingGroup.h; sourceTree = "<group>"; };
-		71CB4A921BD7792500F30D10 /* CFSettingGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFSettingGroup.m; path = Lib/TableViewSetting/CFSettingGroup.m; sourceTree = "<group>"; };
-		71CB4A931BD7792500F30D10 /* CFSettingIconArrowItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFSettingIconArrowItem.h; path = Lib/TableViewSetting/CFSettingIconArrowItem.h; sourceTree = "<group>"; };
-		71CB4A941BD7792500F30D10 /* CFSettingIconArrowItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFSettingIconArrowItem.m; path = Lib/TableViewSetting/CFSettingIconArrowItem.m; sourceTree = "<group>"; };
-		71CB4A951BD7792500F30D10 /* CFSettingIconItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFSettingIconItem.h; path = Lib/TableViewSetting/CFSettingIconItem.h; sourceTree = "<group>"; };
-		71CB4A961BD7792500F30D10 /* CFSettingIconItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFSettingIconItem.m; path = Lib/TableViewSetting/CFSettingIconItem.m; sourceTree = "<group>"; };
-		71CB4A971BD7792500F30D10 /* CFSettingItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFSettingItem.h; path = Lib/TableViewSetting/CFSettingItem.h; sourceTree = "<group>"; };
-		71CB4A981BD7792500F30D10 /* CFSettingItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFSettingItem.m; path = Lib/TableViewSetting/CFSettingItem.m; sourceTree = "<group>"; };
-		71CB4A991BD7792500F30D10 /* CFSettingLabelArrowItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFSettingLabelArrowItem.h; path = Lib/TableViewSetting/CFSettingLabelArrowItem.h; sourceTree = "<group>"; };
-		71CB4A9A1BD7792500F30D10 /* CFSettingLabelArrowItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFSettingLabelArrowItem.m; path = Lib/TableViewSetting/CFSettingLabelArrowItem.m; sourceTree = "<group>"; };
-		71CB4A9B1BD7792500F30D10 /* CFSettingLabelItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFSettingLabelItem.h; path = Lib/TableViewSetting/CFSettingLabelItem.h; sourceTree = "<group>"; };
-		71CB4A9C1BD7792500F30D10 /* CFSettingLabelItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFSettingLabelItem.m; path = Lib/TableViewSetting/CFSettingLabelItem.m; sourceTree = "<group>"; };
-		71CB4A9D1BD7792500F30D10 /* CFSettingSwitchItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFSettingSwitchItem.h; path = Lib/TableViewSetting/CFSettingSwitchItem.h; sourceTree = "<group>"; };
-		71CB4A9E1BD7792500F30D10 /* CFSettingSwitchItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFSettingSwitchItem.m; path = Lib/TableViewSetting/CFSettingSwitchItem.m; sourceTree = "<group>"; };
-		71CB4A9F1BD7792500F30D10 /* CFSettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFSettingTableViewController.h; path = Lib/TableViewSetting/CFSettingTableViewController.h; sourceTree = "<group>"; };
-		71CB4AA01BD7792500F30D10 /* CFSettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFSettingTableViewController.m; path = Lib/TableViewSetting/CFSettingTableViewController.m; sourceTree = "<group>"; };
-		71CB4AA11BD7792500F30D10 /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Const.h; path = Lib/TableViewSetting/Const.h; sourceTree = "<group>"; };
-		71CB4AA21BD7792500F30D10 /* TableViewSettingList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewSettingList.h; path = Lib/TableViewSetting/TableViewSettingList.h; sourceTree = "<group>"; };
-		71CB4AA31BD7792500F30D10 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Hex.h"; path = "Lib/TableViewSetting/UIColor+Hex.h"; sourceTree = "<group>"; };
-		71CB4AA41BD7792500F30D10 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Hex.m"; path = "Lib/TableViewSetting/UIColor+Hex.m"; sourceTree = "<group>"; };
+		71848F511BE314AB005BB1DF /* LoveMusic_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoveMusic_Prefix.pch; sourceTree = "<group>"; };
 		71CB4AB31BD77B6900F30D10 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = ViewController/AboutViewController.h; sourceTree = "<group>"; };
 		71CB4AB41BD77B6900F30D10 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = ViewController/AboutViewController.m; sourceTree = "<group>"; };
 		71D8F9A81BD4A1A90092C0A0 /* RecommendSongListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecommendSongListViewController.h; path = ViewController/RecommendSongListViewController.h; sourceTree = "<group>"; };
@@ -106,7 +62,6 @@
 		A79F45951B60D733008D8A4B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A79F45971B60D733008D8A4B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A79F45981B60D733008D8A4B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A79F45A11B60D733008D8A4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A79F45A31B60D733008D8A4B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A79F45A61B60D733008D8A4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A79F45AC1B60D733008D8A4B /* LoveMusicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoveMusicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,43 +121,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		71CB4A861BD7791300F30D10 /* TableViewSetting */ = {
-			isa = PBXGroup;
-			children = (
-				71CB4A871BD7792500F30D10 /* CFIconArrowView.h */,
-				71CB4A881BD7792500F30D10 /* CFIconArrowView.m */,
-				71CB4A891BD7792500F30D10 /* CFLabelArrowView.h */,
-				71CB4A8A1BD7792500F30D10 /* CFLabelArrowView.m */,
-				71CB4A8B1BD7792500F30D10 /* CFSaveTool.h */,
-				71CB4A8C1BD7792500F30D10 /* CFSaveTool.m */,
-				71CB4A8D1BD7792500F30D10 /* CFSettingArrowItem.h */,
-				71CB4A8E1BD7792500F30D10 /* CFSettingArrowItem.m */,
-				71CB4A8F1BD7792500F30D10 /* CFSettingCell.h */,
-				71CB4A901BD7792500F30D10 /* CFSettingCell.m */,
-				71CB4A911BD7792500F30D10 /* CFSettingGroup.h */,
-				71CB4A921BD7792500F30D10 /* CFSettingGroup.m */,
-				71CB4A931BD7792500F30D10 /* CFSettingIconArrowItem.h */,
-				71CB4A941BD7792500F30D10 /* CFSettingIconArrowItem.m */,
-				71CB4A951BD7792500F30D10 /* CFSettingIconItem.h */,
-				71CB4A961BD7792500F30D10 /* CFSettingIconItem.m */,
-				71CB4A971BD7792500F30D10 /* CFSettingItem.h */,
-				71CB4A981BD7792500F30D10 /* CFSettingItem.m */,
-				71CB4A991BD7792500F30D10 /* CFSettingLabelArrowItem.h */,
-				71CB4A9A1BD7792500F30D10 /* CFSettingLabelArrowItem.m */,
-				71CB4A9B1BD7792500F30D10 /* CFSettingLabelItem.h */,
-				71CB4A9C1BD7792500F30D10 /* CFSettingLabelItem.m */,
-				71CB4A9D1BD7792500F30D10 /* CFSettingSwitchItem.h */,
-				71CB4A9E1BD7792500F30D10 /* CFSettingSwitchItem.m */,
-				71CB4A9F1BD7792500F30D10 /* CFSettingTableViewController.h */,
-				71CB4AA01BD7792500F30D10 /* CFSettingTableViewController.m */,
-				71CB4AA11BD7792500F30D10 /* Const.h */,
-				71CB4AA21BD7792500F30D10 /* TableViewSettingList.h */,
-				71CB4AA31BD7792500F30D10 /* UIColor+Hex.h */,
-				71CB4AA41BD7792500F30D10 /* UIColor+Hex.m */,
-			);
-			name = TableViewSetting;
-			sourceTree = "<group>";
-		};
 		7578AEA90388BC587D355896 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,7 +153,6 @@
 		A7714CC31B6B12E700611808 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
-				71CB4A861BD7791300F30D10 /* TableViewSetting */,
 			);
 			name = Lib;
 			sourceTree = "<group>";
@@ -269,7 +186,6 @@
 				A79F45C41B60DA12008D8A4B /* View */,
 				A79F45971B60D733008D8A4B /* AppDelegate.h */,
 				A79F45981B60D733008D8A4B /* AppDelegate.m */,
-				A79F45A01B60D733008D8A4B /* Main.storyboard */,
 				A79F45A31B60D733008D8A4B /* Images.xcassets */,
 				A79F45A51B60D733008D8A4B /* LaunchScreen.xib */,
 				A79F45931B60D733008D8A4B /* Supporting Files */,
@@ -282,6 +198,7 @@
 			children = (
 				A79F45941B60D733008D8A4B /* Info.plist */,
 				A79F45951B60D733008D8A4B /* main.m */,
+				71848F511BE314AB005BB1DF /* LoveMusic_Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -349,6 +266,7 @@
 				A79F458D1B60D733008D8A4B /* Frameworks */,
 				A79F458E1B60D733008D8A4B /* Resources */,
 				7B8F85802499957D0FC87D1B /* Copy Pods Resources */,
+				75BFCF1FE4F777E82FA355EA /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -388,6 +306,7 @@
 				TargetAttributes = {
 					A79F458F1B60D733008D8A4B = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = D3Q94XSJH5;
 					};
 					A79F45AB1B60D733008D8A4B = {
 						CreatedOnToolsVersion = 6.4;
@@ -419,7 +338,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A79F45A21B60D733008D8A4B /* Main.storyboard in Resources */,
 				A79F45A71B60D733008D8A4B /* LaunchScreen.xib in Resources */,
 				A79F45A41B60D733008D8A4B /* Images.xcassets in Resources */,
 			);
@@ -435,6 +353,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		75BFCF1FE4F777E82FA355EA /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7B8F85802499957D0FC87D1B /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -474,36 +407,22 @@
 			files = (
 				A7DA05C81BA920A200C55B89 /* FeedCell.m in Sources */,
 				A7DA05CC1BA920B600C55B89 /* SongListModel.m in Sources */,
-				71CB4AA61BD7792500F30D10 /* CFLabelArrowView.m in Sources */,
 				A7DA05C91BA920A200C55B89 /* YFInputBar.m in Sources */,
 				A7DA05C21BA9206E00C55B89 /* Tool.m in Sources */,
-				71CB4AA91BD7792500F30D10 /* CFSettingCell.m in Sources */,
 				A79F45991B60D733008D8A4B /* AppDelegate.m in Sources */,
-				71CB4AB11BD7792500F30D10 /* CFSettingTableViewController.m in Sources */,
 				A7DA05BE1BA9206E00C55B89 /* AssistiveTouch.m in Sources */,
 				A7DA05C01BA9206E00C55B89 /* NetFm.m in Sources */,
 				71CB4AB51BD77B6900F30D10 /* AboutViewController.m in Sources */,
 				A7DA05BF1BA9206E00C55B89 /* ChannelInfo.m in Sources */,
-				71CB4AB21BD7792500F30D10 /* UIColor+Hex.m in Sources */,
 				71D8F9AA1BD4A1A90092C0A0 /* RecommendSongListViewController.m in Sources */,
 				A7DA05C31BA9206E00C55B89 /* UserInfo.m in Sources */,
-				71CB4AA51BD7792500F30D10 /* CFIconArrowView.m in Sources */,
-				71CB4AAB1BD7792500F30D10 /* CFSettingIconArrowItem.m in Sources */,
-				71CB4AAD1BD7792500F30D10 /* CFSettingItem.m in Sources */,
 				A79F45961B60D733008D8A4B /* main.m in Sources */,
-				71CB4AA71BD7792500F30D10 /* CFSaveTool.m in Sources */,
-				71CB4AB01BD7792500F30D10 /* CFSettingSwitchItem.m in Sources */,
-				71CB4AAF1BD7792500F30D10 /* CFSettingLabelItem.m in Sources */,
 				A79F45C91B60DA4E008D8A4B /* RecommendViewController.m in Sources */,
 				711848F91BDDCF3100EB8382 /* BaseNavigationController.m in Sources */,
-				71CB4AAC1BD7792500F30D10 /* CFSettingIconItem.m in Sources */,
 				A7DA05C11BA9206E00C55B89 /* SongInfo.m in Sources */,
-				71CB4AA81BD7792500F30D10 /* CFSettingArrowItem.m in Sources */,
 				A79F45CC1B60DA71008D8A4B /* FoundViewController.m in Sources */,
 				A79F45CF1B60DA84008D8A4B /* MeViewController.m in Sources */,
-				71CB4AAA1BD7792500F30D10 /* CFSettingGroup.m in Sources */,
 				71D8F9AD1BD4A90B0092C0A0 /* PlayView.m in Sources */,
-				71CB4AAE1BD7792500F30D10 /* CFSettingLabelArrowItem.m in Sources */,
 				A7714CC21B6A621F00611808 /* PlayerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -527,14 +446,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A79F45A01B60D733008D8A4B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A79F45A11B60D733008D8A4B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A79F45A51B60D733008D8A4B /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -633,6 +544,7 @@
 			baseConfigurationReference = 4CC0C1F8255561FC77FE3909 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = LoveMusic/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -641,6 +553,7 @@
 					"\"$(SRCROOT)/Pods/UMengAnalytics-NO-IDFA/umsdk_IOS_analytics_no-idfa_v3.5.11/UMAnalytics_Sdk_3.5.11\"/**",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -649,6 +562,7 @@
 			baseConfigurationReference = 127ED1B5ACAAF7BB044D228D /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = LoveMusic/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -657,6 +571,7 @@
 					"\"$(SRCROOT)/Pods/UMengAnalytics-NO-IDFA/umsdk_IOS_analytics_no-idfa_v3.5.11/UMAnalytics_Sdk_3.5.11\"/**",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

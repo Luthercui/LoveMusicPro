@@ -1,0 +1,18 @@
+//
+//  LoveMusic_Prefix.pch
+//  LoveMusic
+//
+//  Created by tt on 15/10/30.
+//  Copyright © 2015年 xiaocui. All rights reserved.
+//
+
+#ifndef LoveMusic_Prefix_pch
+#define LoveMusic_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+
+
+#endif /* LoveMusic_Prefix_pch */

@@ -272,7 +272,7 @@
 +(void)getSongRecommendAlbumListWithPageSize:(NSInteger)pageSize
                                     withPage:(NSInteger)page
                            completionHandler:(void (^)(NSError *error, NSArray *songDicArray))completionHandler{
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.zhiyurencai.cn/music/api/tracks/316141/%d/%d",page,pageSize]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.zhiyurencai.cn/music/api/tracks/316141/%ld/%ld",(long)page,(long)pageSize]];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0f];
     

@@ -25,8 +25,8 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        [self setTitle:@"MHz"];
-        UITabBarItem *tabBarItem = [[UITabBarItem alloc] initWithTitle:@"MHz" image:[UIImage imageNamed:@"icon1"] selectedImage:[UIImage imageNamed:@"icon1"]];
+        [self setTitle:@"分类音乐"];
+        UITabBarItem *tabBarItem = [[UITabBarItem alloc] initWithTitle:@"分类音乐" image:[UIImage imageNamed:@"icon1"] selectedImage:[UIImage imageNamed:@"icon1"]];
         self.tabBarItem  = tabBarItem;
     }
     return self;

@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TableViewSettingList.h"
 
-@interface MeViewController : CFSettingTableViewController
+@interface MeViewController : UIViewController
 
 @end
