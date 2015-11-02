@@ -23,7 +23,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
-    _dataArray = [[NSArray alloc] initWithObjects:@"新歌榜",@"热歌榜",@"摇滚榜",@"爵士",@"流行",@"欧美金曲榜",@"经典老歌榜", @"情歌对唱榜", @"网络歌曲榜", @"网络FM",@"大杂烩",nil];
+    _dataArray = [[NSArray alloc] initWithObjects:@"新歌榜",@"热歌榜",@"摇滚榜",@"爵士",@"流行",@"欧美金曲榜",@"经典老歌榜", @"情歌对唱榜", @"网络歌曲榜", @"网络FM",@"有声小说",@"综艺娱乐",@"相声评书",@"情感生活",nil];
     self.tableView = [[UITableView alloc] init];
     _tableView.delegate = self;
     _tableView.dataSource = self;

@@ -11,9 +11,72 @@
  
  http://www.zhiyurencai.cn/music/api/category
  
- http://www.zhiyurencai.cn/music/api/category_album/music
  
- http://www.zhiyurencai.cn/music/api/tracks/2508
+ 
+ http://www.zhiyurencai.cn/music/api/category_album/entertainment/1/20
+http://www.zhiyurencai.cn/music/api/category_album/comic/1/20
+ http://www.zhiyurencai.cn/music/api/category_album/book/1/20
+ 
+ http://www.zhiyurencai.cn/music/api/tracks/236623/1/20
+ 
+ dict[@"icon"] = @"category_default_img14";
+ dict[@"title"] = @"车载电台";
+ dict[@"tag"] = @"car";
+ [_dataArray addObject:dict];
+ 
+ 
+ dict = [NSMutableDictionary new];
+ dict[@"icon"] = @"category_default_img1";
+ dict[@"title"] = @"有声小说";
+ dict[@"tag"] = @"book";
+ [_dataArray addObject:dict];
+ 
+ dict = [NSMutableDictionary new];
+ dict[@"icon"] = @"category_default_img2";
+ dict[@"title"] = @"音乐";
+ dict[@"tag"] = @"music";
+ [_dataArray addObject:dict];
+ 
+ dict = [NSMutableDictionary new];
+ dict[@"icon"] = @"category_default_img3";
+ dict[@"title"] = @"综艺娱乐";
+ dict[@"tag"] = @"entertainment";
+ [_dataArray addObject:dict];
+ 
+ 
+ dict = [NSMutableDictionary new];
+ dict[@"icon"] = @"category_default_img4";
+ dict[@"title"] = @"相声评书";
+ dict[@"tag"] = @"comic";
+ [_dataArray addObject:dict];
+ 
+ 
+ dict = [NSMutableDictionary new];
+ dict[@"icon"] = @"category_default_img13";
+ dict[@"tag"] = @"kid";
+ dict[@"title"] = @"儿童";
+ [_dataArray addObject:dict];
+ 
+ 
+ 
+ dict = [NSMutableDictionary new];
+ dict[@"icon"] = @"category_default_img6";
+ dict[@"title"] = @"情感生活";
+ dict[@"tag"] = @"emotion";
+ [_dataArray addObject:dict];
+ 
+ dict = [NSMutableDictionary new];
+ dict[@"icon"] = @"category_default_img7";
+ dict[@"title"] = @"历史人文";
+ dict[@"tag"] = @"culture";
+ [_dataArray addObject:dict];
+ 
+ dict = [NSMutableDictionary new];
+ dict[@"icon"] = @"category_default_img8";
+ dict[@"title"] = @"收听历史";
+ dict[@"tag"] = @"history";
+ [_dataArray addObject:dict];
+ 
  */
 
 #import <Foundation/Foundation.h>
