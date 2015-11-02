@@ -66,6 +66,8 @@
     backButton.frame = CGRectMake(15, 30, 12, 21);
     [backButton setImage:[UIImage imageNamed:@"bt_back_press"] forState:UIControlStateNormal];
     [backButton setTitleColor:[UIColor colorWithRed:35.0/255.0 green:199.0/255.0 blue:125.0/255.0 alpha:1.0] forState:UIControlStateNormal];
+    CGAffineTransform at =CGAffineTransformMakeRotation(-M_PI/2);
+    [backButton setTransform:at];
     [nav addSubview:backButton];
     
     self.titleLable = [[UILabel alloc] init];
@@ -128,11 +130,15 @@
     UISwipeGestureRecognizer*leftSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipes:)];
     UISwipeGestureRecognizer*rightSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipes:)];
     
+    UISwipeGestureRecognizer*downSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipes:)];
+    
     leftSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
     rightSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
+    downSwipeGestureRecognizer.direction =  UISwipeGestureRecognizerDirectionDown;
     
     [self.view addGestureRecognizer:leftSwipeGestureRecognizer];
     [self.view addGestureRecognizer:rightSwipeGestureRecognizer];
+    [self.view addGestureRecognizer:downSwipeGestureRecognizer];
 }
 -(void)initButton{
     self.playButton =[UIButton buttonWithType:UIButtonTypeCustom];
@@ -281,6 +287,12 @@
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:currentBackImageIndex] forKey:@"backImageIndex"];
         UIImage *image = [UIImage imageNamed:[self.backImageArray objectAtIndex:currentBackImageIndex]];
         [self.backImageView setImage:image];
+    }
+    if (sender.direction == UISwipeGestureRecognizerDirectionDown) {
+        [self invalidateTimer];
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
     }
 }
 -(void)back{

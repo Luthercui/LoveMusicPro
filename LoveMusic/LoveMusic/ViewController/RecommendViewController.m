@@ -14,6 +14,8 @@
 #import "AppDelegate.h"
 #import "Tool.h"
 #import "RecommendSongListViewController.h"
+#import "RecommendTableViewCell.h"
+
 @interface RecommendViewController()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic ,strong) UITableView *tableView;
 @property (nonatomic ,strong) NSMutableArray   *dataArray;
@@ -88,18 +90,19 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier"];
+    RecommendTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier"];
     
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellIdentifier"];
+        cell = [[RecommendTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellIdentifier"];
         cell.selectionStyle =  UITableViewCellSelectionStyleNone;
     }
     SongListModel *info = [_dataArray objectAtIndex:indexPath.row];
-    cell.textLabel.text = info.title;
+    cell.titleLabel.text = info.title;
+    cell.subTitleLabel.text = info.author;
     if (info && info.pic_small) {
-        [cell.imageView setImageWithURL:[NSURL URLWithString:info.pic_small] placeholderImage:nil usingActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+        [cell.songImageView setImageWithURL:[NSURL URLWithString:info.pic_small] placeholderImage:nil usingActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     }
-    cell.textLabel.textColor = [UIColor colorWithRed:35.0/255.0 green:199.0/255.0 blue:125.0/255.0 alpha:1.0];
+   // cell.textLabel.textColor = [UIColor colorWithRed:35.0/255.0 green:199.0/255.0 blue:125.0/255.0 alpha:1.0];
     cell.backgroundColor =  [Tool colorWithHexColorString:@"fafafa"];
     
     return cell;

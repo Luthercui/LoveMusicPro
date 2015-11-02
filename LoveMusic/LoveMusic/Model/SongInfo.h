@@ -18,6 +18,9 @@
 @property (nonatomic) NSString *url;
 @property (nonatomic) NSString *sid;
 @property (nonatomic) NSInteger type;//1 fm //2 推荐
+@property (nonatomic) BOOL isPlaying;
+
+
 
 - (instancetype) initWithDictionary:(NSDictionary *)dictionary;
 

@@ -14,6 +14,7 @@
 		71CB4AB51BD77B6900F30D10 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CB4AB41BD77B6900F30D10 /* AboutViewController.m */; };
 		71D8F9AA1BD4A1A90092C0A0 /* RecommendSongListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D8F9A91BD4A1A90092C0A0 /* RecommendSongListViewController.m */; };
 		71D8F9AD1BD4A90B0092C0A0 /* PlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D8F9AC1BD4A90B0092C0A0 /* PlayView.m */; };
+		71F05DD61BE75F0400DF7304 /* RecommendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F05DD51BE75F0400DF7304 /* RecommendTableViewCell.m */; };
 		A7714CC21B6A621F00611808 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7714CC11B6A621F00611808 /* PlayerViewController.m */; };
 		A79F45961B60D733008D8A4B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A79F45951B60D733008D8A4B /* main.m */; };
 		A79F45991B60D733008D8A4B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A79F45981B60D733008D8A4B /* AppDelegate.m */; };
@@ -29,7 +30,6 @@
 		A7DA05C11BA9206E00C55B89 /* SongInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DA05B91BA9206E00C55B89 /* SongInfo.m */; };
 		A7DA05C21BA9206E00C55B89 /* Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DA05BB1BA9206E00C55B89 /* Tool.m */; };
 		A7DA05C31BA9206E00C55B89 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DA05BD1BA9206E00C55B89 /* UserInfo.m */; };
-		A7DA05C81BA920A200C55B89 /* FeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DA05C51BA920A200C55B89 /* FeedCell.m */; };
 		A7DA05C91BA920A200C55B89 /* YFInputBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DA05C71BA920A200C55B89 /* YFInputBar.m */; };
 		A7DA05CC1BA920B600C55B89 /* SongListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DA05CB1BA920B600C55B89 /* SongListModel.m */; };
 /* End PBXBuildFile section */
@@ -61,6 +61,8 @@
 		71D8F9A91BD4A1A90092C0A0 /* RecommendSongListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecommendSongListViewController.m; path = ViewController/RecommendSongListViewController.m; sourceTree = "<group>"; };
 		71D8F9AB1BD4A90B0092C0A0 /* PlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayView.h; path = View/PlayView.h; sourceTree = "<group>"; };
 		71D8F9AC1BD4A90B0092C0A0 /* PlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayView.m; path = View/PlayView.m; sourceTree = "<group>"; };
+		71F05DD41BE75F0400DF7304 /* RecommendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecommendTableViewCell.h; path = View/RecommendTableViewCell.h; sourceTree = "<group>"; };
+		71F05DD51BE75F0400DF7304 /* RecommendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecommendTableViewCell.m; path = View/RecommendTableViewCell.m; sourceTree = "<group>"; };
 		A7714CC01B6A621F00611808 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerViewController.h; path = ViewController/PlayerViewController.h; sourceTree = "<group>"; };
 		A7714CC11B6A621F00611808 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerViewController.m; path = ViewController/PlayerViewController.m; sourceTree = "<group>"; };
 		A79F45901B60D733008D8A4B /* LoveMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,8 +93,6 @@
 		A7DA05BB1BA9206E00C55B89 /* Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tool.m; path = Model/Tool.m; sourceTree = "<group>"; };
 		A7DA05BC1BA9206E00C55B89 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfo.h; path = Model/UserInfo.h; sourceTree = "<group>"; };
 		A7DA05BD1BA9206E00C55B89 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfo.m; path = Model/UserInfo.m; sourceTree = "<group>"; };
-		A7DA05C41BA920A200C55B89 /* FeedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedCell.h; path = View/FeedCell.h; sourceTree = "<group>"; };
-		A7DA05C51BA920A200C55B89 /* FeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedCell.m; path = View/FeedCell.m; sourceTree = "<group>"; };
 		A7DA05C61BA920A200C55B89 /* YFInputBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YFInputBar.h; path = View/YFInputBar.h; sourceTree = "<group>"; };
 		A7DA05C71BA920A200C55B89 /* YFInputBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YFInputBar.m; path = View/YFInputBar.m; sourceTree = "<group>"; };
 		A7DA05CA1BA920B600C55B89 /* SongListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SongListModel.h; path = Model/SongListModel.h; sourceTree = "<group>"; };
@@ -241,12 +241,12 @@
 		A79F45C41B60DA12008D8A4B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A7DA05C41BA920A200C55B89 /* FeedCell.h */,
-				A7DA05C51BA920A200C55B89 /* FeedCell.m */,
 				A7DA05C61BA920A200C55B89 /* YFInputBar.h */,
 				A7DA05C71BA920A200C55B89 /* YFInputBar.m */,
 				71D8F9AB1BD4A90B0092C0A0 /* PlayView.h */,
 				71D8F9AC1BD4A90B0092C0A0 /* PlayView.m */,
+				71F05DD41BE75F0400DF7304 /* RecommendTableViewCell.h */,
+				71F05DD51BE75F0400DF7304 /* RecommendTableViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -423,7 +423,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7DA05C81BA920A200C55B89 /* FeedCell.m in Sources */,
 				A7DA05CC1BA920B600C55B89 /* SongListModel.m in Sources */,
 				A7DA05C91BA920A200C55B89 /* YFInputBar.m in Sources */,
 				A7DA05C21BA9206E00C55B89 /* Tool.m in Sources */,
@@ -434,6 +433,7 @@
 				71CB4AB51BD77B6900F30D10 /* AboutViewController.m in Sources */,
 				A7DA05BF1BA9206E00C55B89 /* ChannelInfo.m in Sources */,
 				71D8F9AA1BD4A1A90092C0A0 /* RecommendSongListViewController.m in Sources */,
+				71F05DD61BE75F0400DF7304 /* RecommendTableViewCell.m in Sources */,
 				A7DA05C31BA9206E00C55B89 /* UserInfo.m in Sources */,
 				A79F45961B60D733008D8A4B /* main.m in Sources */,
 				A79F45C91B60DA4E008D8A4B /* RecommendViewController.m in Sources */,
