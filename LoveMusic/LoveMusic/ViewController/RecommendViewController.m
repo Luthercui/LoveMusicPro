@@ -52,7 +52,12 @@
 //            });
 //        }
 //    }];
-    
+    self.activityIndicatorView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+    _activityIndicatorView.activityIndicatorViewStyle= UIActivityIndicatorViewStyleGray;
+    _activityIndicatorView.center = self.view.center;
+    _activityIndicatorView.hidesWhenStopped = YES;
+    [self.view addSubview:_activityIndicatorView];
+    [_activityIndicatorView startAnimating];
     [NetFm getSongListWith:1 withPage:0 completionHandler:^(NSError *error, NSArray *songListModelArray) {
         
         
@@ -63,11 +68,15 @@
                     [_dataArray addObjectsFromArray:songListModelArray];
                     __weak typeof(self) weakSelf = self;
                     dispatch_async(dispatch_get_main_queue(), ^{
+                        [_activityIndicatorView stopAnimating];
                         [weakSelf.tableView reloadData];
+                        
                     });
                 }
             }];
 
+        }else{
+            [_activityIndicatorView stopAnimating];
         }
         
     }];

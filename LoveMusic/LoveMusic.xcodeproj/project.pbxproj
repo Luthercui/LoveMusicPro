@@ -15,6 +15,7 @@
 		71D8F9AA1BD4A1A90092C0A0 /* RecommendSongListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D8F9A91BD4A1A90092C0A0 /* RecommendSongListViewController.m */; };
 		71D8F9AD1BD4A90B0092C0A0 /* PlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D8F9AC1BD4A90B0092C0A0 /* PlayView.m */; };
 		71F05DD61BE75F0400DF7304 /* RecommendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F05DD51BE75F0400DF7304 /* RecommendTableViewCell.m */; };
+		71F05DD91BE7659400DF7304 /* ClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F05DD81BE7659400DF7304 /* ClassViewController.m */; };
 		A7714CC21B6A621F00611808 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7714CC11B6A621F00611808 /* PlayerViewController.m */; };
 		A79F45961B60D733008D8A4B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A79F45951B60D733008D8A4B /* main.m */; };
 		A79F45991B60D733008D8A4B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A79F45981B60D733008D8A4B /* AppDelegate.m */; };
@@ -63,6 +64,8 @@
 		71D8F9AC1BD4A90B0092C0A0 /* PlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayView.m; path = View/PlayView.m; sourceTree = "<group>"; };
 		71F05DD41BE75F0400DF7304 /* RecommendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecommendTableViewCell.h; path = View/RecommendTableViewCell.h; sourceTree = "<group>"; };
 		71F05DD51BE75F0400DF7304 /* RecommendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecommendTableViewCell.m; path = View/RecommendTableViewCell.m; sourceTree = "<group>"; };
+		71F05DD71BE7659400DF7304 /* ClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassViewController.h; path = ViewController/ClassViewController.h; sourceTree = "<group>"; };
+		71F05DD81BE7659400DF7304 /* ClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassViewController.m; path = ViewController/ClassViewController.m; sourceTree = "<group>"; };
 		A7714CC01B6A621F00611808 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerViewController.h; path = ViewController/PlayerViewController.h; sourceTree = "<group>"; };
 		A7714CC11B6A621F00611808 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerViewController.m; path = ViewController/PlayerViewController.m; sourceTree = "<group>"; };
 		A79F45901B60D733008D8A4B /* LoveMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -268,6 +271,8 @@
 				71CB4AB41BD77B6900F30D10 /* AboutViewController.m */,
 				711848F71BDDCF3100EB8382 /* BaseNavigationController.h */,
 				711848F81BDDCF3100EB8382 /* BaseNavigationController.m */,
+				71F05DD71BE7659400DF7304 /* ClassViewController.h */,
+				71F05DD81BE7659400DF7304 /* ClassViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -424,6 +429,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7DA05CC1BA920B600C55B89 /* SongListModel.m in Sources */,
+				71F05DD91BE7659400DF7304 /* ClassViewController.m in Sources */,
 				A7DA05C91BA920A200C55B89 /* YFInputBar.m in Sources */,
 				A7DA05C21BA9206E00C55B89 /* Tool.m in Sources */,
 				7124781F1BE3523D00FCC74A /* XHTwitterPaggingViewer.m in Sources */,

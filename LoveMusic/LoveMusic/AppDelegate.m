@@ -17,7 +17,7 @@
 #import "SongInfo.h"
 #import "PlayerViewController.h"
 #import "BaseNavigationController.h"
-
+#import "ClassViewController.h"
 #import "XHTwitterPaggingViewer.h"
 
 #import "PlayView.h"
@@ -67,7 +67,7 @@
                 break;
             case 1:
             {
-                 FoundViewController *foundVc = [[FoundViewController alloc] init];
+                ClassViewController *foundVc = [[ClassViewController alloc] init];
                 foundVc.title = title;
                 [viewControllers addObject:foundVc];
             }
@@ -123,8 +123,8 @@
     });
     _playView = [[PlayView alloc] initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height-55,  [UIScreen mainScreen].bounds.size.width, 55)];
     _playView.playDelegate = self;
-    [twitterPaggingViewer.view addSubview:_playView];
-    [twitterPaggingViewer.view bringSubviewToFront:_playView];
+    [twitterPaggingViewer.navigationController.view addSubview:_playView];
+    [twitterPaggingViewer.navigationController.view bringSubviewToFront:_playView];
     
 }
 
