@@ -151,6 +151,7 @@
         song.artist = [info objectForKey:@"nickname"];
         song.sid = [info objectForKey:@"id"];
         song.type = 3;
+        song.dataArray = self.dataArray;
         AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
         [SongInfo setCurrentSongIndex:0];
         [SongInfo setCurrentSong:song];

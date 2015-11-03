@@ -246,6 +246,35 @@
             break;
         case 3:
         {
+            for (int i = 0 ; i < [SongInfo currentSong].dataArray.count; i++) {
+                NSDictionary *dic = [[SongInfo currentSong].dataArray objectAtIndex:i];
+                if ([[SongInfo currentSong].sid isEqualToString:dic[@"id"]]) {
+                    NSDictionary *infoDic = nil;
+                    if (i+1 == [SongInfo currentSong].dataArray.count) {
+                        infoDic = [[SongInfo currentSong].dataArray objectAtIndex:0];
+                    }else{
+                        infoDic = [[SongInfo currentSong].dataArray objectAtIndex:i+1];
+                    }
+                    SongInfo  * song = [SongInfo new];
+                    song.url = [infoDic objectForKey:@"play_path_64"];
+                    song.title = [infoDic objectForKey:@"title"];
+                    song.length = [infoDic objectForKey:@"duration"];
+                    song.artist = [infoDic objectForKey:@"nickname"];
+                    song.sid = [infoDic objectForKey:@"id"];
+                    song.picture = [SongInfo currentSong].picture;
+                    song.type = 3;
+                    song.dataArray = [SongInfo currentSong].dataArray;
+                    AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+                    [SongInfo setCurrentSongIndex:0];
+                    [SongInfo setCurrentSong:song];
+                    [delegate.player setContentURL:[NSURL URLWithString:[SongInfo currentSong].url]];
+                    [delegate.player play];
+                    [delegate.playView upDatePlayButton:YES];
+                    [delegate.playView upDatePlayImage:[SongInfo currentSong].picture];
+                    
+                    break;
+                }
+            }
         }
             break;
             

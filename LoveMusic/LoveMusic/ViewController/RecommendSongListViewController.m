@@ -167,7 +167,7 @@
             [Tool showNoNetAlrtView];
             return;
         }
-        
+        [SongInfo currentSong].dataArray = self.dataArray;
         [NetFm getSongInformationWith:info.song_id completionHandler:^(NSError *error, SongInfo *songInfo) {
             if (songInfo) {
                 AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
