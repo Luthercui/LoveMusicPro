@@ -17,7 +17,7 @@
 @property (nonatomic) NSString *like;
 @property (nonatomic) NSString *url;
 @property (nonatomic) NSString *sid;
-@property (nonatomic) NSInteger type;//1 fm //2 推荐
+@property (nonatomic) NSInteger type;//1 fm //2 百度 //3 自己
 @property (nonatomic) BOOL isPlaying;
 
 

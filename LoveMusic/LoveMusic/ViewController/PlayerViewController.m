@@ -15,8 +15,8 @@
 #import "NetFm.h"
 #import "ChannelInfo.h"
 #import <CoreMedia/CoreMedia.h>
-#import "YFInputBar.h"
-@interface PlayerViewController ()<YFInputBarDelegate>{
+
+@interface PlayerViewController (){
     NSInteger currentBackImageIndex;
 }
 @property(nonatomic,strong)UIImageView *backImageView;
@@ -36,13 +36,11 @@
 
 @property(nonatomic,strong)UIImageView *playImageView;
 
-@property(nonatomic,strong)UITextView *changyanTextView;
-
 @property(nonatomic,strong)NSString *logMessage;
 
 @property(nonatomic,strong)UIButton *commentButton;
 
-@property(nonatomic,strong)YFInputBar *commentField;
+@property( nonatomic,strong)NSString *currentPlaySid;
 @end
 
 @implementation PlayerViewController
@@ -83,16 +81,6 @@
     [self.view addSubview:_backImageView];
     UIImage *image = [UIImage imageNamed:[self.backImageArray objectAtIndex:currentBackImageIndex]];
     [self.backImageView setImage:image];
-//     __weak typeof(self) weakSelf = self;
-//    if ([SongInfo currentSong].picture && [SongInfo currentSong].picture.length >3) {
-//        [_backImageView setImageWithURL:[NSURL URLWithString:[SongInfo currentSong].picture] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-//            if (image) {
-//                [weakSelf.backImageView setImage:[Tool blurryImage:image withBlurLevel:0.3]];
-//            }
-//            
-//        } usingActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-//    }
-
     
     self.bbar = [[UINavigationBar alloc] init];
     _bbar.frame = CGRectMake(0, self.view.frame.size.height-80, self.view.frame.size.width, 80);
@@ -101,11 +89,13 @@
     [self.view addSubview:nav];
     [self.view addSubview:_bbar];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(upDateTitle) name:@"PlayerViewUpdate" object:nil];
+
     
     [self addG];
     [self initButton];
     [self fireTimer];
+    
+    _currentPlaySid = [SongInfo currentSong].sid;
 }
 - (void)fireTimer{
     [self invalidateTimer];
@@ -194,9 +184,6 @@
     [self updatePlayImage:[SongInfo currentSong].picture];
     
 }
--(void)inputBar:(YFInputBar*)inputBar sendBtnPress:(UIButton*)sendBtn withInputString:(NSString*)str{
-    _commentField.hidden = YES;
-}
 -(void)play{
     AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     if (_isPlay) {
@@ -216,6 +203,7 @@
     }
 }
 -(void)next{
+    [self invalidateTimer];
     ChannelInfo *info = [ChannelInfo currentChannel];
     if (info) {
         [NetFm playBillWithChannelId:info.ID withType:@"n" completionHandler:^(NSError *error, NSArray *playBills) {
@@ -228,19 +216,18 @@
                     if ([delegate.playList count] != 0) {
                         [SongInfo setCurrentSongIndex:0];
                         [SongInfo setCurrentSong:[delegate.playList objectAtIndex:[SongInfo currentSongIndex]]];
+                        _currentPlaySid = [SongInfo currentSong].sid;
                         [delegate.player setContentURL:[NSURL URLWithString:[SongInfo currentSong].url]];
                         [delegate.player play];
+                        [weakSelf fireTimer];
                         [delegate.playView upDatePlayButton:YES];
                         [delegate.playView upDatePlayImage:[SongInfo currentSong].picture];
                         
                         _isPlay = YES;
                         [_playButton setImage:[UIImage imageNamed:@"player_btn_pause_highlight"] forState:UIControlStateNormal];
                         [_playButton setImage:[UIImage imageNamed:@"player_btn_pause_normal"] forState:UIControlStateHighlighted];
-                        [delegate.playView upDatePlayButton:YES];
-                        
-                        
-                        weakSelf.artistLabel.text = [SongInfo currentSong].artist;
-                        weakSelf.titleLable.text = [SongInfo currentSong].title;
+   
+
                         [weakSelf updatePlayImage:[SongInfo currentSong].picture];
                         
                     }
@@ -253,18 +240,20 @@
 -(void)commentClickButton{
 }
 -(void)updatePlayImage:(NSString*)url{
-     [_playImageView setImageWithURL:[NSURL URLWithString:url] placeholderImage:nil usingActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    if (url && url.length > 0) {
+        [_playImageView setImageWithURL:[NSURL URLWithString:url] placeholderImage:nil usingActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    }
 }
 -(void)transformRotatePlayImage{
+    if (![_currentPlaySid isEqualToString:[SongInfo currentSong].sid]) {
+        _currentPlaySid = [SongInfo currentSong].sid;
+        [self updatePlayImage:[SongInfo currentSong].picture];
+    }
+    self.artistLabel.text = [SongInfo currentSong].artist;
+    self.titleLable.text = [SongInfo currentSong].title;
     _playImageView.transform = CGAffineTransformRotate(_playImageView.transform, M_PI / 1440);
 }
--(void)upDateTitle{
-    __weak typeof(self) weakSelf = self;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        weakSelf.artistLabel.text = [SongInfo currentSong].artist;
-        weakSelf.titleLable.text = [SongInfo currentSong].title;
-    });
-}
+
 - (void)handleSwipes:(UISwipeGestureRecognizer *)sender
 {
     if (sender.direction == UISwipeGestureRecognizerDirectionLeft) {

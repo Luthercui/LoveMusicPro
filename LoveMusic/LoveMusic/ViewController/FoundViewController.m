@@ -90,14 +90,9 @@
     }
     ChannelInfo *info = [_dataArray objectAtIndex:indexPath.row];
     cell.textLabel.text = info.name;
-    //35.199.125  8 129 181
-    if (self.currentPlayIndex == indexPath.row) {
-        cell.textLabel.textColor = [UIColor colorWithRed:8.0/255.0 green:129.0/255.0 blue:181.0/255.0 alpha:1.0];
-        cell.backgroundColor =  [Tool colorWithHexColorString:@"f5f5f5"];
-    }else{
-        cell.textLabel.textColor = [UIColor colorWithRed:35.0/255.0 green:199.0/255.0 blue:125.0/255.0 alpha:1.0];
-        cell.backgroundColor =  [Tool colorWithHexColorString:@"fafafa"];
-    }
+    cell.textLabel.textColor = [UIColor colorWithRed:35.0/255.0 green:199.0/255.0 blue:125.0/255.0 alpha:1.0];
+    cell.backgroundColor =  [Tool colorWithHexColorString:@"fafafa"];
+    
     return cell;
 }
 
@@ -130,7 +125,6 @@
                 }
             }
         }];
-        [self.tableView reloadData];
     }
 }
 

@@ -76,6 +76,13 @@
 -(void)upDatePlayImage:(NSString*)imageUrl{
     
     dispatch_async(dispatch_get_main_queue(), ^{
+        
+        if (!_isPaly) {
+            _isPaly = YES;
+            [_playButton setImage:[UIImage imageNamed:@"player_btn_pause_highlight"] forState:UIControlStateNormal];
+            [_playButton setImage:[UIImage imageNamed:@"player_btn_pause_normal"] forState:UIControlStateHighlighted];
+        }
+        
         [_palyImageView setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:nil usingActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
         _playerInfoLabel.text = [SongInfo currentSong].artist;
         _titleLabel.text = [SongInfo currentSong].title ;

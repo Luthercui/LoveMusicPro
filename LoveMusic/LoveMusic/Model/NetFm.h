@@ -101,14 +101,16 @@ http://www.zhiyurencai.cn/music/api/category_album/comic/1/20
  http://www.fddcn.cn/music-api-wang-yi-bai-du.html*/
 +(void)getSongListWith:(NSInteger)type
               withPage:(NSInteger)page
+          withPageSize:(NSInteger)pageSize
             completionHandler:(void (^)(NSError *error, NSArray *songListModelArray))completionHandler;
 
 
 //////////////////
 +(void)getRecommendAlbumCompletionHandler:(void (^)(NSError *error, NSArray *songDicArray))completionHandler;
 
-+(void)getSongRecommendAlbumListWithPageSize:(NSInteger)pageSize
-              withPage:(NSInteger)page
++(void)getSongAlbumListWithPageSize:(NSInteger)pageSize
+                                    withPage:(NSInteger)page
+                                    withType:(NSString*)Type
      completionHandler:(void (^)(NSError *error, NSArray *songDicArray))completionHandler;
 
 @end

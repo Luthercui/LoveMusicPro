@@ -9,4 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface RecommendSongListViewController : UIViewController
+
+-(void)requestSongList:(NSInteger)type;
 @end

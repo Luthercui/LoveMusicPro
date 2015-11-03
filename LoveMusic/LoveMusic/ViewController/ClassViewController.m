@@ -8,22 +8,19 @@
 
 #import "ClassViewController.h"
 #import "FoundViewController.h"
+#import "RecommendSongListViewController.h"
 @interface ClassViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic ,strong) UITableView *tableView;
 @property (nonatomic ,strong) NSArray   *dataArray;
 @end
 
 @implementation ClassViewController
-/*
- type: //1、新歌榜，2、热歌榜，
- 11、摇滚榜，12、爵士，16、流行
- 21、欧美金曲榜，22、经典老歌榜，23、情歌对唱榜，24、影视金曲榜，25、网络歌曲榜
- */
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
-    _dataArray = [[NSArray alloc] initWithObjects:@"新歌榜",@"热歌榜",@"摇滚榜",@"爵士",@"流行",@"欧美金曲榜",@"经典老歌榜", @"情歌对唱榜", @"网络歌曲榜", @"网络FM",@"有声小说",@"综艺娱乐",@"相声评书",@"情感生活",nil];
+    _dataArray = [[NSArray alloc] initWithObjects:@"热歌榜",@"摇滚榜",@"爵士",@"流行",@"欧美金曲榜",@"经典老歌榜", @"情歌对唱榜", @"网络歌曲榜", @"网络FM",@"有声小说",@"综艺娱乐",@"相声评书",@"情感生活",nil];
     self.tableView = [[UITableView alloc] init];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -82,58 +79,89 @@
 }
 
 #pragma mark - UITableView Delegate
-
+/*
+ type: //1、新歌榜，2、热歌榜，
+ 11、摇滚榜，12、爵士，16、流行
+ 21、欧美金曲榜，22、经典老歌榜，23、情歌对唱榜，24、影视金曲榜，25、网络歌曲榜
+ */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0:
         {
+            RecommendSongListViewController *recommend = [[RecommendSongListViewController alloc] init];
+            [recommend setTitle:@"热歌榜"];
+            [self.navigationController pushViewController:recommend animated:YES];
+            [recommend requestSongList:2];
         }
             break;
         case 1:
         {
+            RecommendSongListViewController *recommend = [[RecommendSongListViewController alloc] init];
+            [recommend setTitle:@"摇滚榜"];
+            [self.navigationController pushViewController:recommend animated:YES];
+            [recommend requestSongList:11];
         }
             break;
         case 2:
         {
+            RecommendSongListViewController *recommend = [[RecommendSongListViewController alloc] init];
+            [recommend setTitle:@"爵士"];
+            [self.navigationController pushViewController:recommend animated:YES];
+            [recommend requestSongList:12];
         }
             break;
         case 3:
         {
+            RecommendSongListViewController *recommend = [[RecommendSongListViewController alloc] init];
+            [recommend setTitle:@"流行"];
+            [self.navigationController pushViewController:recommend animated:YES];
+            [recommend requestSongList:16];
         }
             break;
         case 4:
         {
+            RecommendSongListViewController *recommend = [[RecommendSongListViewController alloc] init];
+             [recommend setTitle:@"欧美金曲榜"];
+            [self.navigationController pushViewController:recommend animated:YES];
+            [recommend requestSongList:21];
         }
             break;
         case 5:
         {
+            RecommendSongListViewController *recommend = [[RecommendSongListViewController alloc] init];
+             [recommend setTitle:@"经典老歌榜"];
+            [self.navigationController pushViewController:recommend animated:YES];
+            [recommend requestSongList:22];
         }
             break;
         case 6:
         {
+            RecommendSongListViewController *recommend = [[RecommendSongListViewController alloc] init];
+             [recommend setTitle:@"情歌对唱榜"];
+            [self.navigationController pushViewController:recommend animated:YES];
+            [recommend requestSongList:23];
         }
             break;
         case 7:
         {
+            RecommendSongListViewController *recommend = [[RecommendSongListViewController alloc] init];
+             [recommend setTitle:@"网络歌曲榜"];
+            [self.navigationController pushViewController:recommend animated:YES];
+            [recommend requestSongList:24];
         }
             break;
         case 8:
         {
+            FoundViewController *found = [[FoundViewController alloc] init];
+            [self.navigationController pushViewController:found animated:YES];
         }
             break;
         case 9:
         {
-            FoundViewController *found = [[FoundViewController alloc] init];
-            [self.navigationController pushViewController:found animated:YES];
+
             
         }
             break;
-        case 10:
-        {
-            
-        }
-            break;
-            
         default:
             break;
     }

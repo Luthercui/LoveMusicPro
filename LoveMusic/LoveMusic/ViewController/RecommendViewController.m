@@ -58,23 +58,17 @@
     _activityIndicatorView.hidesWhenStopped = YES;
     [self.view addSubview:_activityIndicatorView];
     [_activityIndicatorView startAnimating];
-    [NetFm getSongListWith:1 withPage:0 completionHandler:^(NSError *error, NSArray *songListModelArray) {
+    [NetFm getSongListWith:1 withPage:0   withPageSize:40 completionHandler:^(NSError *error, NSArray *songListModelArray) {
         
         
         if (songListModelArray) {
             [_dataArray addObjectsFromArray:songListModelArray];
-            [NetFm getSongListWith:2 withPage:1 completionHandler:^(NSError *error, NSArray *songListModelArray) {
-                if (songListModelArray) {
-                    [_dataArray addObjectsFromArray:songListModelArray];
-                    __weak typeof(self) weakSelf = self;
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        [_activityIndicatorView stopAnimating];
-                        [weakSelf.tableView reloadData];
-                        
-                    });
-                }
-            }];
-
+            __weak typeof(self) weakSelf = self;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [_activityIndicatorView stopAnimating];
+                [weakSelf.tableView reloadData];
+                
+            });
         }else{
             [_activityIndicatorView stopAnimating];
         }

@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SVPullToRefreshImprove.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>UIActivityIndicator-for-SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>15EBB5835E40BED6D0DB435C94511330</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>410B25DF16EA5C5B3E2698F74F9625FB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>88C2DFDBDED1423E88CE9A35D43DEDE9</key>
+		<key>994782B3E0230A85BD1BE3CBD27D2805</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A9CDE49035C21EE31000095B68FD9B1B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>AF4B06354A55CE9E0B89D839A9A5F13C</key>
+		<key>9B393924201B08C4403C0E8CFD520644</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>D54AB3ECEB9A8FBA15D4F73CBE326692</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F24099388CC5D0785778AC4F71B35968</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -131,6 +131,7 @@
 -(void)moviePlayerPlaybackStateDidChangeNotification:(NSNotification*)not{
     if (self.player && self.player.playbackState == MPMoviePlaybackStatePlaying) {
         [self fireTimer];
+        [self.playView upDatePlayButton:YES];
     }else{
         [self invalidateTimer];
     }
@@ -158,10 +159,13 @@
     }
 }
 -(void)playTocuhs{
-    PlayerViewController *viewController = [[PlayerViewController alloc] init];
-    viewController.view.backgroundColor = [UIColor whiteColor];
-    [twitterPaggingViewer presentViewController:viewController animated:YES completion:^{
-    }];
+    
+    if (self.player && self.player.playbackState == MPMoviePlaybackStatePlaying) {
+        PlayerViewController *viewController = [[PlayerViewController alloc] init];
+        viewController.view.backgroundColor = [UIColor whiteColor];
+        [twitterPaggingViewer presentViewController:viewController animated:YES completion:^{
+        }];
+    }
 }
 -(void)musicToPlay{
     [self.player play];

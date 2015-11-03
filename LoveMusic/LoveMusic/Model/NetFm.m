@@ -122,7 +122,7 @@
                         NSDictionary * data = [dictionary objectForKey:@"data"];
                         NSArray * songList = [data objectForKey:@"songList"];
                         for (NSDictionary * sub in songList) {
-                            song.url = [sub objectForKey:@"songLink"];
+                            song.url = [sub objectForKey:@"showLink"];
                             song.title = [sub objectForKey:@"songName"];
                             song.picture = [sub objectForKey:@"songPicBig"];
                             song.length = [[sub objectForKey:@"time"] stringValue];
@@ -158,9 +158,10 @@
 }
 +(void)getSongListWith:(NSInteger)type
               withPage:(NSInteger)page
+              withPageSize:(NSInteger)pageSize
      completionHandler:(void (^)(NSError *error, NSArray *songListModelArray))completionHandler{
     
-    NSString *urlWithString = [NSString stringWithFormat:@"http://tingapi.ting.baidu.com/v1/restserver/ting?from=ios&version=2.4.0&method=baidu.ting.billboard.billList&format=json&type=%ld&offset=%ld&limits=40",(long)type,(long)page];
+    NSString *urlWithString = [NSString stringWithFormat:@"http://tingapi.ting.baidu.com/v1/restserver/ting?from=ios&version=2.4.0&method=baidu.ting.billboard.billList&format=json&type=%ld&offset=%ld&limits=%ld",(long)type,(long)page,(long)pageSize];
     
     AFHTTPRequestOperationManager *manager =  [AFHTTPRequestOperationManager manager];
     [manager GET:urlWithString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -268,11 +269,12 @@
     }];
     [vodtask resume];
 }
-
-+(void)getSongRecommendAlbumListWithPageSize:(NSInteger)pageSize
-                                    withPage:(NSInteger)page
-                           completionHandler:(void (^)(NSError *error, NSArray *songDicArray))completionHandler{
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.zhiyurencai.cn/music/api/tracks/316141/%ld/%ld",(long)page,(long)pageSize]];
+// http://www.zhiyurencai.cn/music/api/category_album/book/1/20
++(void)getSongAlbumListWithPageSize:(NSInteger)pageSize
+                           withPage:(NSInteger)page
+                           withType:(NSString*)Type
+                  completionHandler:(void (^)(NSError *error, NSArray *songDicArray))completionHandler{
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.zhiyurencai.cn/music/api/category_album/%@/%ld/%ld",Type,(long)page,(long)pageSize]];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0f];
     

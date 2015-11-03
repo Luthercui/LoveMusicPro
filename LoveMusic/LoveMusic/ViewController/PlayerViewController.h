@@ -9,4 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface PlayerViewController : UIViewController
+-(void)updatePlayImage:(NSString*)url;
 @end

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Accelerate/Accelerate.h>
+#import "SVPullToRefresh.h"
 @interface Tool : NSObject
 +(UIImage *)blurryImage:(UIImage *)image withBlurLevel:(CGFloat)blur;
 
