@@ -103,7 +103,7 @@
     return YES;
 }
 -(void)initLib{
-    [MobClick startWithAppkey:@"55af9294e0f55a5ac1001f11" reportPolicy:BATCH channelId:@"App Store"];
+    [MobClick startWithAppkey:@"56388066e0f55ae3da001336" reportPolicy:BATCH channelId:@"App Store"];
 }
 -(void)initplayer{
     static dispatch_once_t onceToken;

@@ -114,7 +114,7 @@
     
     if (!cell) {
         cell = [[RecommendTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellIdentifier"];
-        cell.selectionStyle =  UITableViewCellSelectionStyleNone;
+        //cell.selectionStyle =  UITableViewCellSelectionStyleNone;
     }
     NSDictionary *info = [_dataArray objectAtIndex:indexPath.row];
     cell.titleLabel.text = info[@"title"];
