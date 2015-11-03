@@ -139,7 +139,7 @@
     [logging appendAttributedString:attributedMessage];
     return logging;
 }
--(void)showNoNetAlrtView{
++(void)showNoNetAlrtView{
     UIAlertView *arertView = [[UIAlertView alloc] initWithTitle:@"" message:@"无网络连接，请检查网络" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
     [arertView show];
 }
