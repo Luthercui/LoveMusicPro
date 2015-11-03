@@ -33,6 +33,8 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"bt_back_press"] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
+    
     self.tableView = [[UITableView alloc] init];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -48,6 +50,9 @@
     self.currentPlayIndex = -1;
     [self addConstraints];
     [self requestFm];
+}
+-(void)back{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 -(void)requestFm{
     [_activityIndicatorView startAnimating];
@@ -110,6 +115,10 @@
         self.currentPlayIndex = indexPath.row;
         ChannelInfo *info = [_dataArray objectAtIndex:indexPath.row];
         [ChannelInfo updateCurrentCannel:info];
+        if ([[AFNetworkReachabilityManager sharedManager] networkReachabilityStatus] == AFNetworkReachabilityStatusNotReachable) {
+            [Tool showNoNetAlrtView];
+            return;
+        }
         [NetFm playBillWithChannelId:info.ID withType:@"n" completionHandler:^(NSError *error, NSArray *playBills) {
             if (playBills) {
                 AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;

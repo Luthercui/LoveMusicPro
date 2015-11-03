@@ -91,6 +91,7 @@
 -(void)play{
 
     if (!_isPaly) {
+        _isPaly = YES;
         [_playButton setImage:[UIImage imageNamed:@"player_btn_pause_highlight"] forState:UIControlStateNormal];
         [_playButton setImage:[UIImage imageNamed:@"player_btn_pause_normal"] forState:UIControlStateHighlighted];
             if(_playDelegate && [_playDelegate respondsToSelector:@selector(musicToPlay)])
@@ -98,6 +99,7 @@
                 [_playDelegate musicToPlay];
             }
     }else{
+        _isPaly = NO;
         [_playButton setImage:[UIImage imageNamed:@"player_btn_play_highlight"] forState:UIControlStateNormal];
         [_playButton setImage:[UIImage imageNamed:@"player_btn_play_normal"] forState:UIControlStateHighlighted];
             if(_playDelegate && [_playDelegate respondsToSelector:@selector(musicToPause)])
@@ -105,7 +107,6 @@
                 [_playDelegate musicToPause];
             }
     }
-    _isPaly = !_isPaly;
 }
 -(void)transformRotatePlayImage{
     _palyImageView.transform = CGAffineTransformRotate(_palyImageView.transform, M_PI / 1440);

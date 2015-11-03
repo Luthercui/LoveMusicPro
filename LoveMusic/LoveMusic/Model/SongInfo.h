@@ -20,7 +20,7 @@
 @property (nonatomic) NSInteger type;//1 fm //2 百度 //3 自己
 @property (nonatomic) BOOL isPlaying;
 
-
+@property (nonatomic,strong)NSMutableArray *dataArray;
 
 - (instancetype) initWithDictionary:(NSDictionary *)dictionary;
 

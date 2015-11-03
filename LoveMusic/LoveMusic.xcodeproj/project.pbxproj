@@ -17,6 +17,7 @@
 		71F05DD61BE75F0400DF7304 /* RecommendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F05DD51BE75F0400DF7304 /* RecommendTableViewCell.m */; };
 		71F05DD91BE7659400DF7304 /* ClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F05DD81BE7659400DF7304 /* ClassViewController.m */; };
 		71F05E081BE8923700DF7304 /* AlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F05E071BE8923700DF7304 /* AlbumViewController.m */; };
+		71F05E211BE8A10600DF7304 /* AlbumListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F05E201BE8A10600DF7304 /* AlbumListViewController.m */; };
 		A7714CC21B6A621F00611808 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7714CC11B6A621F00611808 /* PlayerViewController.m */; };
 		A79F45961B60D733008D8A4B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A79F45951B60D733008D8A4B /* main.m */; };
 		A79F45991B60D733008D8A4B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A79F45981B60D733008D8A4B /* AppDelegate.m */; };
@@ -69,6 +70,8 @@
 		71F05DD81BE7659400DF7304 /* ClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassViewController.m; path = ViewController/ClassViewController.m; sourceTree = "<group>"; };
 		71F05E061BE8923700DF7304 /* AlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlbumViewController.h; path = ViewController/AlbumViewController.h; sourceTree = "<group>"; };
 		71F05E071BE8923700DF7304 /* AlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlbumViewController.m; path = ViewController/AlbumViewController.m; sourceTree = "<group>"; };
+		71F05E1F1BE8A10600DF7304 /* AlbumListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlbumListViewController.h; path = ViewController/AlbumListViewController.h; sourceTree = "<group>"; };
+		71F05E201BE8A10600DF7304 /* AlbumListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlbumListViewController.m; path = ViewController/AlbumListViewController.m; sourceTree = "<group>"; };
 		A7714CC01B6A621F00611808 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerViewController.h; path = ViewController/PlayerViewController.h; sourceTree = "<group>"; };
 		A7714CC11B6A621F00611808 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerViewController.m; path = ViewController/PlayerViewController.m; sourceTree = "<group>"; };
 		A79F45901B60D733008D8A4B /* LoveMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -278,6 +281,8 @@
 				71F05DD81BE7659400DF7304 /* ClassViewController.m */,
 				71F05E061BE8923700DF7304 /* AlbumViewController.h */,
 				71F05E071BE8923700DF7304 /* AlbumViewController.m */,
+				71F05E1F1BE8A10600DF7304 /* AlbumListViewController.h */,
+				71F05E201BE8A10600DF7304 /* AlbumListViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -441,6 +446,7 @@
 				A79F45991B60D733008D8A4B /* AppDelegate.m in Sources */,
 				A7DA05BE1BA9206E00C55B89 /* AssistiveTouch.m in Sources */,
 				A7DA05C01BA9206E00C55B89 /* NetFm.m in Sources */,
+				71F05E211BE8A10600DF7304 /* AlbumListViewController.m in Sources */,
 				71CB4AB51BD77B6900F30D10 /* AboutViewController.m in Sources */,
 				A7DA05BF1BA9206E00C55B89 /* ChannelInfo.m in Sources */,
 				71D8F9AA1BD4A1A90092C0A0 /* RecommendSongListViewController.m in Sources */,
@@ -578,6 +584,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/LoveMusic/LoveMusic_Prefix.pch";
 				INFOPLIST_FILE = LoveMusic/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -594,6 +601,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/LoveMusic/LoveMusic_Prefix.pch";
 				INFOPLIST_FILE = LoveMusic/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

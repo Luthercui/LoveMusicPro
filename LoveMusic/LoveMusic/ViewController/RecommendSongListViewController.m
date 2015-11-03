@@ -29,6 +29,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"bt_back_press"] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
+    
     _page = 0;
     _dataArray = [[NSMutableArray alloc] init];
     self.tableView = [[UITableView alloc] init];
@@ -46,6 +48,9 @@
     
      self.currentPlayIndex = -1;
     [self addConstraints];
+}
+-(void)back{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)addConstraints{
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_tableView]-0-|"
@@ -157,8 +162,12 @@
         
     }else{
         self.currentPlayIndex = indexPath.row;
-        [self.tableView reloadData];
         SongListModel *info = [_dataArray objectAtIndex:indexPath.row];
+        if ([[AFNetworkReachabilityManager sharedManager] networkReachabilityStatus] == AFNetworkReachabilityStatusNotReachable) {
+            [Tool showNoNetAlrtView];
+            return;
+        }
+        
         [NetFm getSongInformationWith:info.song_id completionHandler:^(NSError *error, SongInfo *songInfo) {
             if (songInfo) {
                 AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
@@ -169,7 +178,8 @@
                 [delegate.playView upDatePlayButton:YES];
                 [delegate.playView upDatePlayImage:[SongInfo currentSong].picture];
             }
-        }];    }
+        }];
+    }
 }
 
 @end

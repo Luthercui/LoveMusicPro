@@ -204,38 +204,54 @@
 }
 -(void)next{
     [self invalidateTimer];
-    ChannelInfo *info = [ChannelInfo currentChannel];
-    if (info) {
-        [NetFm playBillWithChannelId:info.ID withType:@"n" completionHandler:^(NSError *error, NSArray *playBills) {
-            if (playBills) {
-                __weak typeof(self) weakSelf = self;
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-                    [delegate.playList removeAllObjects];
-                    [delegate.playList addObjectsFromArray:playBills];
-                    if ([delegate.playList count] != 0) {
-                        [SongInfo setCurrentSongIndex:0];
-                        [SongInfo setCurrentSong:[delegate.playList objectAtIndex:[SongInfo currentSongIndex]]];
-                        _currentPlaySid = [SongInfo currentSong].sid;
-                        [delegate.player setContentURL:[NSURL URLWithString:[SongInfo currentSong].url]];
-                        [delegate.player play];
-                        [weakSelf fireTimer];
-                        [delegate.playView upDatePlayButton:YES];
-                        [delegate.playView upDatePlayImage:[SongInfo currentSong].picture];
-                        
-                        _isPlay = YES;
-                        [_playButton setImage:[UIImage imageNamed:@"player_btn_pause_highlight"] forState:UIControlStateNormal];
-                        [_playButton setImage:[UIImage imageNamed:@"player_btn_pause_normal"] forState:UIControlStateHighlighted];
-   
-
-                        [weakSelf updatePlayImage:[SongInfo currentSong].picture];
-                        
+    switch ([SongInfo currentSong].type) {
+        case 1:
+        {
+            ChannelInfo *info = [ChannelInfo currentChannel];
+            if (info) {
+                [NetFm playBillWithChannelId:info.ID withType:@"n" completionHandler:^(NSError *error, NSArray *playBills) {
+                    if (playBills) {
+                        __weak typeof(self) weakSelf = self;
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+                            [delegate.playList removeAllObjects];
+                            [delegate.playList addObjectsFromArray:playBills];
+                            if ([delegate.playList count] != 0) {
+                                [SongInfo setCurrentSongIndex:0];
+                                [SongInfo setCurrentSong:[delegate.playList objectAtIndex:[SongInfo currentSongIndex]]];
+                                _currentPlaySid = [SongInfo currentSong].sid;
+                                [delegate.player setContentURL:[NSURL URLWithString:[SongInfo currentSong].url]];
+                                [delegate.player play];
+                                [weakSelf fireTimer];
+                                [delegate.playView upDatePlayButton:YES];
+                                [delegate.playView upDatePlayImage:[SongInfo currentSong].picture];
+                                
+                                _isPlay = YES;
+                                [_playButton setImage:[UIImage imageNamed:@"player_btn_pause_highlight"] forState:UIControlStateNormal];
+                                [_playButton setImage:[UIImage imageNamed:@"player_btn_pause_normal"] forState:UIControlStateHighlighted];
+                                
+                                
+                                [weakSelf updatePlayImage:[SongInfo currentSong].picture];
+                                
+                            }
+                        });
                     }
-                });
+                }];
             }
-        }];
+        }
+            break;
+        case 2:
+        {
+        }
+            break;
+        case 3:
+        {
+        }
+            break;
+            
+        default:
+            break;
     }
-
 }
 -(void)commentClickButton{
 }

@@ -169,9 +169,11 @@
 }
 -(void)musicToPlay{
     [self.player play];
+    [self fireTimer];
 }
 -(void)musicToPause{
     [self.player pause];
+    [self invalidateTimer];
 }
 -(void)musicToNext{
 }

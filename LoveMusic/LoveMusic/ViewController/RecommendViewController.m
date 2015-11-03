@@ -123,7 +123,12 @@
         
     }else{
         self.currentPlayIndex = indexPath.row;
-        [self.tableView reloadData];
+        
+        if ([[AFNetworkReachabilityManager sharedManager] networkReachabilityStatus] == AFNetworkReachabilityStatusNotReachable) {
+            [Tool showNoNetAlrtView];
+            return;
+        }
+      
         SongListModel *info = [_dataArray objectAtIndex:indexPath.row];
         [NetFm getSongInformationWith:info.song_id completionHandler:^(NSError *error, SongInfo *songInfo) {
             if (songInfo) {

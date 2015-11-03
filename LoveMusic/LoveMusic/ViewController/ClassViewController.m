@@ -9,6 +9,7 @@
 #import "ClassViewController.h"
 #import "FoundViewController.h"
 #import "RecommendSongListViewController.h"
+#import "AlbumViewController.h"
 @interface ClassViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic ,strong) UITableView *tableView;
 @property (nonatomic ,strong) NSArray   *dataArray;
@@ -158,8 +159,38 @@
             break;
         case 9:
         {
+            AlbumViewController *album = [[AlbumViewController alloc] init];
+            [album setTitle:@"有声小说"];
+            [self.navigationController pushViewController:album animated:YES];
+            [album requestSongList:@"book"];
 
+        }
+            break;
+        case 10:
+        {
+            AlbumViewController *album = [[AlbumViewController alloc] init];
+            [album setTitle:@"综艺娱乐"];
+            [self.navigationController pushViewController:album animated:YES];
+            [album requestSongList:@"entertainment"];
             
+        }
+            break;
+        case 11:
+        {
+            AlbumViewController *album = [[AlbumViewController alloc] init];
+             [album setTitle:@"相声评书"];
+            [self.navigationController pushViewController:album animated:YES];
+            [album requestSongList:@"comic"];
+            
+        }
+            break;
+        case 12:
+        {
+            
+            AlbumViewController *album = [[AlbumViewController alloc] init];
+            [album setTitle:@"情感生活"];
+            [self.navigationController pushViewController:album animated:YES];
+            [album requestSongList:@"emotion"];
         }
             break;
         default:

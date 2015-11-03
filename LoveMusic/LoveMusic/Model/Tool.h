@@ -17,4 +17,5 @@
 +(UIColor *)colorWithHexColorString:(NSString *)hexColorString;
 
 + (NSString *)totalTimeText:(CGFloat)totalTime;
++(void)showNoNetAlrtView;
 @end
