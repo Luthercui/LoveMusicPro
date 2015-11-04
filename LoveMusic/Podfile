@@ -11,3 +11,5 @@ pod 'UMengAnalyticsSDK', '~> 3.6.5'
 pod 'MagicalRecord', '~> 2.3.0'
 
 pod 'SVPullToRefreshImprove', '~> 0.5'
+
+pod 'BABAudioPlayer', '~> 0.1.0'

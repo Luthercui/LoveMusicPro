@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "MobClick.h"
-#import <AVFoundation/AVFoundation.h>
 #import "RecommendViewController.h"
 #import "FoundViewController.h"
 #import "MeViewController.h"
@@ -38,24 +37,10 @@
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-//    
-//    RecommendViewController *recommendVc = [[RecommendViewController alloc] init];
-//    FoundViewController *foundVc = [[FoundViewController alloc] init];
-//    MeViewController *meVc = [[MeViewController alloc] init];
-//    BaseNavigationController *recommend = [[BaseNavigationController alloc] initWithRootViewController:recommendVc];
-//    UINavigationController *found = [[UINavigationController alloc] initWithRootViewController:foundVc];
-//    UINavigationController *me = [[UINavigationController alloc] initWithRootViewController:meVc];
-//    tabBarController = [[UITabBarController alloc] init];
-//    tabBarController.viewControllers = @[recommend,found,me];
-//    [self.window setRootViewController:tabBarController];
-//    
-//    
+    
     twitterPaggingViewer = [[XHTwitterPaggingViewer alloc] init];
-    
     NSMutableArray *viewControllers = [[NSMutableArray alloc] initWithCapacity:7];
-    
     NSArray *titles = @[@"推荐音乐", @"分类音乐", @"我的"];
-    
     [titles enumerateObjectsUsingBlock:^(NSString *title, NSUInteger idx, BOOL *stop) {
         switch (idx) {
             case 0:
@@ -84,21 +69,14 @@
                 break;
         }
     }];
-    
-    
     twitterPaggingViewer.viewControllers = viewControllers;
-    
     twitterPaggingViewer.didChangedPageCompleted = ^(NSInteger cuurentPage, NSString *title) {
         // NSLog(@"cuurentPage : %ld on title : %@", (long)cuurentPage, title);
     };
-    
-    
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:twitterPaggingViewer];
-    
     
     [self initLib];
     [self initplayer];
-    
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -108,6 +86,7 @@
 -(void)initplayer{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        
         _player = [[MPMoviePlayerController alloc]init];
         _playList = [NSMutableArray array];
         
@@ -132,6 +111,7 @@
     if (self.player && self.player.playbackState == MPMoviePlaybackStatePlaying) {
         [self fireTimer];
         [self.playView upDatePlayButton:YES];
+        [self configNowPlayingInfoCenter];
     }else{
         [self invalidateTimer];
     }
@@ -241,6 +221,17 @@
         _kTimer = nil;
     }
 }
+//设置锁屏状态，显示的歌曲信息
+-(void)configNowPlayingInfoCenter{
+    if (NSClassFromString(@"MPNowPlayingInfoCenter")) {
+        NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+        //歌曲名称
+        [dict setObject:[SongInfo currentSong].title forKey:MPMediaItemPropertyTitle];
+        //设置锁屏状态下屏幕显示播放音乐信息
+        [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:dict];
+    }
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

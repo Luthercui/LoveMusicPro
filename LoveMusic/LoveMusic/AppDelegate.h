@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MediaPlayer/MediaPlayer.h>
 #import "PlayView.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

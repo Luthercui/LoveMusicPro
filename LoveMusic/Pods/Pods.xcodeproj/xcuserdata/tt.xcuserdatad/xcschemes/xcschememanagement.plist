@@ -9,6 +9,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>BABAudioPlayer-BABAudioPlayer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>BABAudioPlayer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MagicalRecord.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,32 +47,42 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>15EBB5835E40BED6D0DB435C94511330</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>410B25DF16EA5C5B3E2698F74F9625FB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>994782B3E0230A85BD1BE3CBD27D2805</key>
+		<key>42A81CAC06379943E2F82F99BE65CCB9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9B393924201B08C4403C0E8CFD520644</key>
+		<key>4A38DED565E95D1F969EAADC2D6AF569</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4E64D9B26B03A12553229E58CC9502EE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A2C916DC48574858AA8A80EFE77A3D27</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AD6ADF453750FCF5F1E14A48CA9DDDEE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D523C6BF3DC951D3A0F7EEABB6ACD450</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>D54AB3ECEB9A8FBA15D4F73CBE326692</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F24099388CC5D0785778AC4F71B35968</key>
 		<dict>
 			<key>primary</key>
 			<true/>

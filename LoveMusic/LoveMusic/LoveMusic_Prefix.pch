@@ -15,4 +15,6 @@
 
 #import "Tool.h"
 #import <AFNetworking/AFNetworking.h>
+#import <MediaPlayer/MediaPlayer.h>
+#import <AVFoundation/AVFoundation.h>
 #endif /* LoveMusic_Prefix_pch */
