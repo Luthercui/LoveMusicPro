@@ -170,13 +170,9 @@
         [SongInfo currentSong].dataArray = self.dataArray;
         [NetFm getSongInformationWith:info.song_id completionHandler:^(NSError *error, SongInfo *songInfo) {
             if (songInfo) {
-                AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
                 [SongInfo setCurrentSongIndex:0];
                 [SongInfo setCurrentSong:songInfo];
-                [delegate.player setContentURL:[NSURL URLWithString:[SongInfo currentSong].url]];
-                [delegate.player play];
-                [delegate.playView upDatePlayButton:YES];
-                [delegate.playView upDatePlayImage:[SongInfo currentSong].picture];
+                [Tool toPlaySong];
             }
         }];
     }

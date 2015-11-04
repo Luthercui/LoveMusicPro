@@ -17,4 +17,9 @@
 #import <AFNetworking/AFNetworking.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
+
+#import <BABAudioPlayer.h>
+#import <BABAudioUtilities.h>
+#import "BABAudioItem.h"
+#import "SongInfo.h"
 #endif /* LoveMusic_Prefix_pch */

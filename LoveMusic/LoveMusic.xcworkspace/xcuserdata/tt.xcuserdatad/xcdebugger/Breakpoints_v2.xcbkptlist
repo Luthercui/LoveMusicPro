@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LoveMusic/AppDelegate.m"
-            timestampString = "468296046.529367"
+            timestampString = "468313979.128517"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "229"
-            endingLineNumber = "229"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
             landmarkName = "-configNowPlayingInfoCenter"
             landmarkType = "5">
          </BreakpointContent>

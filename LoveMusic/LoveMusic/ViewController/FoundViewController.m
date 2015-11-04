@@ -127,10 +127,8 @@
                 if ([delegate.playList count] != 0) {
                     [SongInfo setCurrentSongIndex:0];
                     [SongInfo setCurrentSong:[delegate.playList objectAtIndex:[SongInfo currentSongIndex]]];
-                    [delegate.player setContentURL:[NSURL URLWithString:[SongInfo currentSong].url]];
-                    [delegate.player play];
-                    [delegate.playView upDatePlayButton:YES];
-                    [delegate.playView upDatePlayImage:[SongInfo currentSong].picture];
+     
+                   [Tool toPlaySong];
                 }
             }
         }];

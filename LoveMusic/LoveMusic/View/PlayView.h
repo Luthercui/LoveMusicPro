@@ -11,16 +11,13 @@
 @interface PlayView : UIView
 @property(nonatomic,unsafe_unretained)id<PlayTouchDelegate> playDelegate;
 -(void)upDatePlayButton:(BOOL)isPlay;
--(void)upDatePlayImage:(NSString*)imageUrl;
 -(void)transformRotatePlayImage;
+-(void)fireTimer;
+-(void)invalidateTimer;
 @end
-
 
 @protocol PlayTouchDelegate <NSObject>
 @optional
 
 -(void)playTocuhs;
--(void)musicToPlay;
--(void)musicToPause;
--(void)musicToNext;
 @end

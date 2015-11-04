@@ -10,7 +10,7 @@
 #import "SongInfo.h"
 #import "AppDelegate.h"
 #import <UIActivityIndicator-for-SDWebImage/UIImageView+UIActivityIndicatorForSDWebImage.h>
-@interface PlayView(){
+@interface PlayView()<BABAudioPlayerDelegate>{
     BOOL  _isPaly;
 }
 @property(nonatomic,strong)UIImageView *palyImageView;
@@ -18,6 +18,7 @@
 @property(nonatomic,strong)UILabel *playerInfoLabel;
 @property(nonatomic,strong)UILabel *titleLabel;
 @property(nonatomic,strong)UILabel *playProgress;
+@property(nonatomic, strong) NSTimer *kTimer;
 @end
 
 @implementation PlayView
@@ -64,16 +65,13 @@
         self.playProgress = [[UILabel alloc] initWithFrame:CGRectZero];
         _playProgress.backgroundColor = [UIColor colorWithRed:8.0/255.0 green:129.0/255.0 blue:181.0/255.0 alpha:1.0];
         [self addSubview:_playProgress];
-        
-        
-        
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(click:)];
         [self addGestureRecognizer:tap];
         
     }
     return self;
 }
--(void)upDatePlayImage:(NSString*)imageUrl{
+-(void)upDatePlayImage{
     
     dispatch_async(dispatch_get_main_queue(), ^{
         
@@ -83,7 +81,7 @@
             [_playButton setImage:[UIImage imageNamed:@"player_btn_pause_normal"] forState:UIControlStateHighlighted];
         }
         
-        [_palyImageView setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:nil usingActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+        [_palyImageView setImageWithURL:[NSURL URLWithString:[SongInfo currentSong].picture] placeholderImage:nil usingActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
         _playerInfoLabel.text = [SongInfo currentSong].artist;
         _titleLabel.text = [SongInfo currentSong].title ;
     });
@@ -94,31 +92,24 @@
         _isPaly = YES;
         [_playButton setImage:[UIImage imageNamed:@"player_btn_pause_highlight"] forState:UIControlStateNormal];
         [_playButton setImage:[UIImage imageNamed:@"player_btn_pause_normal"] forState:UIControlStateHighlighted];
-            if(_playDelegate && [_playDelegate respondsToSelector:@selector(musicToPlay)])
-            {
-                [_playDelegate musicToPlay];
-            }
+        [[BABAudioPlayer sharedPlayer] play];
     }else{
         _isPaly = NO;
         [_playButton setImage:[UIImage imageNamed:@"player_btn_play_highlight"] forState:UIControlStateNormal];
         [_playButton setImage:[UIImage imageNamed:@"player_btn_play_normal"] forState:UIControlStateHighlighted];
-            if(_playDelegate && [_playDelegate respondsToSelector:@selector(musicToPause)])
-            {
-                [_playDelegate musicToPause];
-            }
+        [[BABAudioPlayer sharedPlayer] pause];
     }
 }
 -(void)transformRotatePlayImage{
     _palyImageView.transform = CGAffineTransformRotate(_palyImageView.transform, M_PI / 1440);
-    AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    float currentPlayPorgress = delegate.player.currentPlaybackTime/delegate.player.duration;
+    float currentPlayPorgress = [BABAudioPlayer sharedPlayer].timeElapsed/[BABAudioPlayer sharedPlayer].duration;
     float progressw = self.frame.size.width*currentPlayPorgress;
     if (!isnan(progressw)) {
         self.playProgress.frame = CGRectMake(0, self.frame.size.height-2, progressw, 4);
     }
 }
 -(void)upDatePlayButton:(BOOL)isPlay{
-
+    _isPaly = isPlay;
     if (!_isPaly) {
         [_playButton setImage:[UIImage imageNamed:@"player_btn_play_highlight"] forState:UIControlStateNormal];
         [_playButton setImage:[UIImage imageNamed:@"player_btn_play_normal"] forState:UIControlStateHighlighted];
@@ -126,7 +117,6 @@
         [_playButton setImage:[UIImage imageNamed:@"player_btn_pause_highlight"] forState:UIControlStateNormal];
         [_playButton setImage:[UIImage imageNamed:@"player_btn_pause_normal"] forState:UIControlStateHighlighted];
     }
-    _isPaly = isPlay;
 }
 //点击事件
 -(void)click:(UITapGestureRecognizer*)t
@@ -136,6 +126,22 @@
         [_playDelegate playTocuhs];
     }
 
+}
+-(void)fireTimer{
+    [self invalidateTimer];
+    _kTimer = [NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(updateProgress) userInfo:nil repeats:YES];
+}
+-(void)updateProgress{
+    if ([BABAudioPlayer sharedPlayer].state == BABAudioPlayerStatePlaying) {
+        [self upDatePlayImage];
+        [self transformRotatePlayImage];
+    }
+}
+-(void)invalidateTimer{
+    if (_kTimer) {
+        [_kTimer invalidate];
+        _kTimer = nil;
+    }
 }
 /*
 // Only override drawRect: if you perform custom drawing.

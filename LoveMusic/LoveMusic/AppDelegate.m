@@ -87,14 +87,10 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         
-        _player = [[MPMoviePlayerController alloc]init];
-        _playList = [NSMutableArray array];
-        
-        NSNotificationCenter* notificationCenter = [NSNotificationCenter defaultCenter];
-        [notificationCenter addObserver:self selector:@selector(moviePlayerPreloadFinish) name:MPMoviePlayerPlaybackDidFinishNotification object:_player];
-        [notificationCenter addObserver:self selector:@selector(moviePlayerPlaybackStateDidChangeNotification:) name:MPMoviePlayerPlaybackStateDidChangeNotification object:_player];
-
-        
+        BABAudioPlayer *player = [BABAudioPlayer new];
+        player.allowsBackgroundAudio = YES;
+        [BABAudioPlayer setSharedPlayer:player];
+        [BABAudioPlayer sharedPlayer].delegate = self;
         //后台播放
         AVAudioSession *session = [AVAudioSession sharedInstance];
         [session setCategory:AVAudioSessionCategoryPlayback error:nil];
@@ -106,18 +102,47 @@
     [twitterPaggingViewer.navigationController.view bringSubviewToFront:_playView];
     
 }
-
--(void)moviePlayerPlaybackStateDidChangeNotification:(NSNotification*)not{
-    if (self.player && self.player.playbackState == MPMoviePlaybackStatePlaying) {
-        [self fireTimer];
-        [self.playView upDatePlayButton:YES];
-        [self configNowPlayingInfoCenter];
-    }else{
-        [self invalidateTimer];
+//BABAudioPlayerStateIdle,
+//BABAudioPlayerStateBuffering,
+//BABAudioPlayerStateWaiting,
+//BABAudioPlayerStatePlaying,
+//BABAudioPlayerStatePaused,
+//BABAudioPlayerStateStopped,
+//BABAudioPlayerStateScrubbing
+- (void)audioPlayer:(BABAudioPlayer *)player didChangeState:(BABAudioPlayerState)state{
+    switch (state) {
+        case BABAudioPlayerStatePlaying:
+        {
+            [self.playView upDatePlayButton:YES];
+            [self.playView fireTimer];
+        }
+            break;
+        case BABAudioPlayerStatePaused:
+        {
+            
+        }
+            break;
+        case BABAudioPlayerStateWaiting:
+        {
+            
+        }
+            break;
+        case BABAudioPlayerStateStopped:
+        {
+            [self.playView invalidateTimer];
+            
+        }
+            break;
+            
+        default:
+            break;
     }
 }
-
--(void)moviePlayerPreloadFinish{
+- (void)audioPlayer:(BABAudioPlayer *)player didBeginPlayingAudioItem:(BABAudioItem *)audioItem{
+    [self.playView fireTimer];
+}
+- (void)audioPlayer:(BABAudioPlayer *)player didFinishPlayingAudioItem:(BABAudioItem *)audioItem{
+    [self.playView invalidateTimer];
     switch ([SongInfo currentSong].type) {
         case 1:
         {
@@ -132,20 +157,19 @@
                             if ([weakSelf.playList count] != 0) {
                                 [SongInfo setCurrentSongIndex:0];
                                 [SongInfo setCurrentSong:[weakSelf.playList objectAtIndex:[SongInfo currentSongIndex]]];
-                                [weakSelf.player setContentURL:[NSURL URLWithString:[SongInfo currentSong].url]];
-                                [weakSelf.player play];
+                                [Tool toPlaySong];
                             }
                         });
                         
                     }
                 }];
             }
-       
+            
         }
             break;
         case 2:
         {
-
+            
             
         }
             break;
@@ -171,15 +195,14 @@
                     song.dataArray = [SongInfo currentSong].dataArray;
                     [SongInfo setCurrentSongIndex:0];
                     [SongInfo setCurrentSong:song];
-                    [self.player setContentURL:[NSURL URLWithString:[SongInfo currentSong].url]];
-                    [self.player play];
-                    [self.playView upDatePlayButton:YES];
-                    [self.playView upDatePlayImage:[SongInfo currentSong].picture];
+                    BABAudioItem *item = [[BABAudioItem alloc] initWithURL:[NSURL URLWithString:[SongInfo currentSong].url]];
+                    item.title = [SongInfo currentSong].title;
+                    [Tool toPlaySong];
                     
                     break;
                 }
             }
-
+            
             
         }
             break;
@@ -187,38 +210,24 @@
             break;
     }
 }
+-(void)moviePlayerPlaybackStateDidChangeNotification:(NSNotification*)not{
+//    if (self.player && self.player.playbackState == MPMoviePlaybackStatePlaying) {
+//        [self fireTimer];
+//        [self.playView upDatePlayButton:YES];
+//        [self configNowPlayingInfoCenter];
+//    }else{
+//        [self invalidateTimer];
+//    }
+}
+
+
 -(void)playTocuhs{
     
-    if (self.player && self.player.playbackState == MPMoviePlaybackStatePlaying) {
+    if ([BABAudioPlayer sharedPlayer].state == BABAudioPlayerStatePlaying) {
         PlayerViewController *viewController = [[PlayerViewController alloc] init];
         viewController.view.backgroundColor = [UIColor whiteColor];
         [twitterPaggingViewer presentViewController:viewController animated:YES completion:^{
         }];
-    }
-}
--(void)musicToPlay{
-    [self.player play];
-    [self fireTimer];
-}
--(void)musicToPause{
-    [self.player pause];
-    [self invalidateTimer];
-}
--(void)musicToNext{
-}
-- (void)fireTimer{
-    [self invalidateTimer];
-    _kTimer = [NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(updateProgress) userInfo:nil repeats:YES];
-}
--(void)updateProgress{
-    if (self.player && self.player.playbackState == MPMoviePlaybackStatePlaying) {
-        [self.playView transformRotatePlayImage];
-    }
-}
-- (void)invalidateTimer{
-    if (_kTimer) {
-        [_kTimer invalidate];
-        _kTimer = nil;
     }
 }
 //设置锁屏状态，显示的歌曲信息

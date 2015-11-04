@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "PlayView.h"
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,BABAudioPlayerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (nonatomic,strong) MPMoviePlayerController *player;
 @property (nonatomic,strong) NSMutableArray *playList;
 @property(nonatomic,strong) PlayView *playView;
 @end

@@ -143,4 +143,11 @@
     UIAlertView *arertView = [[UIAlertView alloc] initWithTitle:@"" message:@"无网络连接，请检查网络" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
     [arertView show];
 }
++(void)toPlaySong{
+    [[BABAudioPlayer sharedPlayer] stop];
+    BABAudioItem *item = [[BABAudioItem alloc] initWithURL:[NSURL URLWithString:[SongInfo currentSong].url]];
+    item.title = [SongInfo currentSong].title;
+    [[BABAudioPlayer sharedPlayer] queueItem:item];
+    [[BABAudioPlayer sharedPlayer] play];
+}
 @end

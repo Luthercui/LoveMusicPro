@@ -102,8 +102,7 @@
     _kTimer = [NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(updateProgress) userInfo:nil repeats:YES];
 }
 -(void)updateProgress{
-    AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    float currentPlayPorgress = delegate.player.currentPlaybackTime/delegate.player.duration;
+    float currentPlayPorgress = [BABAudioPlayer sharedPlayer].timeElapsed/[BABAudioPlayer sharedPlayer].duration;
     float progressw = self.view.frame.size.width*currentPlayPorgress;
     if (!isnan(progressw)) {
         self.playProgress.frame = CGRectMake(0, self.view.frame.size.height-85, progressw, 5);
@@ -191,14 +190,14 @@
         [_playButton setImage:[UIImage imageNamed:@"player_btn_play_highlight"] forState:UIControlStateNormal];
         [_playButton setImage:[UIImage imageNamed:@"player_btn_play_normal"] forState:UIControlStateHighlighted];
         [delegate.playView upDatePlayButton:NO];
-        [delegate.player pause];
+        [[BABAudioPlayer sharedPlayer] pause];
         [self invalidateTimer];
     }else{
         _isPlay = YES;
         [_playButton setImage:[UIImage imageNamed:@"player_btn_pause_highlight"] forState:UIControlStateNormal];
         [_playButton setImage:[UIImage imageNamed:@"player_btn_pause_normal"] forState:UIControlStateHighlighted];
         [delegate.playView upDatePlayButton:YES];
-        [delegate.player play];
+        [[BABAudioPlayer sharedPlayer] play];
         [self fireTimer];
     }
 }
@@ -220,12 +219,8 @@
                                 [SongInfo setCurrentSongIndex:0];
                                 [SongInfo setCurrentSong:[delegate.playList objectAtIndex:[SongInfo currentSongIndex]]];
                                 _currentPlaySid = [SongInfo currentSong].sid;
-                                [delegate.player setContentURL:[NSURL URLWithString:[SongInfo currentSong].url]];
-                                [delegate.player play];
+                                [Tool toPlaySong];
                                 [weakSelf fireTimer];
-                                [delegate.playView upDatePlayButton:YES];
-                                [delegate.playView upDatePlayImage:[SongInfo currentSong].picture];
-                                
                                 _isPlay = YES;
                                 [_playButton setImage:[UIImage imageNamed:@"player_btn_pause_highlight"] forState:UIControlStateNormal];
                                 [_playButton setImage:[UIImage imageNamed:@"player_btn_pause_normal"] forState:UIControlStateHighlighted];
@@ -267,11 +262,7 @@
                     AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
                     [SongInfo setCurrentSongIndex:0];
                     [SongInfo setCurrentSong:song];
-                    [delegate.player setContentURL:[NSURL URLWithString:[SongInfo currentSong].url]];
-                    [delegate.player play];
-                    [delegate.playView upDatePlayButton:YES];
-                    [delegate.playView upDatePlayImage:[SongInfo currentSong].picture];
-                    
+                    [Tool toPlaySong];                    
                     break;
                 }
             }
