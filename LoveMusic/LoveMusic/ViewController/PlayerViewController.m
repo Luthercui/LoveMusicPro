@@ -203,75 +203,7 @@
 }
 -(void)next{
     [self invalidateTimer];
-    switch ([SongInfo currentSong].type) {
-        case 1:
-        {
-            ChannelInfo *info = [ChannelInfo currentChannel];
-            if (info) {
-                [NetFm playBillWithChannelId:info.ID withType:@"n" completionHandler:^(NSError *error, NSArray *playBills) {
-                    if (playBills) {
-                        __weak typeof(self) weakSelf = self;
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-                            [delegate.playList removeAllObjects];
-                            [delegate.playList addObjectsFromArray:playBills];
-                            if ([delegate.playList count] != 0) {
-                                [SongInfo setCurrentSongIndex:0];
-                                [SongInfo setCurrentSong:[delegate.playList objectAtIndex:[SongInfo currentSongIndex]]];
-                                _currentPlaySid = [SongInfo currentSong].sid;
-                                [Tool toPlaySong];
-                                [weakSelf fireTimer];
-                                _isPlay = YES;
-                                [_playButton setImage:[UIImage imageNamed:@"player_btn_pause_highlight"] forState:UIControlStateNormal];
-                                [_playButton setImage:[UIImage imageNamed:@"player_btn_pause_normal"] forState:UIControlStateHighlighted];
-                                
-                                
-                                [weakSelf updatePlayImage:[SongInfo currentSong].picture];
-                                
-                            }
-                        });
-                    }
-                }];
-            }
-        }
-            break;
-        case 2:
-        {
-        }
-            break;
-        case 3:
-        {
-            for (int i = 0 ; i < [SongInfo currentSong].dataArray.count; i++) {
-                NSDictionary *dic = [[SongInfo currentSong].dataArray objectAtIndex:i];
-                if ([[SongInfo currentSong].sid isEqualToString:dic[@"id"]]) {
-                    NSDictionary *infoDic = nil;
-                    if (i+1 == [SongInfo currentSong].dataArray.count) {
-                        infoDic = [[SongInfo currentSong].dataArray objectAtIndex:0];
-                    }else{
-                        infoDic = [[SongInfo currentSong].dataArray objectAtIndex:i+1];
-                    }
-                    SongInfo  * song = [SongInfo new];
-                    song.url = [infoDic objectForKey:@"play_path_64"];
-                    song.title = [infoDic objectForKey:@"title"];
-                    song.length = [infoDic objectForKey:@"duration"];
-                    song.artist = [infoDic objectForKey:@"nickname"];
-                    song.sid = [infoDic objectForKey:@"id"];
-                    song.picture = [SongInfo currentSong].picture;
-                    song.type = 3;
-                    song.dataArray = [SongInfo currentSong].dataArray;
-                    AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-                    [SongInfo setCurrentSongIndex:0];
-                    [SongInfo setCurrentSong:song];
-                    [Tool toPlaySong];                    
-                    break;
-                }
-            }
-        }
-            break;
-            
-        default:
-            break;
-    }
+    [Tool nextPlaySong];
 }
 -(void)commentClickButton{
 }
@@ -284,6 +216,9 @@
     if (![_currentPlaySid isEqualToString:[SongInfo currentSong].sid]) {
         _currentPlaySid = [SongInfo currentSong].sid;
         [self updatePlayImage:[SongInfo currentSong].picture];
+        _isPlay = YES;
+        [_playButton setImage:[UIImage imageNamed:@"player_btn_pause_highlight"] forState:UIControlStateNormal];
+        [_playButton setImage:[UIImage imageNamed:@"player_btn_pause_normal"] forState:UIControlStateHighlighted];
     }
     self.artistLabel.text = [SongInfo currentSong].artist;
     self.titleLable.text = [SongInfo currentSong].title;

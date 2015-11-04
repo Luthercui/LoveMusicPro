@@ -19,4 +19,5 @@
 + (NSString *)totalTimeText:(CGFloat)totalTime;
 +(void)showNoNetAlrtView;
 +(void)toPlaySong;
++(void)nextPlaySong;
 @end

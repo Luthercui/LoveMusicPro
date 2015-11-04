@@ -127,21 +127,18 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (self.currentPlayIndex == indexPath.row) {
-        
-    }else{
-        self.currentPlayIndex = indexPath.row;
-        NSDictionary *info = [_dataArray objectAtIndex:indexPath.row];
-        if ([[AFNetworkReachabilityManager sharedManager] networkReachabilityStatus] == AFNetworkReachabilityStatusNotReachable) {
+
+    self.currentPlayIndex = indexPath.row;
+    NSDictionary *info = [_dataArray objectAtIndex:indexPath.row];
+    if ([[AFNetworkReachabilityManager sharedManager] networkReachabilityStatus] == AFNetworkReachabilityStatusNotReachable) {
             [Tool showNoNetAlrtView];
             return;
-        }
-        AlbumListViewController*listController = [[AlbumListViewController alloc] init];
-        [listController setTitle:[NSString stringWithFormat:@"%@",info[@"title"]]];
-        [self.navigationController pushViewController:listController animated:YES];
-        [listController requestSongList:[NSString stringWithFormat:@"%@",info[@"id"]] withImageUrl:info[@"cover_url_142"]];
-      
     }
+    AlbumListViewController*listController = [[AlbumListViewController alloc] init];
+    [listController setTitle:[NSString stringWithFormat:@"%@",info[@"title"]]];
+    [self.navigationController pushViewController:listController animated:YES];
+    [listController requestSongList:[NSString stringWithFormat:@"%@",info[@"id"]] withImageUrl:info[@"cover_url_142"]];
+
 }
 
 @end

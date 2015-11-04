@@ -143,72 +143,10 @@
 }
 - (void)audioPlayer:(BABAudioPlayer *)player didFinishPlayingAudioItem:(BABAudioItem *)audioItem{
     [self.playView invalidateTimer];
-    switch ([SongInfo currentSong].type) {
-        case 1:
-        {
-            ChannelInfo *info = [ChannelInfo currentChannel];
-            if (info) {
-                __weak typeof(self) weakSelf = self;
-                [NetFm playBillWithChannelId:info.ID withType:@"n" completionHandler:^(NSError *error, NSArray *playBills) {
-                    if (playBills) {
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            [weakSelf.playList removeAllObjects];
-                            [weakSelf.playList addObjectsFromArray:playBills];
-                            if ([weakSelf.playList count] != 0) {
-                                [SongInfo setCurrentSongIndex:0];
-                                [SongInfo setCurrentSong:[weakSelf.playList objectAtIndex:[SongInfo currentSongIndex]]];
-                                [Tool toPlaySong];
-                            }
-                        });
-                        
-                    }
-                }];
-            }
-            
-        }
-            break;
-        case 2:
-        {
-            
-            
-        }
-            break;
-        case 3:
-        {
-            for (int i = 0 ; i < [SongInfo currentSong].dataArray.count; i++) {
-                NSDictionary *dic = [[SongInfo currentSong].dataArray objectAtIndex:i];
-                if ([[SongInfo currentSong].sid isEqualToString:dic[@"id"]]) {
-                    NSDictionary *infoDic = nil;
-                    if (i+1 == [SongInfo currentSong].dataArray.count) {
-                        infoDic = [[SongInfo currentSong].dataArray objectAtIndex:0];
-                    }else{
-                        infoDic = [[SongInfo currentSong].dataArray objectAtIndex:i+1];
-                    }
-                    SongInfo  * song = [SongInfo new];
-                    song.url = [infoDic objectForKey:@"play_path_64"];
-                    song.title = [infoDic objectForKey:@"title"];
-                    song.length = [infoDic objectForKey:@"duration"];
-                    song.artist = [infoDic objectForKey:@"nickname"];
-                    song.sid = [infoDic objectForKey:@"id"];
-                    song.picture = [SongInfo currentSong].picture;
-                    song.type = 3;
-                    song.dataArray = [SongInfo currentSong].dataArray;
-                    [SongInfo setCurrentSongIndex:0];
-                    [SongInfo setCurrentSong:song];
-                    BABAudioItem *item = [[BABAudioItem alloc] initWithURL:[NSURL URLWithString:[SongInfo currentSong].url]];
-                    item.title = [SongInfo currentSong].title;
-                    [Tool toPlaySong];
-                    
-                    break;
-                }
-            }
-            
-            
-        }
-            break;
-        default:
-            break;
-    }
+    [Tool nextPlaySong];
+}
+- (void)audioPlayer:(BABAudioPlayer *)player didLoadMetadata:(NSDictionary *)metadata forAudioItem:(BABAudioItem *)audioItem{
+    [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:metadata];
 }
 -(void)moviePlayerPlaybackStateDidChangeNotification:(NSNotification*)not{
 //    if (self.player && self.player.playbackState == MPMoviePlaybackStatePlaying) {
@@ -230,17 +168,6 @@
         }];
     }
 }
-//设置锁屏状态，显示的歌曲信息
--(void)configNowPlayingInfoCenter{
-    if (NSClassFromString(@"MPNowPlayingInfoCenter")) {
-        NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-        //歌曲名称
-        [dict setObject:[SongInfo currentSong].title forKey:MPMediaItemPropertyTitle];
-        //设置锁屏状态下屏幕显示播放音乐信息
-        [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:dict];
-    }
-}
-
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

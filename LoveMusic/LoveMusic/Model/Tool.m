@@ -149,5 +149,80 @@
     item.title = [SongInfo currentSong].title;
     [[BABAudioPlayer sharedPlayer] queueItem:item];
     [[BABAudioPlayer sharedPlayer] play];
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    //歌曲名称
+    [dict setObject:[SongInfo currentSong].title forKey:MPMediaItemPropertyTitle];
+    //设置锁屏状态下屏幕显示播放音乐信息
+    [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:dict];
 }
+
++(void)nextPlaySong{
+    switch ([SongInfo currentSong].type) {
+        case 1:
+        {
+            ChannelInfo *info = [ChannelInfo currentChannel];
+            if (info) {
+                [NetFm playBillWithChannelId:info.ID withType:@"n" completionHandler:^(NSError *error, NSArray *playBills) {
+                    if (playBills) {
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            AppDelegate*appdelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+                            [appdelegate.playList removeAllObjects];
+                            [appdelegate.playList addObjectsFromArray:playBills];
+                            if ([appdelegate.playList count] != 0) {
+                                [SongInfo setCurrentSongIndex:0];
+                                [SongInfo setCurrentSong:[appdelegate.playList objectAtIndex:[SongInfo currentSongIndex]]];
+                                [Tool toPlaySong];
+                            }
+                        });
+                        
+                    }
+                }];
+            }
+            
+        }
+            break;
+        case 2:
+        {
+            
+            
+        }
+            break;
+        case 3:
+        {
+            for (int i = 0 ; i < [SongInfo currentSong].dataArray.count; i++) {
+                NSDictionary *dic = [[SongInfo currentSong].dataArray objectAtIndex:i];
+                if ([[SongInfo currentSong].sid isEqualToString:dic[@"id"]]) {
+                    NSDictionary *infoDic = nil;
+                    if (i+1 == [SongInfo currentSong].dataArray.count) {
+                        infoDic = [[SongInfo currentSong].dataArray objectAtIndex:0];
+                    }else{
+                        infoDic = [[SongInfo currentSong].dataArray objectAtIndex:i+1];
+                    }
+                    SongInfo  * song = [SongInfo new];
+                    song.url = [infoDic objectForKey:@"play_path_64"];
+                    song.title = [infoDic objectForKey:@"title"];
+                    song.length = [infoDic objectForKey:@"duration"];
+                    song.artist = [infoDic objectForKey:@"nickname"];
+                    song.sid = [infoDic objectForKey:@"id"];
+                    song.picture = [SongInfo currentSong].picture;
+                    song.type = 3;
+                    song.dataArray = [SongInfo currentSong].dataArray;
+                    [SongInfo setCurrentSongIndex:0];
+                    [SongInfo setCurrentSong:song];
+                    BABAudioItem *item = [[BABAudioItem alloc] initWithURL:[NSURL URLWithString:[SongInfo currentSong].url]];
+                    item.title = [SongInfo currentSong].title;
+                    [Tool toPlaySong];
+                    
+                    break;
+                }
+            }
+            
+            
+        }
+            break;
+        default:
+            break;
+    }
+}
+
 @end
