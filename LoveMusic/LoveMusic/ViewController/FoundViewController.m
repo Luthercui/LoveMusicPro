@@ -91,7 +91,7 @@
 
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellIdentifier"];
-        cell.selectionStyle =  UITableViewCellSelectionStyleNone;
+        //cell.selectionStyle =  UITableViewCellSelectionStyleNone;
     }
     ChannelInfo *info = [_dataArray objectAtIndex:indexPath.row];
     cell.textLabel.text = info.name;
@@ -121,13 +121,9 @@
         }
         [NetFm playBillWithChannelId:info.ID withType:@"n" completionHandler:^(NSError *error, NSArray *playBills) {
             if (playBills) {
-                AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-                [delegate.playList removeAllObjects];
-                [delegate.playList addObjectsFromArray:playBills];
-                if ([delegate.playList count] != 0) {
+                if ([playBills count] != 0) {
                     [SongInfo setCurrentSongIndex:0];
-                    [SongInfo setCurrentSong:[delegate.playList objectAtIndex:[SongInfo currentSongIndex]]];
-     
+                    [SongInfo setCurrentSong:[playBills objectAtIndex:[SongInfo currentSongIndex]]];
                    [Tool toPlaySong];
                 }
             }

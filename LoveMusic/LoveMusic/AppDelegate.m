@@ -34,7 +34,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-
+    _playList = [[NSMutableArray alloc] init];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
@@ -148,16 +148,34 @@
 - (void)audioPlayer:(BABAudioPlayer *)player didLoadMetadata:(NSDictionary *)metadata forAudioItem:(BABAudioItem *)audioItem{
     [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:metadata];
 }
--(void)moviePlayerPlaybackStateDidChangeNotification:(NSNotification*)not{
-//    if (self.player && self.player.playbackState == MPMoviePlaybackStatePlaying) {
-//        [self fireTimer];
-//        [self.playView upDatePlayButton:YES];
-//        [self configNowPlayingInfoCenter];
-//    }else{
-//        [self invalidateTimer];
-//    }
-}
+- (void)remoteControlReceivedWithEvent:(UIEvent *)event {
+    
 
+    switch (event.subtype) {
+        case UIEventSubtypeRemoteControlTogglePlayPause:
+            
+            break;
+        case UIEventSubtypeRemoteControlPlay:
+             [[BABAudioPlayer sharedPlayer] play];
+            break;
+        case UIEventSubtypeRemoteControlPause:
+             [[BABAudioPlayer sharedPlayer] pause];
+            
+            break;
+        case UIEventSubtypeRemoteControlStop:
+             [[BABAudioPlayer sharedPlayer] stop];
+            break;
+        case UIEventSubtypeRemoteControlNextTrack:
+            [Tool nextPlaySong];
+            break;
+        case UIEventSubtypeRemoteControlPreviousTrack:
+            [Tool nextPlaySong];
+            break;
+        default:
+            break;
+        }
+    
+}
 
 -(void)playTocuhs{
     

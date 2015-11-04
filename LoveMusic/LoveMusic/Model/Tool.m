@@ -164,17 +164,16 @@
             if (info) {
                 [NetFm playBillWithChannelId:info.ID withType:@"n" completionHandler:^(NSError *error, NSArray *playBills) {
                     if (playBills) {
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            AppDelegate*appdelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-                            [appdelegate.playList removeAllObjects];
-                            [appdelegate.playList addObjectsFromArray:playBills];
-                            if ([appdelegate.playList count] != 0) {
-                                [SongInfo setCurrentSongIndex:0];
-                                [SongInfo setCurrentSong:[appdelegate.playList objectAtIndex:[SongInfo currentSongIndex]]];
+                        if ([playBills count] != 0) {
+                            [SongInfo setCurrentSongIndex:0];
+                            [SongInfo setCurrentSong:[playBills objectAtIndex:[SongInfo currentSongIndex]]];
+                            [Tool toPlaySong];
+                            dispatch_async(dispatch_get_main_queue(), ^{
+            
                                 [Tool toPlaySong];
-                            }
-                        });
-                        
+                                
+                            });
+                        }
                     }
                 }];
             }
