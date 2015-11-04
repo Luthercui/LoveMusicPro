@@ -119,16 +119,18 @@
             break;
         case BABAudioPlayerStatePaused:
         {
-            
+            [self.playView upDatePlayButton:NO];
         }
             break;
         case BABAudioPlayerStateWaiting:
         {
+            [self.playView upDatePlayButton:NO];
             
         }
             break;
         case BABAudioPlayerStateStopped:
         {
+            [self.playView upDatePlayButton:NO];
             [self.playView invalidateTimer];
             
         }
@@ -150,19 +152,21 @@
 }
 - (void)remoteControlReceivedWithEvent:(UIEvent *)event {
     
-
     switch (event.subtype) {
         case UIEventSubtypeRemoteControlTogglePlayPause:
             
             break;
         case UIEventSubtypeRemoteControlPlay:
+             [self.playView upDatePlayButton:YES];
              [[BABAudioPlayer sharedPlayer] play];
             break;
         case UIEventSubtypeRemoteControlPause:
              [[BABAudioPlayer sharedPlayer] pause];
+            [self.playView upDatePlayButton:NO];
             
             break;
         case UIEventSubtypeRemoteControlStop:
+             [self.playView upDatePlayButton:NO];
              [[BABAudioPlayer sharedPlayer] stop];
             break;
         case UIEventSubtypeRemoteControlNextTrack:
