@@ -19,6 +19,9 @@
 		715043B21BEB080900C00170 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 715043B11BEB080900C00170 /* AdSupport.framework */; };
 		715043B41BEB081100C00170 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 715043B31BEB081100C00170 /* CoreLocation.framework */; };
 		715043B61BEB081C00C00170 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 715043B51BEB081C00C00170 /* SystemConfiguration.framework */; };
+		715043D11BEB31A800C00170 /* SongModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 715043CF1BEB31A800C00170 /* SongModel.xcdatamodeld */; };
+		715043D61BEB34CD00C00170 /* DownloadModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 715043D31BEB34CD00C00170 /* DownloadModel+CoreDataProperties.m */; };
+		715043D71BEB34CD00C00170 /* DownloadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 715043D51BEB34CD00C00170 /* DownloadModel.m */; };
 		71CB4AB51BD77B6900F30D10 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CB4AB41BD77B6900F30D10 /* AboutViewController.m */; };
 		71D8F9AA1BD4A1A90092C0A0 /* RecommendSongListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D8F9A91BD4A1A90092C0A0 /* RecommendSongListViewController.m */; };
 		71D8F9AD1BD4A90B0092C0A0 /* PlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D8F9AC1BD4A90B0092C0A0 /* PlayView.m */; };
@@ -80,6 +83,11 @@
 		715043B11BEB080900C00170 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		715043B31BEB081100C00170 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		715043B51BEB081C00C00170 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		715043D01BEB31A800C00170 /* SongModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SongModel.xcdatamodel; sourceTree = "<group>"; };
+		715043D21BEB34CD00C00170 /* DownloadModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DownloadModel+CoreDataProperties.h"; path = "Model/DownloadModel+CoreDataProperties.h"; sourceTree = "<group>"; };
+		715043D31BEB34CD00C00170 /* DownloadModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DownloadModel+CoreDataProperties.m"; path = "Model/DownloadModel+CoreDataProperties.m"; sourceTree = "<group>"; };
+		715043D41BEB34CD00C00170 /* DownloadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DownloadModel.h; path = Model/DownloadModel.h; sourceTree = "<group>"; };
+		715043D51BEB34CD00C00170 /* DownloadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DownloadModel.m; path = Model/DownloadModel.m; sourceTree = "<group>"; };
 		71848F511BE314AB005BB1DF /* LoveMusic_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoveMusic_Prefix.pch; sourceTree = "<group>"; };
 		71CB4AB31BD77B6900F30D10 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = ViewController/AboutViewController.h; sourceTree = "<group>"; };
 		71CB4AB41BD77B6900F30D10 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = ViewController/AboutViewController.m; sourceTree = "<group>"; };
@@ -225,6 +233,11 @@
 				A7DA05BD1BA9206E00C55B89 /* UserInfo.m */,
 				A7DA05CA1BA920B600C55B89 /* SongListModel.h */,
 				A7DA05CB1BA920B600C55B89 /* SongListModel.m */,
+				715043CF1BEB31A800C00170 /* SongModel.xcdatamodeld */,
+				715043D21BEB34CD00C00170 /* DownloadModel+CoreDataProperties.h */,
+				715043D31BEB34CD00C00170 /* DownloadModel+CoreDataProperties.m */,
+				715043D41BEB34CD00C00170 /* DownloadModel.h */,
+				715043D51BEB34CD00C00170 /* DownloadModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -499,6 +512,7 @@
 				A7DA05C21BA9206E00C55B89 /* Tool.m in Sources */,
 				7124781F1BE3523D00FCC74A /* XHTwitterPaggingViewer.m in Sources */,
 				A79F45991B60D733008D8A4B /* AppDelegate.m in Sources */,
+				715043D71BEB34CD00C00170 /* DownloadModel.m in Sources */,
 				A7DA05BE1BA9206E00C55B89 /* AssistiveTouch.m in Sources */,
 				A7DA05C01BA9206E00C55B89 /* NetFm.m in Sources */,
 				71F05E211BE8A10600DF7304 /* AlbumListViewController.m in Sources */,
@@ -506,6 +520,7 @@
 				A7DA05BF1BA9206E00C55B89 /* ChannelInfo.m in Sources */,
 				71D8F9AA1BD4A1A90092C0A0 /* RecommendSongListViewController.m in Sources */,
 				71F05DD61BE75F0400DF7304 /* RecommendTableViewCell.m in Sources */,
+				715043D11BEB31A800C00170 /* SongModel.xcdatamodeld in Sources */,
 				A7DA05C31BA9206E00C55B89 /* UserInfo.m in Sources */,
 				A79F45961B60D733008D8A4B /* main.m in Sources */,
 				A79F45C91B60DA4E008D8A4B /* RecommendViewController.m in Sources */,
@@ -515,6 +530,7 @@
 				A79F45CC1B60DA71008D8A4B /* FoundViewController.m in Sources */,
 				71F05E081BE8923700DF7304 /* AlbumViewController.m in Sources */,
 				A79F45CF1B60DA84008D8A4B /* MeViewController.m in Sources */,
+				715043D61BEB34CD00C00170 /* DownloadModel+CoreDataProperties.m in Sources */,
 				71D8F9AD1BD4A90B0092C0A0 /* PlayView.m in Sources */,
 				A7714CC21B6A621F00611808 /* PlayerViewController.m in Sources */,
 			);
@@ -742,6 +758,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		715043CF1BEB31A800C00170 /* SongModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				715043D01BEB31A800C00170 /* SongModel.xcdatamodel */,
+			);
+			currentVersion = 715043D01BEB31A800C00170 /* SongModel.xcdatamodel */;
+			path = SongModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A79F45881B60D733008D8A4B /* Project object */;
 }

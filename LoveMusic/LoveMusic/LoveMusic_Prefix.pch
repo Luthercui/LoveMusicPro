@@ -12,14 +12,16 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
-
-#import "Tool.h"
 #import <AFNetworking/AFNetworking.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
-
+#import <MagicalRecord/MagicalRecord.h>
 #import <BABAudioPlayer.h>
 #import <BABAudioUtilities.h>
+
+
+#import "Tool.h"
+#import "DownloadModel.h"
 #import "BABAudioItem.h"
 #import "SongInfo.h"
 #import "ChannelInfo.h"
@@ -27,4 +29,5 @@
 #import "NetFm.h"
 #import "SongListModel.h"
 #import "SmtaranSDKManager.h"
+
 #endif /* LoveMusic_Prefix_pch */
