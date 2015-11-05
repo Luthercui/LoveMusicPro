@@ -93,11 +93,13 @@
         [_playButton setImage:[UIImage imageNamed:@"player_btn_pause_highlight"] forState:UIControlStateNormal];
         [_playButton setImage:[UIImage imageNamed:@"player_btn_pause_normal"] forState:UIControlStateHighlighted];
         [[BABAudioPlayer sharedPlayer] play];
+        [self fireTimer];
     }else{
         _isPaly = NO;
         [_playButton setImage:[UIImage imageNamed:@"player_btn_play_highlight"] forState:UIControlStateNormal];
         [_playButton setImage:[UIImage imageNamed:@"player_btn_play_normal"] forState:UIControlStateHighlighted];
         [[BABAudioPlayer sharedPlayer] pause];
+        [self invalidateTimer];
     }
 }
 -(void)transformRotatePlayImage{

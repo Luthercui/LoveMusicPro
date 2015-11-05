@@ -20,12 +20,12 @@
 #import "XHTwitterPaggingViewer.h"
 
 #import "PlayView.h"
-
-@interface AppDelegate ()<PlayTouchDelegate>{
+#import "SmtaranSplashAd.h"
+@interface AppDelegate ()<PlayTouchDelegate,SmtaranSplashAdDelegate>{
     UITabBarController *tabBarController;
-    XHTwitterPaggingViewer *twitterPaggingViewer;
 }
 @property(nonatomic, strong) NSTimer *kTimer;
+@property(nonatomic, strong) XHTwitterPaggingViewer *twitterPaggingViewer;
 @end
 
 @implementation AppDelegate
@@ -34,13 +34,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [[SmtaranSDKManager getInstance] setPublisherID:MS_PublishID withChannel:@"AppDelegate" auditFlag:MS_Audit_Flag];
+    [[SmtaranSDKManager getInstance] setPublisherID:MS_PublishID withChannel:@"就是爱音乐" auditFlag:MS_Audit_Flag];
     
     _playList = [[NSMutableArray alloc] init];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
-    twitterPaggingViewer = [[XHTwitterPaggingViewer alloc] init];
+    _twitterPaggingViewer = [[XHTwitterPaggingViewer alloc] init];
     NSMutableArray *viewControllers = [[NSMutableArray alloc] initWithCapacity:7];
     NSArray *titles = @[@"推荐音乐", @"分类音乐", @"我的"];
     [titles enumerateObjectsUsingBlock:^(NSString *title, NSUInteger idx, BOOL *stop) {
@@ -71,14 +71,18 @@
                 break;
         }
     }];
-    twitterPaggingViewer.viewControllers = viewControllers;
-    twitterPaggingViewer.didChangedPageCompleted = ^(NSInteger cuurentPage, NSString *title) {
+    self.twitterPaggingViewer.viewControllers = viewControllers;
+    self.twitterPaggingViewer.didChangedPageCompleted = ^(NSInteger cuurentPage, NSString *title) {
         // NSLog(@"cuurentPage : %ld on title : %@", (long)cuurentPage, title);
     };
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:twitterPaggingViewer];
     
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.twitterPaggingViewer];
     [self initLib];
     [self initplayer];
+//    SmtaranSplashAd *sadVC = [[SmtaranSplashAd alloc] initWithSlottoken:MS_SlotToken_Native delegate:self rootVC:navigationController currentWindow:self.window];
+//    
+    self.window.rootViewController = navigationController;
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -100,8 +104,8 @@
     });
     _playView = [[PlayView alloc] initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height-55,  [UIScreen mainScreen].bounds.size.width, 55)];
     _playView.playDelegate = self;
-    [twitterPaggingViewer.navigationController.view addSubview:_playView];
-    [twitterPaggingViewer.navigationController.view bringSubviewToFront:_playView];
+    [self.twitterPaggingViewer.navigationController.view addSubview:_playView];
+    [self.twitterPaggingViewer.navigationController.view bringSubviewToFront:_playView];
     
 }
 //BABAudioPlayerStateIdle,
@@ -121,12 +125,12 @@
             break;
         case BABAudioPlayerStatePaused:
         {
-            [self.playView upDatePlayButton:NO];
+
         }
             break;
         case BABAudioPlayerStateWaiting:
         {
-            [self.playView upDatePlayButton:NO];
+
             
         }
             break;
@@ -188,7 +192,7 @@
     if ([BABAudioPlayer sharedPlayer].state == BABAudioPlayerStatePlaying) {
         PlayerViewController *viewController = [[PlayerViewController alloc] init];
         viewController.view.backgroundColor = [UIColor whiteColor];
-        [twitterPaggingViewer presentViewController:viewController animated:YES completion:^{
+        [self.twitterPaggingViewer presentViewController:viewController animated:YES completion:^{
         }];
     }
 }
@@ -212,6 +216,41 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+/**
+ *  adSplash被点击
+ *  @param adSplash
+ */
+- (void)smtaranSplashAdClick:(nonnull SmtaranSplashAd*)adSplash
+{
+    NSLog(@"%s", __func__);
+}
+
+/**
+ *  adSplash请求成功并展示广告
+ *  @param adSplash
+ */
+- (void)smtaranSplashAdSuccessToShowAd:(nonnull SmtaranSplashAd*)adSplash
+{
+    NSLog(@"%s", __func__);
+}
+
+/**
+ *  adSplash请求失败
+ *  @param adSplash
+ */
+- (void)smtaranSplashAdFaildToShowAd:(nonnull SmtaranSplashAd*)adSplash withError:(nullable NSError*) error
+{
+    NSLog(@"%s", __func__);
+}
+
+/**
+ *  AdSplash被关闭
+ *  @param adSplash
+ */
+- (void)smtaranSplashAdClose:(nonnull SmtaranSplashAd*)adSplash
+{
+    NSLog(@"%s", __func__);
 }
 
 

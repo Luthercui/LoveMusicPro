@@ -50,7 +50,7 @@
     // Do any additional setup after loading the view.
     
     
-    [[SmtaranSDKManager getInstance] setPublisherID:MS_PublishID withChannel:@"PLAYPage" auditFlag:MS_Audit_Flag];
+    [[SmtaranSDKManager getInstance] setPublisherID:MS_PublishID withChannel:@"就是爱音乐" auditFlag:MS_Audit_Flag];
     
     _isPlay = YES;
     NSNumber *currenNumber = [[NSUserDefaults standardUserDefaults] objectForKey:@"backImageIndex"];

@@ -167,11 +167,11 @@
             [Tool showNoNetAlrtView];
             return;
         }
-        [SongInfo currentSong].dataArray = self.dataArray;
         [NetFm getSongInformationWith:info.song_id completionHandler:^(NSError *error, SongInfo *songInfo) {
             if (songInfo) {
                 [SongInfo setCurrentSongIndex:0];
                 [SongInfo setCurrentSong:songInfo];
+                [SongInfo currentSong].dataArray = self.dataArray;
                 [Tool toPlaySong];
             }
         }];
