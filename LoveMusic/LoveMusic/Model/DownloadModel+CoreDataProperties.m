@@ -16,5 +16,7 @@
 @dynamic songId;
 @dynamic downLoad;
 @dynamic title;
+@dynamic url;
+@dynamic localUrl;
 
 @end

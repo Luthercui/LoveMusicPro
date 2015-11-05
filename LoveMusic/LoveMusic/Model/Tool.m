@@ -139,6 +139,22 @@
     [logging appendAttributedString:attributedMessage];
     return logging;
 }
+
+NSString* PathForDocumentsResource(NSString* relativePath) {
+    static NSString* documentsPath = nil;
+    if (!documentsPath) {
+        NSArray* dirs = NSSearchPathForDirectoriesInDomains(
+                                                            NSDocumentDirectory, NSUserDomainMask, YES);
+        documentsPath = [[dirs objectAtIndex:0] copy];
+    }
+    return [documentsPath stringByAppendingPathComponent:relativePath];
+}
++(NSString *)get_downloaded_file_path:(NSString*)media_name
+{
+    NSString * relative_path = [NSString stringWithFormat:@"%@/%@",@".download",media_name];
+    NSString * real_path = PathForDocumentsResource(relative_path);
+    return real_path;
+}
 +(void)showNoNetAlrtView{
     UIAlertView *arertView = [[UIAlertView alloc] initWithTitle:@"" message:@"无网络连接，请检查网络" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
     [arertView show];

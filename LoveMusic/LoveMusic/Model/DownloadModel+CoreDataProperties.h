@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *songId;
 @property (nullable, nonatomic, retain) NSNumber *downLoad;
 @property (nullable, nonatomic, retain) NSString *title;
+@property (nullable, nonatomic, retain) NSString *url;
+@property (nullable, nonatomic, retain) NSString *localUrl;
 
 @end
 

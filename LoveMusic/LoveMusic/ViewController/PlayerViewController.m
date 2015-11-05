@@ -253,6 +253,7 @@
     [Tool nextPlaySong];
 }
 -(void)commentClickButton{
+    
 }
 -(void)updatePlayImage:(NSString*)url{
     if (url && url.length > 0) {

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Accelerate/Accelerate.h>
 #import "SVPullToRefresh.h"
+
 @interface Tool : NSObject
 +(UIImage *)blurryImage:(UIImage *)image withBlurLevel:(CGFloat)blur;
 
@@ -20,4 +21,6 @@
 +(void)showNoNetAlrtView;
 +(void)toPlaySong;
 +(void)nextPlaySong;
++(NSString *)get_downloaded_file_path:(NSString*)media_name;
 @end
+NSString* PathForDocumentsResource(NSString* relativePath);

@@ -29,5 +29,5 @@
 #import "NetFm.h"
 #import "SongListModel.h"
 #import "SmtaranSDKManager.h"
-
+#import "DownloadManager.h"
 #endif /* LoveMusic_Prefix_pch */
