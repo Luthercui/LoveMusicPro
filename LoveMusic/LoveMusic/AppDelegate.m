@@ -34,6 +34,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    [[SmtaranSDKManager getInstance] setPublisherID:MS_PublishID withChannel:@"AppDelegate" auditFlag:MS_Audit_Flag];
+    
     _playList = [[NSMutableArray alloc] init];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];

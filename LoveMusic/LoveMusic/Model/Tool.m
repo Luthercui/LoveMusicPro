@@ -182,7 +182,25 @@
             break;
         case 2:
         {
-            
+            for (int i = 0 ; i < [SongInfo currentSong].dataArray.count; i++) {
+                SongListModel *info = [[SongInfo currentSong].dataArray objectAtIndex:i];
+                if ([[SongInfo currentSong].sid isEqualToString:[NSString stringWithFormat:@"%lld",info.song_id]]) {
+                    SongListModel *infoDic = nil;
+                    if (i+1 == [SongInfo currentSong].dataArray.count) {
+                        infoDic = [[SongInfo currentSong].dataArray objectAtIndex:0];
+                    }else{
+                        infoDic = [[SongInfo currentSong].dataArray objectAtIndex:i+1];
+                    }
+                    [NetFm getSongInformationWith:infoDic.song_id completionHandler:^(NSError *error, SongInfo *songInfo) {
+                        if (songInfo) {
+                            [SongInfo setCurrentSongIndex:0];
+                            [SongInfo setCurrentSong:songInfo];
+                            [Tool toPlaySong];
+                        }
+                    }];
+                    break;
+                }
+            }
             
         }
             break;

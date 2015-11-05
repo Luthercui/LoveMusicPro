@@ -25,4 +25,6 @@
 #import "ChannelInfo.h"
 #import "AppDelegate.h"
 #import "NetFm.h"
+#import "SongListModel.h"
+#import "SmtaranSDKManager.h"
 #endif /* LoveMusic_Prefix_pch */

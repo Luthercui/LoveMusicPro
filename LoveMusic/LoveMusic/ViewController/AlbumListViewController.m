@@ -140,9 +140,7 @@
         
     }else{
         self.currentPlayIndex = indexPath.row;
-        NSDictionary *info = [_dataArray objectAtIndex:indexPath.row];
-
-    
+        NSDictionary *info = [_dataArray objectAtIndex:indexPath.row];    
         SongInfo  * song = [SongInfo new];
         song.url = [info objectForKey:@"play_path_64"];
         song.title = [info objectForKey:@"title"];

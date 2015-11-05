@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface PlayerViewController : UIViewController
+#import "SmtaranBannerAd.h"
+@interface PlayerViewController : UIViewController<SmtaranBannerAdDelegate>
+@property (nonatomic,strong) SmtaranBannerAd *smtaranBanner;
 @end
