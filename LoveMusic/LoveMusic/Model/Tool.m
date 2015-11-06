@@ -151,7 +151,7 @@ NSString* PathForDocumentsResource(NSString* relativePath) {
 }
 +(NSString *)get_downloaded_file_path:(NSString*)media_name
 {
-    NSString * relative_path = [NSString stringWithFormat:@"%@/%@",@".download",media_name];
+    NSString * relative_path = [NSString stringWithFormat:@"%@/%@.mp3",@".download",media_name];
     NSString * real_path = PathForDocumentsResource(relative_path);
     return real_path;
 }
@@ -161,7 +161,16 @@ NSString* PathForDocumentsResource(NSString* relativePath) {
 }
 +(void)toPlaySong{
     [[BABAudioPlayer sharedPlayer] stop];
-    BABAudioItem *item = [[BABAudioItem alloc] initWithURL:[NSURL URLWithString:[SongInfo currentSong].url]];
+    NSString *playurl = nil;
+    DownloadModel *model = [[DownloadManager shareDownloadManager] getWithAllDownloadModel:[SongInfo currentSong].sid];
+    if (model && [model.downLoad integerValue]==1) {
+        playurl = model.localUrl;
+        [SongInfo currentSong].isDownload = YES;
+    }else{
+        playurl = [SongInfo currentSong].url;
+        [SongInfo currentSong].isDownload = NO;
+    }
+    BABAudioItem *item = [[BABAudioItem alloc] initWithURL:[NSURL URLWithString:playurl]];
     item.title = [SongInfo currentSong].title;
     [[BABAudioPlayer sharedPlayer] queueItem:item];
     [[BABAudioPlayer sharedPlayer] play];

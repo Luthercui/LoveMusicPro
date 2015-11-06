@@ -16,7 +16,7 @@
 #import "ChannelInfo.h"
 #import <CoreMedia/CoreMedia.h>
 
-@interface PlayerViewController (){
+@interface PlayerViewController ()<DownloadManagerDelegate>{
     NSInteger currentBackImageIndex;
 }
 @property(nonatomic,strong)UIImageView *backImageView;
@@ -202,7 +202,6 @@
     
     self.commentButton =[UIButton buttonWithType:UIButtonTypeCustom];
     _commentButton.frame =CGRectMake(nextx+64+15, (_bbar.frame.size.height-64)/2, 64, 64);
-    [_commentButton setTitle:@". . ." forState:UIControlStateNormal];
     [_commentButton.titleLabel setFont:[UIFont boldSystemFontOfSize:16]];
     [_commentButton setTitleColor:[UIColor colorWithRed:35.0/255.0 green:199.0/255.0 blue:125.0/255.0 alpha:1.0] forState:UIControlStateNormal];
     [_commentButton addTarget:self action:@selector(commentClickButton) forControlEvents:UIControlEventTouchUpInside];
@@ -229,6 +228,11 @@
     _playImageView.layer.cornerRadius = 80/2.0;
     [self updatePlayImage:[SongInfo currentSong].picture];
     
+    if ([SongInfo currentSong].isDownload) {
+        [_commentButton setTitle:@"本地" forState:UIControlStateNormal];
+    }else{
+        [_commentButton setTitle:@"下载" forState:UIControlStateNormal];
+    }
 }
 -(void)play{
     AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
@@ -253,7 +257,20 @@
     [Tool nextPlaySong];
 }
 -(void)commentClickButton{
-    
+    if ([SongInfo currentSong].isDownload) {
+        return;
+    }
+    DownloadModel *model = [[DownloadManager shareDownloadManager] getDownloadModel:[SongInfo currentSong].sid];
+    if (model) {
+        
+    }else{
+        [DownloadManager shareDownloadManager].delegate = self;
+        [[DownloadManager shareDownloadManager] addDownloadModel];
+    }
+}
+-(void)downloadManagerCompletion{
+    [SongInfo currentSong].isDownload = YES;
+    [_commentButton setTitle:@"本地" forState:UIControlStateNormal];
 }
 -(void)updatePlayImage:(NSString*)url{
     if (url && url.length > 0) {

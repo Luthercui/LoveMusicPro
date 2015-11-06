@@ -19,6 +19,7 @@
 @property (nonatomic) NSString *sid;
 @property (nonatomic) NSInteger type;//1 fm //2 百度 //3 自己
 @property (nonatomic) BOOL isPlaying;
+@property (nonatomic) BOOL isDownload;
 
 @property (nonatomic,strong)NSMutableArray *dataArray;
 

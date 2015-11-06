@@ -22,13 +22,23 @@ static DownloadManager *downLoad;
     }
     return downLoad;
 }
+-(DownloadModel*)getWithAllDownloadModel:(NSString*)sid{
+    [self.allDownloadArray removeAllObjects];
+    [self.allDownloadArray  addObjectsFromArray:[DownloadModel MR_findAll]];
+    for (DownloadModel *model in self.allDownloadArray) {
+        if ([model.songId isEqualToString:sid]) {
+            return model;
+        }
+    }
+    return nil;
+}
 -(DownloadModel*)getDownloadModel:(NSString*)sid{
     for (DownloadModel *model in self.downloadArray) {
         if ([model.songId isEqualToString:sid]) {
             return model;
         }
     }
-    return 0;
+    return nil;
 }
 -(void)startDownload{
     if (self.downloadArray.count > 0) {

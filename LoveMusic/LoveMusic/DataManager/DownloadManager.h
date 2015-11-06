@@ -12,8 +12,11 @@
 @property(nonatomic,strong)NSMutableArray *downloadArray;
 @property(nonatomic,strong)NSMutableArray *allDownloadArray;
 @property(nonatomic,copy)NSString *downloadFileId;
+@property(nonatomic,assign)id<DownloadManagerDelegate>delegate;
 + (instancetype)shareDownloadManager;
 -(void)startDownload;
 -(void)setupDownload;
+-(void)addDownloadModel;
 -(DownloadModel*)getDownloadModel:(NSString*)sid;
+-(DownloadModel*)getWithAllDownloadModel:(NSString*)sid;
 @end

@@ -210,8 +210,15 @@ static BABAudioPlayer  *sharedPlayer = nil;
     
     dispatch_async(self.playbackQueue, ^{
         
-        AVPlayerItem *item = [[AVPlayerItem alloc] initWithURL:audioItem.url];
-        weakSelf.player = [[AVPlayer alloc] initWithPlayerItem:item];
+        if ([SongInfo currentSong].isDownload) {
+            NSURL *sourceMovieURL = [NSURL fileURLWithPath:audioItem.url.absoluteString];
+            AVAsset *asset = [AVURLAsset URLAssetWithURL:sourceMovieURL options:nil];
+            weakSelf.player = [[AVPlayer alloc] initWithPlayerItem: [AVPlayerItem playerItemWithAsset:asset]];
+        }else{
+            AVPlayerItem *item = [[AVPlayerItem alloc] initWithURL:audioItem.url];
+            weakSelf.player = [[AVPlayer alloc] initWithPlayerItem:item];
+        }
+        
         weakSelf.newMediaItem = YES;
         
         [[NSNotificationCenter defaultCenter] addObserver:weakSelf selector:@selector(didEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
