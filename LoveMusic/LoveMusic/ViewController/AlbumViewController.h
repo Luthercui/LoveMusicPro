@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface AlbumViewController : UIViewController
--(void)requestSongList:(NSString*)type;
+@property (nonatomic ,copy) NSString *songtype;
 @end

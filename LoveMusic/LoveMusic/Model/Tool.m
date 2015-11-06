@@ -204,11 +204,7 @@ NSString* PathForDocumentsResource(NSString* relativePath) {
                             [SongInfo setCurrentSongIndex:0];
                             [SongInfo setCurrentSong:[playBills objectAtIndex:[SongInfo currentSongIndex]]];
                             [Tool toPlaySong];
-                            dispatch_async(dispatch_get_main_queue(), ^{
-            
-                                [Tool toPlaySong];
-                                
-                            });
+
                         }
                     }
                 }];

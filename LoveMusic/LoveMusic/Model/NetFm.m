@@ -299,11 +299,7 @@
                             for (NSDictionary * dict in dataArray) {
                                 [array addObject:dict];
                             }
-                            if (completionHandler&&array.count>0) {
-                                completionHandler(nil,array);
-                            }else{
-                                completionHandler(nil,nil);
-                            }
+                            completionHandler(nil,array);
                         }else{
                             completionHandler(nil,nil);
                         }
@@ -325,8 +321,10 @@
     [vodtask resume];
 }
 +(void)getSongTracksWithType:(NSString*)Type
+                    withPage:(NSInteger)page
            completionHandler:(void (^)(NSError *error, NSArray *songDicArray))completionHandler{
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.zhiyurencai.cn/music/api/tracks/%@/1/100",Type]];
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.zhiyurencai.cn/music/api/tracks/%@/%ld/20",Type,(long)page]];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0f];
     
@@ -351,11 +349,8 @@
                             for (NSDictionary * dict in dataArray) {
                                 [array addObject:dict];
                             }
-                            if (completionHandler&&array.count>0) {
-                                completionHandler(nil,array);
-                            }else{
-                                completionHandler(nil,nil);
-                            }
+                            completionHandler(nil,array);
+          
                         }else{
                             completionHandler(nil,nil);
                         }

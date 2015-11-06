@@ -34,6 +34,7 @@
 		71FF429A1BEC5016006CADF1 /* BABAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FF42901BEC5016006CADF1 /* BABAudioPlayer.m */; };
 		71FF429B1BEC5016006CADF1 /* BABAudioPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FF42931BEC5016006CADF1 /* BABAudioPlaylist.m */; };
 		71FF429C1BEC5016006CADF1 /* BABAudioUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FF42981BEC5016006CADF1 /* BABAudioUtilities.m */; };
+		71FF429F1BECAAB4006CADF1 /* AlbumTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FF429E1BECAAB4006CADF1 /* AlbumTableViewCell.m */; };
 		A7714CC21B6A621F00611808 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7714CC11B6A621F00611808 /* PlayerViewController.m */; };
 		A79F45961B60D733008D8A4B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A79F45951B60D733008D8A4B /* main.m */; };
 		A79F45991B60D733008D8A4B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A79F45981B60D733008D8A4B /* AppDelegate.m */; };
@@ -121,6 +122,8 @@
 		71FF42951BEC5016006CADF1 /* BABCurrentTimeScrubber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BABCurrentTimeScrubber.h; sourceTree = "<group>"; };
 		71FF42971BEC5016006CADF1 /* BABAudioUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BABAudioUtilities.h; sourceTree = "<group>"; };
 		71FF42981BEC5016006CADF1 /* BABAudioUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BABAudioUtilities.m; sourceTree = "<group>"; };
+		71FF429D1BECAAB4006CADF1 /* AlbumTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlbumTableViewCell.h; path = View/AlbumTableViewCell.h; sourceTree = "<group>"; };
+		71FF429E1BECAAB4006CADF1 /* AlbumTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlbumTableViewCell.m; path = View/AlbumTableViewCell.m; sourceTree = "<group>"; };
 		A7714CC01B6A621F00611808 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerViewController.h; path = ViewController/PlayerViewController.h; sourceTree = "<group>"; };
 		A7714CC11B6A621F00611808 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerViewController.m; path = ViewController/PlayerViewController.m; sourceTree = "<group>"; };
 		A79F45901B60D733008D8A4B /* LoveMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -387,6 +390,8 @@
 				71D8F9AC1BD4A90B0092C0A0 /* PlayView.m */,
 				71F05DD41BE75F0400DF7304 /* RecommendTableViewCell.h */,
 				71F05DD51BE75F0400DF7304 /* RecommendTableViewCell.m */,
+				71FF429D1BECAAB4006CADF1 /* AlbumTableViewCell.h */,
+				71FF429E1BECAAB4006CADF1 /* AlbumTableViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -592,6 +597,7 @@
 				715043D11BEB31A800C00170 /* SongModel.xcdatamodeld in Sources */,
 				A7DA05C31BA9206E00C55B89 /* UserInfo.m in Sources */,
 				A79F45961B60D733008D8A4B /* main.m in Sources */,
+				71FF429F1BECAAB4006CADF1 /* AlbumTableViewCell.m in Sources */,
 				71FF429B1BEC5016006CADF1 /* BABAudioPlaylist.m in Sources */,
 				A79F45C91B60DA4E008D8A4B /* RecommendViewController.m in Sources */,
 				711848F91BDDCF3100EB8382 /* BaseNavigationController.m in Sources */,

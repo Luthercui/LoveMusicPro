@@ -21,7 +21,6 @@
 @property (nonatomic ,assign) NSInteger currentPlayIndex;
 @property (nonatomic ,strong) UIActivityIndicatorView *activityIndicatorView;
 @property (nonatomic ,assign) NSInteger page;
-@property (nonatomic ,copy) NSString *songtype;
 
 @end
 
@@ -49,6 +48,28 @@
     
     self.currentPlayIndex = -1;
     [self addConstraints];
+    WS(ws);
+    [self.tableView addPullToRefreshWithActionHandler:^{
+         ws.page = 1;
+        [ws requestSong];
+    }];
+    
+    [self.tableView addInfiniteScrollingWithActionHandler:^{
+        ws.page ++;
+        
+        [ws requestSong];
+        
+        
+    }];
+    
+    [self.activityIndicatorView startAnimating];
+    [self requestSong];
+    
+    [self.tableView.pullToRefreshView setTitle:@"" forState:SVPullToRefreshStateTriggered];
+    [self.tableView.pullToRefreshView setTitle:@"" forState:SVPullToRefreshStateLoading];
+    [self.tableView.pullToRefreshView setTitle:@"" forState:SVPullToRefreshStateStopped];
+    
+    self.tableView.pullToRefreshView.arrowColor =  [UIColor colorWithRed:8.0/255.0 green:129.0/255.0 blue:181.0/255.0 alpha:1.0];
 
 }
 -(void)back{
@@ -78,19 +99,67 @@
     // Pass the selected object to the new view controller.
 }
 */
--(void)requestSongList:(NSString*)type{
-    _songtype = type;
-    [_activityIndicatorView startAnimating];
-    [NetFm getSongAlbumListWithPageSize:100 withPage:_page withType:_songtype completionHandler:^(NSError *error, NSArray *songDicArray) {
-        [self.activityIndicatorView stopAnimating];
-        if (songDicArray && songDicArray.count > 0) {
-            [self.dataArray addObjectsFromArray:songDicArray];
-            __weak typeof(self) weakSelf = self;
+-(void)requestSong{
+    
+    
+    if (1 == self.page) {
+        self.dataArray = nil;
+        [self.tableView reloadData];
+    }
+    WS(ws);
+    [NetFm getSongAlbumListWithPageSize:20 withPage:_page withType:self.songtype completionHandler:^(NSError *error, NSArray *songDicArray) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [ws.activityIndicatorView stopAnimating];
+            [ws.tableView.pullToRefreshView stopAnimating];
+            [ws.tableView.infiniteScrollingView stopAnimating];
+            
+        });
+
+        if (songDicArray == nil) {
+            
+            return ;
+        }
+        
+        if (songDicArray.count == 0) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [weakSelf.tableView reloadData];
+                [TSMessage showNotificationWithTitle:nil
+                                            subtitle:NoMoreData
+                                                type:TSMessageNotificationTypeMessage];
                 
             });
-      
+            return;
+        }
+        
+        NSMutableArray *newalbums = nil;
+        NSMutableArray *arrCells=[NSMutableArray array];
+        if (1 == ws.page) {
+            newalbums = [NSMutableArray arrayWithArray:songDicArray];;
+        }
+        else
+        {
+            newalbums = [NSMutableArray arrayWithArray:ws.dataArray];
+            
+            NSUInteger count = ws.dataArray.count;
+            for (NSDictionary *moreDict in songDicArray) {
+                [arrCells addObject:[NSIndexPath indexPathForRow:count inSection:0]];
+                [newalbums insertObject:moreDict atIndex:count++];
+            }
+        }
+        
+        ws.dataArray = newalbums;
+        
+        if (1 == ws.page) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [ws.tableView reloadData];
+                
+            });
+        }
+        else
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+               [ws.tableView insertRowsAtIndexPaths:arrCells withRowAnimation:UITableViewRowAnimationAutomatic];
+                
+            });
         }
     }];
 }
@@ -136,9 +205,9 @@
     }
     AlbumListViewController*listController = [[AlbumListViewController alloc] init];
     [listController setTitle:[NSString stringWithFormat:@"%@",info[@"title"]]];
+    listController.songSid = [NSString stringWithFormat:@"%@",info[@"id"]];
+    listController.imageUrl = info[@"cover_url_142"];
     [self.navigationController pushViewController:listController animated:YES];
-    [listController requestSongList:[NSString stringWithFormat:@"%@",info[@"id"]] withImageUrl:info[@"cover_url_142"]];
-
 }
 
 @end

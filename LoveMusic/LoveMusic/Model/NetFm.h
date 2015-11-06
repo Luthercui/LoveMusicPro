@@ -113,6 +113,7 @@ http://www.zhiyurencai.cn/music/api/category_album/comic/1/20
                                     withType:(NSString*)Type
      completionHandler:(void (^)(NSError *error, NSArray *songDicArray))completionHandler;
 +(void)getSongTracksWithType:(NSString*)Type
+                    withPage:(NSInteger)page
                   completionHandler:(void (^)(NSError *error, NSArray *songDicArray))completionHandler;
 
 @end

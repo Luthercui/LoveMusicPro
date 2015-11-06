@@ -16,6 +16,11 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
 #import <MagicalRecord/MagicalRecord.h>
+#import <UIScrollView+SVPullToRefresh.h>
+#import <UIScrollView+SVInfiniteScrolling.h>
+#import <TSMessage.h>
+#import <TSMessageView.h>
+
 #import "BABAudioPlayer.h"
 #import "BABAudioUtilities.h"
 

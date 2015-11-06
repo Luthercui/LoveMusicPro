@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface AlbumListViewController : UIViewController
--(void)requestSongList:(NSString*)sid withImageUrl:(NSString*)url;
+@property (nonatomic ,copy) NSString*songSid;
+@property (nonatomic ,copy) NSString*imageUrl;
 @end

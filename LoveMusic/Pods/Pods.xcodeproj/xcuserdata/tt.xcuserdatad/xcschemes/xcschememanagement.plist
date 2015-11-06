@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>HexColors.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MagicalRecord.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -29,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>TSMessages.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>UIActivityIndicator-for-SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,7 +47,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>15EBB5835E40BED6D0DB435C94511330</key>
+		<key>123700905E2EBADAA5C41AE2F8C717B2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -47,12 +57,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>994782B3E0230A85BD1BE3CBD27D2805</key>
+		<key>6AEE94622E4CE97376F608FC1723BB7D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9B393924201B08C4403C0E8CFD520644</key>
+		<key>82C8412419A062A18952E388A44FD25A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A290BAA7817930A2E847555B0F722903</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A4126224FE7BFB100D0534C5614BADF9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,7 +82,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F24099388CC5D0785778AC4F71B35968</key>
+		<key>E9EF397B95762DDB254C71DDCB4B1381</key>
 		<dict>
 			<key>primary</key>
 			<true/>

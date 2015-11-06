@@ -13,15 +13,13 @@
 #import <UIActivityIndicator-for-SDWebImage/UIImageView+UIActivityIndicatorForSDWebImage.h>
 #import "AppDelegate.h"
 #import "Tool.h"
-#import "RecommendTableViewCell.h"
+#import "AlbumTableViewCell.h"
 @interface AlbumListViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic ,strong) UITableView *tableView;
 @property (nonatomic ,strong) NSMutableArray   *dataArray;
 @property (nonatomic ,assign) NSInteger currentPlayIndex;
 @property (nonatomic ,strong) UIActivityIndicatorView *activityIndicatorView;
 @property (nonatomic ,assign) NSInteger page;
-@property (nonatomic ,copy) NSString*songSid;
-@property (nonatomic ,copy) NSString*imageUrl;
 @end
 
 @implementation AlbumListViewController
@@ -31,7 +29,7 @@
     // Do any additional setup after loading the view.
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"bt_back_press"] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
     
-    _page = 0;
+    _page = 1;
     _dataArray = [[NSMutableArray alloc] init];
     self.tableView = [[UITableView alloc] init];
     _tableView.delegate = self;
@@ -48,6 +46,30 @@
     
     self.currentPlayIndex = -1;
     [self addConstraints];
+
+    
+    WS(ws);
+    [self.tableView addPullToRefreshWithActionHandler:^{
+        ws.page = 1;
+        [ws requestSong];
+    }];
+    
+    [self.tableView addInfiniteScrollingWithActionHandler:^{
+        ws.page ++;
+        
+        [ws requestSong];
+        
+        
+    }];
+    
+    [self.activityIndicatorView startAnimating];
+    [self requestSong];
+    
+    [self.tableView.pullToRefreshView setTitle:@"" forState:SVPullToRefreshStateTriggered];
+    [self.tableView.pullToRefreshView setTitle:@"" forState:SVPullToRefreshStateLoading];
+    [self.tableView.pullToRefreshView setTitle:@"" forState:SVPullToRefreshStateStopped];
+    self.tableView.pullToRefreshView.arrowColor =  [UIColor colorWithRed:8.0/255.0 green:129.0/255.0 blue:181.0/255.0 alpha:1.0];
+    
 }
 -(void)back{
     [self.navigationController popViewControllerAnimated:YES];
@@ -66,24 +88,71 @@
     // Pass the selected object to the new view controller.
 }
 */
--(void)requestSongList:(NSString*)sid withImageUrl:(NSString *)url{
-    self.songSid = sid;
-    self.imageUrl = url;
-    [_activityIndicatorView startAnimating];
-    [NetFm getSongTracksWithType:self.songSid completionHandler:^(NSError *error, NSArray *songDicArray) {
-        [self.activityIndicatorView stopAnimating];
-        if (songDicArray && songDicArray.count > 0) {
-            [self.dataArray addObjectsFromArray:songDicArray];
-            __weak typeof(self) weakSelf = self;
+-(void)requestSong{
+    
+    
+    if (1 == self.page) {
+        self.dataArray = nil;
+        [self.tableView reloadData];
+    }
+    WS(ws);
+    [NetFm getSongTracksWithType:self.songSid withPage:self.page completionHandler:^(NSError *error, NSArray *songDicArray) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [ws.activityIndicatorView stopAnimating];
+            [ws.tableView.pullToRefreshView stopAnimating];
+            [ws.tableView.infiniteScrollingView stopAnimating];
+            
+        });
+        
+        if (songDicArray == nil) {
+            
+            return ;
+        }
+        
+        if (songDicArray.count == 0) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [weakSelf.tableView reloadData];
+                [TSMessage showNotificationWithTitle:nil
+                                            subtitle:NoMoreData
+                                                type:TSMessageNotificationTypeMessage];
                 
             });
+            return;
+        }
+        
+        NSMutableArray *newalbums = nil;
+        NSMutableArray *arrCells=[NSMutableArray array];
+        if (1 == ws.page) {
+            newalbums = [NSMutableArray arrayWithArray:songDicArray];;
+        }
+        else
+        {
+            newalbums = [NSMutableArray arrayWithArray:ws.dataArray];
             
+            NSUInteger count = ws.dataArray.count;
+            for (NSDictionary *moreDict in songDicArray) {
+                [arrCells addObject:[NSIndexPath indexPathForRow:count inSection:0]];
+                [newalbums insertObject:moreDict atIndex:count++];
+            }
+        }
+        
+        ws.dataArray = newalbums;
+        
+        if (1 == ws.page) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [ws.tableView reloadData];
+                
+            });
+        }
+        else
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [ws.tableView insertRowsAtIndexPaths:arrCells withRowAnimation:UITableViewRowAnimationAutomatic];
+                
+            });
         }
     }];
-}
 
+}
 - (void)addConstraints{
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_tableView]-0-|"
                                                                       options:0
@@ -110,19 +179,15 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    RecommendTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier"];
+    AlbumTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier"];
     
     if (!cell) {
-        cell = [[RecommendTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellIdentifier"];
+        cell = [[AlbumTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellIdentifier"];
         //cell.selectionStyle =  UITableViewCellSelectionStyleNone;
     }
     NSDictionary *info = [_dataArray objectAtIndex:indexPath.row];
     cell.titleLabel.text = info[@"title"];
     cell.subTitleLabel.text = info[@"nickname"];
-    if (self.imageUrl) {
-        [cell.songImageView setImageWithURL:[NSURL URLWithString:self.imageUrl] placeholderImage:nil usingActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-    }
-    // cell.textLabel.textColor = [UIColor colorWithRed:35.0/255.0 green:199.0/255.0 blue:125.0/255.0 alpha:1.0];
     cell.backgroundColor =  [Tool colorWithHexColorString:@"fafafa"];
     
     return cell;
