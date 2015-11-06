@@ -10,7 +10,6 @@
 #import "DownloadManagerDelegate.h"
 @interface DownloadManager : NSObject
 @property(nonatomic,strong)NSMutableArray *downloadArray;
-@property(nonatomic,strong)NSMutableArray *allDownloadArray;
 @property(nonatomic,copy)NSString *downloadFileId;
 @property(nonatomic,assign)id<DownloadManagerDelegate>delegate;
 + (instancetype)shareDownloadManager;
@@ -19,4 +18,5 @@
 -(void)addDownloadModel;
 -(DownloadModel*)getDownloadModel:(NSString*)sid;
 -(DownloadModel*)getWithAllDownloadModel:(NSString*)sid;
+-(void)removeDownloadModel:(NSString*)sid;
 @end

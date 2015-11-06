@@ -85,7 +85,7 @@
     return YES;
 }
 -(void)initLib{
-    [MagicalRecord setupCoreDataStackWithStoreNamed:@"SongModel"];
+    [MagicalRecord setupCoreDataStackWithStoreNamed:@"SongModel.sqlite"];
     [MobClick startWithAppkey:@"56388066e0f55ae3da001336" reportPolicy:BATCH channelId:@"App Store"];
     [[DownloadManager shareDownloadManager] startDownload];
 }

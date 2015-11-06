@@ -139,7 +139,18 @@
     [logging appendAttributedString:attributedMessage];
     return logging;
 }
-
++(BOOL)remove_downloaded_file_path:(NSString*)media_name
+{
+    NSFileManager *fileMgr = [NSFileManager defaultManager];
+    NSString *MapLayerDataPath = [Tool get_downloaded_file_path:media_name];
+    BOOL bRet = [fileMgr fileExistsAtPath:MapLayerDataPath];
+    if (bRet) {
+        NSError *err;
+        [fileMgr removeItemAtPath:MapLayerDataPath error:&err];
+        return YES;
+    }
+    return NO;
+}
 NSString* PathForDocumentsResource(NSString* relativePath) {
     static NSString* documentsPath = nil;
     if (!documentsPath) {
@@ -151,7 +162,7 @@ NSString* PathForDocumentsResource(NSString* relativePath) {
 }
 +(NSString *)get_downloaded_file_path:(NSString*)media_name
 {
-    NSString * relative_path = [NSString stringWithFormat:@"%@/%@.mp3",@".download",media_name];
+    NSString * relative_path = [NSString stringWithFormat:@"%@/%@.mp3",@"download",media_name];
     NSString * real_path = PathForDocumentsResource(relative_path);
     return real_path;
 }
@@ -164,7 +175,7 @@ NSString* PathForDocumentsResource(NSString* relativePath) {
     NSString *playurl = nil;
     DownloadModel *model = [[DownloadManager shareDownloadManager] getWithAllDownloadModel:[SongInfo currentSong].sid];
     if (model && [model.downLoad integerValue]==1) {
-        playurl = model.localUrl;
+        playurl = [Tool get_downloaded_file_path:model.songId];
         [SongInfo currentSong].isDownload = YES;
     }else{
         playurl = [SongInfo currentSong].url;

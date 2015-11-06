@@ -284,6 +284,11 @@
         _isPlay = YES;
         [_playButton setImage:[UIImage imageNamed:@"player_btn_pause_highlight"] forState:UIControlStateNormal];
         [_playButton setImage:[UIImage imageNamed:@"player_btn_pause_normal"] forState:UIControlStateHighlighted];
+        if ([SongInfo currentSong].isDownload) {
+            [_commentButton setTitle:@"本地" forState:UIControlStateNormal];
+        }else{
+            [_commentButton setTitle:@"下载" forState:UIControlStateNormal];
+        }
     }
     self.artistLabel.text = [SongInfo currentSong].artist;
     self.titleLable.text = [SongInfo currentSong].title;

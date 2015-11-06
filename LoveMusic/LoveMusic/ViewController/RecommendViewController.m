@@ -118,9 +118,24 @@
 #pragma mark - UITableView Delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (self.currentPlayIndex == indexPath.row) {
-        
+        if ([SongInfo currentSong].type != 2) {
+            if ([[AFNetworkReachabilityManager sharedManager] networkReachabilityStatus] == AFNetworkReachabilityStatusNotReachable) {
+                [Tool showNoNetAlrtView];
+                return;
+            }
+            
+            SongListModel *info = [_dataArray objectAtIndex:indexPath.row];
+            [NetFm getSongInformationWith:info.song_id completionHandler:^(NSError *error, SongInfo *songInfo) {
+                if (songInfo) {
+                    [SongInfo setCurrentSongIndex:0];
+                    [SongInfo setCurrentSong:songInfo];
+                    [SongInfo currentSong].dataArray = self.dataArray;
+                    [Tool toPlaySong];
+                }
+            }];
+        }
     }else{
         self.currentPlayIndex = indexPath.row;
         

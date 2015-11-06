@@ -108,9 +108,25 @@
 #pragma mark - UITableView Delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (self.currentPlayIndex == indexPath.row) {
-        
+        if ([SongInfo currentSong].type != 1) {
+            ChannelInfo *info = [_dataArray objectAtIndex:indexPath.row];
+            [ChannelInfo updateCurrentCannel:info];
+            if ([[AFNetworkReachabilityManager sharedManager] networkReachabilityStatus] == AFNetworkReachabilityStatusNotReachable) {
+                [Tool showNoNetAlrtView];
+                return;
+            }
+            [NetFm playBillWithChannelId:info.ID withType:@"n" completionHandler:^(NSError *error, NSArray *playBills) {
+                if (playBills) {
+                    if ([playBills count] != 0) {
+                        [SongInfo setCurrentSongIndex:0];
+                        [SongInfo setCurrentSong:[playBills objectAtIndex:[SongInfo currentSongIndex]]];
+                        [Tool toPlaySong];
+                    }
+                }
+            }];
+        }
     }else{
         self.currentPlayIndex = indexPath.row;
         ChannelInfo *info = [_dataArray objectAtIndex:indexPath.row];

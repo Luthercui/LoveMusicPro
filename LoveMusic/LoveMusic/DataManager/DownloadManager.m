@@ -15,17 +15,15 @@ static DownloadManager *downLoad;
         dispatch_once(&onceToken, ^{
             downLoad = [[DownloadManager alloc] init];
             downLoad.downloadArray = [[NSMutableArray alloc] init];
-            downLoad.allDownloadArray = [[NSMutableArray alloc] init];
             downLoad.downloadFileId = nil;
-            [downLoad creatMediaDir:@".download"];
+            [downLoad creatMediaDir:@"download"];
         });
     }
     return downLoad;
 }
 -(DownloadModel*)getWithAllDownloadModel:(NSString*)sid{
-    [self.allDownloadArray removeAllObjects];
-    [self.allDownloadArray  addObjectsFromArray:[DownloadModel MR_findAll]];
-    for (DownloadModel *model in self.allDownloadArray) {
+    NSArray *downloadArray = [DownloadModel MR_findAll];
+    for (DownloadModel *model in downloadArray) {
         if ([model.songId isEqualToString:sid]) {
             return model;
         }
@@ -45,9 +43,7 @@ static DownloadManager *downLoad;
         DownloadModel *model = [self.downloadArray objectAtIndex:0];
         model.downLoad = [NSNumber numberWithInt:2];
         self.downloadFileId = model.songId;
-        NSString *filePath = [Tool get_downloaded_file_path:self.downloadFileId];
-        model.localUrl = filePath;
-        [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfWithCompletion:^(BOOL contextDidSave, NSError *error) {
+        [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:^(BOOL contextDidSave, NSError *error) {
         }];
         [self downloadFile:model.url];
     }
@@ -59,20 +55,33 @@ static DownloadManager *downLoad;
     model.songId = [SongInfo currentSong].sid;
     model.downLoad = [NSNumber numberWithInt:0];
     [self.downloadArray addObject:model];
-    [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfWithCompletion:^(BOOL contextDidSave, NSError *error) {
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:^(BOOL contextDidSave, NSError *error) {
         if (nil == self.downloadFileId) {
             [self startDownload];
         }
     }];
 }
+
 -(void)setupDownload{
     [self.downloadArray removeAllObjects];
-    [self.allDownloadArray removeAllObjects];
     NSArray *personsAgeEuqals2   = [DownloadModel MR_findByAttribute:@"downLoad" withValue:[NSNumber numberWithInt:2]];
     [self.downloadArray addObjectsFromArray:personsAgeEuqals2];
-    [self.allDownloadArray  addObjectsFromArray:[DownloadModel MR_findAll]];
     
 }
+
+-(void)removeDownloadModel:(NSString*)sid{
+    NSArray *downloadArray = [DownloadModel MR_findAll];
+    if (downloadArray) {
+        for (DownloadModel *model in downloadArray) {
+            if ([model.songId isEqualToString:sid]) {
+                [model MR_deleteEntity];
+                [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+                break;
+            }
+        }
+    }
+}
+
 -(NSString*)creatMediaDir:(NSString*)relativePath {
     
     
@@ -94,6 +103,7 @@ static DownloadManager *downLoad;
     return  path;
     
 }
+
 - (void)downloadFile:(NSString*)file
 {
     if (nil == file) {
@@ -111,11 +121,16 @@ static DownloadManager *downLoad;
         if (nil == error) {
             DownloadModel *model = [self.downloadArray objectAtIndex:0];
             model.downLoad = [NSNumber numberWithInt:1];
-            [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfWithCompletion:^(BOOL contextDidSave, NSError *error) {
+            NSString *filePath = [Tool get_downloaded_file_path:self.downloadFileId];
+            model.localUrl = filePath;
+            [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:^(BOOL contextDidSave, NSError *error) {
                 [self.downloadArray removeObject:model];
                 self.downloadFileId = nil;
                 [self startDownload];
             }];
+            if (self.delegate) {
+                [self.delegate downloadManagerCompletion];
+            }
         }
     }] resume];
 }

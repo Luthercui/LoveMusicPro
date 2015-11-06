@@ -136,8 +136,24 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (self.currentPlayIndex == indexPath.row) {
-        
+        if ([SongInfo currentSong].type != 3) {
+            NSDictionary *info = [_dataArray objectAtIndex:indexPath.row];
+            SongInfo  * song = [SongInfo new];
+            song.url = [info objectForKey:@"play_path_64"];
+            song.title = [info objectForKey:@"title"];
+            song.picture = self.imageUrl;
+            song.length = [info objectForKey:@"duration"];
+            song.artist = [info objectForKey:@"nickname"];
+            song.sid = [info objectForKey:@"id"];
+            song.type = 3;
+            song.dataArray = self.dataArray;
+            [SongInfo setCurrentSongIndex:0];
+            [SongInfo setCurrentSong:song];
+            
+            [Tool toPlaySong];
+        }
     }else{
         self.currentPlayIndex = indexPath.row;
         NSDictionary *info = [_dataArray objectAtIndex:indexPath.row];    

@@ -22,5 +22,6 @@
 +(void)toPlaySong;
 +(void)nextPlaySong;
 +(NSString *)get_downloaded_file_path:(NSString*)media_name;
++(BOOL)remove_downloaded_file_path:(NSString*)media_name;
 @end
 NSString* PathForDocumentsResource(NSString* relativePath);
