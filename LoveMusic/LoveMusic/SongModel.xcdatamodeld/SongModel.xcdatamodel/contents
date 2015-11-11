@@ -2,12 +2,13 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15B42" minimumToolsVersion="Xcode 7.0">
     <entity name="DownloadModel" representedClassName="DownloadModel" syncable="YES">
         <attribute name="downLoad" optional="YES" attributeType="Integer 32" syncable="YES"/>
+        <attribute name="imageUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="localUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="songId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="DownloadModel" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="DownloadModel" positionX="-63" positionY="-18" width="128" height="135"/>
     </elements>
 </model>

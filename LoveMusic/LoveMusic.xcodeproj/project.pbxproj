@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4FAF16DE29D05F9C737FAB9E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 421CB365677CCA81C7469684 /* libPods.a */; };
 		711848F91BDDCF3100EB8382 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 711848F81BDDCF3100EB8382 /* BaseNavigationController.m */; };
+		71221B391BF2ED1A0040BF2C /* HFStretchableTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71221B361BF2ED1A0040BF2C /* HFStretchableTableHeaderView.m */; };
+		71221B3A1BF2ED1A0040BF2C /* SlideDeleteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71221B381BF2ED1A0040BF2C /* SlideDeleteCell.m */; };
 		7124781E1BE3523D00FCC74A /* XHPaggingNavbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7124781B1BE3523D00FCC74A /* XHPaggingNavbar.m */; };
 		7124781F1BE3523D00FCC74A /* XHTwitterPaggingViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7124781D1BE3523D00FCC74A /* XHTwitterPaggingViewer.m */; };
 		715043A91BEB07C700C00170 /* libSmtaranSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 715043A11BEB07C700C00170 /* libSmtaranSDK.a */; };
@@ -70,6 +72,10 @@
 		4CC0C1F8255561FC77FE3909 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		711848F71BDDCF3100EB8382 /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseNavigationController.h; path = ViewController/BaseNavigationController.h; sourceTree = "<group>"; };
 		711848F81BDDCF3100EB8382 /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseNavigationController.m; path = ViewController/BaseNavigationController.m; sourceTree = "<group>"; };
+		71221B351BF2ED1A0040BF2C /* HFStretchableTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HFStretchableTableHeaderView.h; path = View/HFStretchableTableHeaderView.h; sourceTree = "<group>"; };
+		71221B361BF2ED1A0040BF2C /* HFStretchableTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HFStretchableTableHeaderView.m; path = View/HFStretchableTableHeaderView.m; sourceTree = "<group>"; };
+		71221B371BF2ED1A0040BF2C /* SlideDeleteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideDeleteCell.h; path = View/SlideDeleteCell.h; sourceTree = "<group>"; };
+		71221B381BF2ED1A0040BF2C /* SlideDeleteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlideDeleteCell.m; path = View/SlideDeleteCell.m; sourceTree = "<group>"; };
 		7124781A1BE3523D00FCC74A /* XHPaggingNavbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XHPaggingNavbar.h; path = Lib/Page/XHPaggingNavbar.h; sourceTree = "<group>"; };
 		7124781B1BE3523D00FCC74A /* XHPaggingNavbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XHPaggingNavbar.m; path = Lib/Page/XHPaggingNavbar.m; sourceTree = "<group>"; };
 		7124781C1BE3523D00FCC74A /* XHTwitterPaggingViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XHTwitterPaggingViewer.h; path = Lib/Page/XHTwitterPaggingViewer.h; sourceTree = "<group>"; };
@@ -384,6 +390,10 @@
 		A79F45C41B60DA12008D8A4B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				71221B351BF2ED1A0040BF2C /* HFStretchableTableHeaderView.h */,
+				71221B361BF2ED1A0040BF2C /* HFStretchableTableHeaderView.m */,
+				71221B371BF2ED1A0040BF2C /* SlideDeleteCell.h */,
+				71221B381BF2ED1A0040BF2C /* SlideDeleteCell.m */,
 				A7DA05C61BA920A200C55B89 /* YFInputBar.h */,
 				A7DA05C71BA920A200C55B89 /* YFInputBar.m */,
 				71D8F9AB1BD4A90B0092C0A0 /* PlayView.h */,
@@ -585,6 +595,8 @@
 				A7DA05BE1BA9206E00C55B89 /* AssistiveTouch.m in Sources */,
 				A7DA05C01BA9206E00C55B89 /* NetFm.m in Sources */,
 				71F05E211BE8A10600DF7304 /* AlbumListViewController.m in Sources */,
+				71221B391BF2ED1A0040BF2C /* HFStretchableTableHeaderView.m in Sources */,
+				71221B3A1BF2ED1A0040BF2C /* SlideDeleteCell.m in Sources */,
 				71CB4AB51BD77B6900F30D10 /* AboutViewController.m in Sources */,
 				A7DA05BF1BA9206E00C55B89 /* ChannelInfo.m in Sources */,
 				715043F61BEB48F600C00170 /* DownloadModel+CoreDataProperties.m in Sources */,

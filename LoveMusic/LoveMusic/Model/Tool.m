@@ -258,8 +258,35 @@ NSString* PathForDocumentsResource(NSString* relativePath) {
                     song.dataArray = [SongInfo currentSong].dataArray;
                     [SongInfo setCurrentSongIndex:0];
                     [SongInfo setCurrentSong:song];
-                    BABAudioItem *item = [[BABAudioItem alloc] initWithURL:[NSURL URLWithString:[SongInfo currentSong].url]];
-                    item.title = [SongInfo currentSong].title;
+                    [Tool toPlaySong];
+                    
+                    break;
+                }
+            }
+            
+            
+        }
+            break;
+        case 4:
+        {
+            for (int i = 0 ; i < [SongInfo currentSong].dataArray.count; i++) {
+                DownloadModel *model = [[SongInfo currentSong].dataArray objectAtIndex:i];
+                if ([[SongInfo currentSong].sid isEqualToString:model.songId]) {
+                    DownloadModel *tmpmodel = nil;
+                    if (i+1 == [SongInfo currentSong].dataArray.count) {
+                        tmpmodel = [[SongInfo currentSong].dataArray objectAtIndex:0];
+                    }else{
+                        tmpmodel = [[SongInfo currentSong].dataArray objectAtIndex:i+1];
+                    }
+                    SongInfo  * song = [SongInfo new];
+                    song.url = tmpmodel.url;
+                    song.title = tmpmodel.title;
+                    song.picture = tmpmodel.imageUrl;
+                    song.sid = tmpmodel.songId;
+                    song.type = 4;
+                    song.dataArray = [SongInfo currentSong].dataArray;
+                    [SongInfo setCurrentSongIndex:0];
+                    [SongInfo setCurrentSong:song];
                     [Tool toPlaySong];
                     
                     break;

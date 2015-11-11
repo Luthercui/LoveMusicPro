@@ -70,8 +70,13 @@
         }
     }];
     self.twitterPaggingViewer.viewControllers = viewControllers;
+    WS(ws);
     self.twitterPaggingViewer.didChangedPageCompleted = ^(NSInteger cuurentPage, NSString *title) {
-        // NSLog(@"cuurentPage : %ld on title : %@", (long)cuurentPage, title);
+         NSLog(@"cuurentPage : %ld on title : %@", (long)cuurentPage, title);
+        if (cuurentPage == 2) {
+            MeViewController *meVc =  (MeViewController*)ws.twitterPaggingViewer.viewControllers[cuurentPage];
+            [meVc resetTableViewDataSource];
+        }
     };
     
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.twitterPaggingViewer];

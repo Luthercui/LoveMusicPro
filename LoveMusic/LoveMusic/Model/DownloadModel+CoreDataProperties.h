@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *title;
 @property (nullable, nonatomic, retain) NSString *url;
 @property (nullable, nonatomic, retain) NSString *localUrl;
-
+@property (nullable, nonatomic, retain) NSString *imageUrl;
 @end
 
 NS_ASSUME_NONNULL_END

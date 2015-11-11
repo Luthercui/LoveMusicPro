@@ -15,6 +15,8 @@
 #define NoMoreData @"亲，您已经看到最后一条了喔～"
 #define ClearCacheMsg @"亲，您的缓存已经清理完成了喔～"
 #define NotAllowedPlayError @"亲，您还没有允许移动网络播放喔～"
+#define ScreenSize [[UIScreen mainScreen] bounds].size
+#define XA ScreenSize.width/640
 
 @interface Tool : NSObject
 +(UIImage *)blurryImage:(UIImage *)image withBlurLevel:(CGFloat)blur;

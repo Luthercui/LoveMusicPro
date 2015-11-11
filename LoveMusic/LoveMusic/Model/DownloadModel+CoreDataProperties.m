@@ -18,5 +18,5 @@
 @dynamic title;
 @dynamic url;
 @dynamic localUrl;
-
+@dynamic imageUrl;
 @end

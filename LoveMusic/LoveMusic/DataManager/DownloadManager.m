@@ -54,6 +54,7 @@ static DownloadManager *downLoad;
     model.title = [SongInfo currentSong].title;
     model.songId = [SongInfo currentSong].sid;
     model.downLoad = [NSNumber numberWithInt:0];
+    model.imageUrl = [SongInfo currentSong].picture;
     [self.downloadArray addObject:model];
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:^(BOOL contextDidSave, NSError *error) {
         if (nil == self.downloadFileId) {
