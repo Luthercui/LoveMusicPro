@@ -11,6 +11,22 @@
 		711848F91BDDCF3100EB8382 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 711848F81BDDCF3100EB8382 /* BaseNavigationController.m */; };
 		71221B391BF2ED1A0040BF2C /* HFStretchableTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71221B361BF2ED1A0040BF2C /* HFStretchableTableHeaderView.m */; };
 		71221B3A1BF2ED1A0040BF2C /* SlideDeleteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71221B381BF2ED1A0040BF2C /* SlideDeleteCell.m */; };
+		71221C241BF350650040BF2C /* MZCroppableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71221B4C1BF350650040BF2C /* MZCroppableView.m */; };
+		71221C251BF350650040BF2C /* UIBezierPath-Points.m in Sources */ = {isa = PBXBuildFile; fileRef = 71221B4E1BF350650040BF2C /* UIBezierPath-Points.m */; };
+		71221C261BF350650040BF2C /* SimplePing.m in Sources */ = {isa = PBXBuildFile; fileRef = 71221B511BF350650040BF2C /* SimplePing.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		71221C271BF350650040BF2C /* PFGoldenSectionSpiral.m in Sources */ = {isa = PBXBuildFile; fileRef = 71221B541BF350650040BF2C /* PFGoldenSectionSpiral.m */; };
+		71221C281BF350650040BF2C /* ZYQSphereView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71221B561BF350650040BF2C /* ZYQSphereView.m */; };
+		71221C891BF350650040BF2C /* STKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71221C231BF350650040BF2C /* STKit.framework */; };
+		71221C971BF3531B0040BF2C /* STDCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71221C8C1BF3531B0040BF2C /* STDCardViewController.m */; };
+		71221C981BF3531B0040BF2C /* STDFeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71221C8E1BF3531B0040BF2C /* STDFeedCell.m */; };
+		71221C991BF3531B0040BF2C /* STDFeedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71221C901BF3531B0040BF2C /* STDFeedImageView.m */; };
+		71221C9A1BF3531B0040BF2C /* STDFeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 71221C921BF3531B0040BF2C /* STDFeedItem.m */; };
+		71221C9B1BF3531B0040BF2C /* STDFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71221C941BF3531B0040BF2C /* STDFeedViewController.m */; };
+		71221C9C1BF3531B0040BF2C /* STDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71221C961BF3531B0040BF2C /* STDownloadViewController.m */; };
+		71221C9F1BF353780040BF2C /* STDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71221C9E1BF353780040BF2C /* STDViewController.m */; };
+		71221CA61BF353BC0040BF2C /* STAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71221CA11BF353BC0040BF2C /* STAlertView.m */; };
+		71221CA71BF353BC0040BF2C /* STDLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71221CA31BF353BC0040BF2C /* STDLoadingView.m */; };
+		71221CA81BF353BC0040BF2C /* STDRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 71221CA51BF353BC0040BF2C /* STDRefreshControl.m */; };
 		7124781E1BE3523D00FCC74A /* XHPaggingNavbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7124781B1BE3523D00FCC74A /* XHPaggingNavbar.m */; };
 		7124781F1BE3523D00FCC74A /* XHTwitterPaggingViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7124781D1BE3523D00FCC74A /* XHTwitterPaggingViewer.m */; };
 		715043A91BEB07C700C00170 /* libSmtaranSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 715043A11BEB07C700C00170 /* libSmtaranSDK.a */; };
@@ -76,6 +92,37 @@
 		71221B361BF2ED1A0040BF2C /* HFStretchableTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HFStretchableTableHeaderView.m; path = View/HFStretchableTableHeaderView.m; sourceTree = "<group>"; };
 		71221B371BF2ED1A0040BF2C /* SlideDeleteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideDeleteCell.h; path = View/SlideDeleteCell.h; sourceTree = "<group>"; };
 		71221B381BF2ED1A0040BF2C /* SlideDeleteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlideDeleteCell.m; path = View/SlideDeleteCell.m; sourceTree = "<group>"; };
+		71221B4B1BF350650040BF2C /* MZCroppableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZCroppableView.h; sourceTree = "<group>"; };
+		71221B4C1BF350650040BF2C /* MZCroppableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZCroppableView.m; sourceTree = "<group>"; };
+		71221B4D1BF350650040BF2C /* UIBezierPath-Points.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath-Points.h"; sourceTree = "<group>"; };
+		71221B4E1BF350650040BF2C /* UIBezierPath-Points.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath-Points.m"; sourceTree = "<group>"; };
+		71221B501BF350650040BF2C /* SimplePing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePing.h; sourceTree = "<group>"; };
+		71221B511BF350650040BF2C /* SimplePing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimplePing.m; sourceTree = "<group>"; };
+		71221B531BF350650040BF2C /* PFGoldenSectionSpiral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFGoldenSectionSpiral.h; sourceTree = "<group>"; };
+		71221B541BF350650040BF2C /* PFGoldenSectionSpiral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFGoldenSectionSpiral.m; sourceTree = "<group>"; };
+		71221B551BF350650040BF2C /* ZYQSphereView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYQSphereView.h; sourceTree = "<group>"; };
+		71221B561BF350650040BF2C /* ZYQSphereView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYQSphereView.m; sourceTree = "<group>"; };
+		71221C231BF350650040BF2C /* STKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = STKit.framework; sourceTree = "<group>"; };
+		71221C8B1BF3531B0040BF2C /* STDCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STDCardViewController.h; sourceTree = "<group>"; };
+		71221C8C1BF3531B0040BF2C /* STDCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STDCardViewController.m; sourceTree = "<group>"; };
+		71221C8D1BF3531B0040BF2C /* STDFeedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STDFeedCell.h; sourceTree = "<group>"; };
+		71221C8E1BF3531B0040BF2C /* STDFeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STDFeedCell.m; sourceTree = "<group>"; };
+		71221C8F1BF3531B0040BF2C /* STDFeedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STDFeedImageView.h; sourceTree = "<group>"; };
+		71221C901BF3531B0040BF2C /* STDFeedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STDFeedImageView.m; sourceTree = "<group>"; };
+		71221C911BF3531B0040BF2C /* STDFeedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STDFeedItem.h; sourceTree = "<group>"; };
+		71221C921BF3531B0040BF2C /* STDFeedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STDFeedItem.m; sourceTree = "<group>"; };
+		71221C931BF3531B0040BF2C /* STDFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STDFeedViewController.h; sourceTree = "<group>"; };
+		71221C941BF3531B0040BF2C /* STDFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STDFeedViewController.m; sourceTree = "<group>"; };
+		71221C951BF3531B0040BF2C /* STDownloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STDownloadViewController.h; sourceTree = "<group>"; };
+		71221C961BF3531B0040BF2C /* STDownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STDownloadViewController.m; sourceTree = "<group>"; };
+		71221C9D1BF353780040BF2C /* STDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STDViewController.h; sourceTree = "<group>"; };
+		71221C9E1BF353780040BF2C /* STDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STDViewController.m; sourceTree = "<group>"; };
+		71221CA01BF353BC0040BF2C /* STAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAlertView.h; sourceTree = "<group>"; };
+		71221CA11BF353BC0040BF2C /* STAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAlertView.m; sourceTree = "<group>"; };
+		71221CA21BF353BC0040BF2C /* STDLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STDLoadingView.h; sourceTree = "<group>"; };
+		71221CA31BF353BC0040BF2C /* STDLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STDLoadingView.m; sourceTree = "<group>"; };
+		71221CA41BF353BC0040BF2C /* STDRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STDRefreshControl.h; sourceTree = "<group>"; };
+		71221CA51BF353BC0040BF2C /* STDRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STDRefreshControl.m; sourceTree = "<group>"; };
 		7124781A1BE3523D00FCC74A /* XHPaggingNavbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XHPaggingNavbar.h; path = Lib/Page/XHPaggingNavbar.h; sourceTree = "<group>"; };
 		7124781B1BE3523D00FCC74A /* XHPaggingNavbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XHPaggingNavbar.m; path = Lib/Page/XHPaggingNavbar.m; sourceTree = "<group>"; };
 		7124781C1BE3523D00FCC74A /* XHTwitterPaggingViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XHTwitterPaggingViewer.h; path = Lib/Page/XHTwitterPaggingViewer.h; sourceTree = "<group>"; };
@@ -174,6 +221,7 @@
 				715043B61BEB081C00C00170 /* SystemConfiguration.framework in Frameworks */,
 				715043B41BEB081100C00170 /* CoreLocation.framework in Frameworks */,
 				715043B21BEB080900C00170 /* AdSupport.framework in Frameworks */,
+				71221C891BF350650040BF2C /* STKit.framework in Frameworks */,
 				715043B01BEB080300C00170 /* CoreTelephony.framework in Frameworks */,
 				715043AE1BEB07FB00C00170 /* JavaScriptCore.framework in Frameworks */,
 				715043AC1BEB07F300C00170 /* StoreKit.framework in Frameworks */,
@@ -199,6 +247,85 @@
 				127ED1B5ACAAF7BB044D228D /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		71221B481BF350650040BF2C /* Stkit */ = {
+			isa = PBXGroup;
+			children = (
+				71221C8A1BF3531B0040BF2C /* image */,
+				71221B491BF350650040BF2C /* 3rdLibs */,
+				71221C231BF350650040BF2C /* STKit.framework */,
+			);
+			name = Stkit;
+			path = Lib/Stkit;
+			sourceTree = "<group>";
+		};
+		71221B491BF350650040BF2C /* 3rdLibs */ = {
+			isa = PBXGroup;
+			children = (
+				71221B4A1BF350650040BF2C /* MZCroppableView */,
+				71221B4F1BF350650040BF2C /* PingTester */,
+				71221B521BF350650040BF2C /* SphereView */,
+			);
+			path = 3rdLibs;
+			sourceTree = "<group>";
+		};
+		71221B4A1BF350650040BF2C /* MZCroppableView */ = {
+			isa = PBXGroup;
+			children = (
+				71221B4B1BF350650040BF2C /* MZCroppableView.h */,
+				71221B4C1BF350650040BF2C /* MZCroppableView.m */,
+				71221B4D1BF350650040BF2C /* UIBezierPath-Points.h */,
+				71221B4E1BF350650040BF2C /* UIBezierPath-Points.m */,
+			);
+			path = MZCroppableView;
+			sourceTree = "<group>";
+		};
+		71221B4F1BF350650040BF2C /* PingTester */ = {
+			isa = PBXGroup;
+			children = (
+				71221B501BF350650040BF2C /* SimplePing.h */,
+				71221B511BF350650040BF2C /* SimplePing.m */,
+			);
+			path = PingTester;
+			sourceTree = "<group>";
+		};
+		71221B521BF350650040BF2C /* SphereView */ = {
+			isa = PBXGroup;
+			children = (
+				71221B531BF350650040BF2C /* PFGoldenSectionSpiral.h */,
+				71221B541BF350650040BF2C /* PFGoldenSectionSpiral.m */,
+				71221B551BF350650040BF2C /* ZYQSphereView.h */,
+				71221B561BF350650040BF2C /* ZYQSphereView.m */,
+			);
+			path = SphereView;
+			sourceTree = "<group>";
+		};
+		71221C8A1BF3531B0040BF2C /* image */ = {
+			isa = PBXGroup;
+			children = (
+				71221CA01BF353BC0040BF2C /* STAlertView.h */,
+				71221CA11BF353BC0040BF2C /* STAlertView.m */,
+				71221CA21BF353BC0040BF2C /* STDLoadingView.h */,
+				71221CA31BF353BC0040BF2C /* STDLoadingView.m */,
+				71221CA41BF353BC0040BF2C /* STDRefreshControl.h */,
+				71221CA51BF353BC0040BF2C /* STDRefreshControl.m */,
+				71221C9D1BF353780040BF2C /* STDViewController.h */,
+				71221C9E1BF353780040BF2C /* STDViewController.m */,
+				71221C8B1BF3531B0040BF2C /* STDCardViewController.h */,
+				71221C8C1BF3531B0040BF2C /* STDCardViewController.m */,
+				71221C8D1BF3531B0040BF2C /* STDFeedCell.h */,
+				71221C8E1BF3531B0040BF2C /* STDFeedCell.m */,
+				71221C8F1BF3531B0040BF2C /* STDFeedImageView.h */,
+				71221C901BF3531B0040BF2C /* STDFeedImageView.m */,
+				71221C911BF3531B0040BF2C /* STDFeedItem.h */,
+				71221C921BF3531B0040BF2C /* STDFeedItem.m */,
+				71221C931BF3531B0040BF2C /* STDFeedViewController.h */,
+				71221C941BF3531B0040BF2C /* STDFeedViewController.m */,
+				71221C951BF3531B0040BF2C /* STDownloadViewController.h */,
+				71221C961BF3531B0040BF2C /* STDownloadViewController.m */,
+			);
+			path = image;
 			sourceTree = "<group>";
 		};
 		712478191BE3522E00FCC74A /* Page */ = {
@@ -316,6 +443,7 @@
 		A7714CC31B6B12E700611808 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				71221B481BF350650040BF2C /* Stkit */,
 				71FF428C1BEC5016006CADF1 /* BAB */,
 				7150439F1BEB07C700C00170 /* SmtaranSDK */,
 				712478191BE3522E00FCC74A /* Page */,
@@ -590,35 +718,50 @@
 				715043AA1BEB07C700C00170 /* SmtaranSplashAd.m in Sources */,
 				A7DA05C21BA9206E00C55B89 /* Tool.m in Sources */,
 				7124781F1BE3523D00FCC74A /* XHTwitterPaggingViewer.m in Sources */,
+				71221CA61BF353BC0040BF2C /* STAlertView.m in Sources */,
 				715043DB1BEB40F300C00170 /* DownloadManager.m in Sources */,
 				A79F45991B60D733008D8A4B /* AppDelegate.m in Sources */,
+				71221C251BF350650040BF2C /* UIBezierPath-Points.m in Sources */,
 				A7DA05BE1BA9206E00C55B89 /* AssistiveTouch.m in Sources */,
 				A7DA05C01BA9206E00C55B89 /* NetFm.m in Sources */,
 				71F05E211BE8A10600DF7304 /* AlbumListViewController.m in Sources */,
 				71221B391BF2ED1A0040BF2C /* HFStretchableTableHeaderView.m in Sources */,
 				71221B3A1BF2ED1A0040BF2C /* SlideDeleteCell.m in Sources */,
+				71221C971BF3531B0040BF2C /* STDCardViewController.m in Sources */,
+				71221CA81BF353BC0040BF2C /* STDRefreshControl.m in Sources */,
 				71CB4AB51BD77B6900F30D10 /* AboutViewController.m in Sources */,
 				A7DA05BF1BA9206E00C55B89 /* ChannelInfo.m in Sources */,
+				71221C281BF350650040BF2C /* ZYQSphereView.m in Sources */,
 				715043F61BEB48F600C00170 /* DownloadModel+CoreDataProperties.m in Sources */,
 				71FF429C1BEC5016006CADF1 /* BABAudioUtilities.m in Sources */,
 				71FF429A1BEC5016006CADF1 /* BABAudioPlayer.m in Sources */,
 				715043F71BEB48F600C00170 /* DownloadModel.m in Sources */,
 				71D8F9AA1BD4A1A90092C0A0 /* RecommendSongListViewController.m in Sources */,
 				71F05DD61BE75F0400DF7304 /* RecommendTableViewCell.m in Sources */,
+				71221C9F1BF353780040BF2C /* STDViewController.m in Sources */,
 				71FF42991BEC5016006CADF1 /* BABAudioItem.m in Sources */,
 				715043D11BEB31A800C00170 /* SongModel.xcdatamodeld in Sources */,
 				A7DA05C31BA9206E00C55B89 /* UserInfo.m in Sources */,
+				71221C981BF3531B0040BF2C /* STDFeedCell.m in Sources */,
+				71221C271BF350650040BF2C /* PFGoldenSectionSpiral.m in Sources */,
 				A79F45961B60D733008D8A4B /* main.m in Sources */,
 				71FF429F1BECAAB4006CADF1 /* AlbumTableViewCell.m in Sources */,
+				71221CA71BF353BC0040BF2C /* STDLoadingView.m in Sources */,
 				71FF429B1BEC5016006CADF1 /* BABAudioPlaylist.m in Sources */,
+				71221C241BF350650040BF2C /* MZCroppableView.m in Sources */,
 				A79F45C91B60DA4E008D8A4B /* RecommendViewController.m in Sources */,
 				711848F91BDDCF3100EB8382 /* BaseNavigationController.m in Sources */,
 				A7DA05C11BA9206E00C55B89 /* SongInfo.m in Sources */,
+				71221C9A1BF3531B0040BF2C /* STDFeedItem.m in Sources */,
 				7124781E1BE3523D00FCC74A /* XHPaggingNavbar.m in Sources */,
 				A79F45CC1B60DA71008D8A4B /* FoundViewController.m in Sources */,
 				71F05E081BE8923700DF7304 /* AlbumViewController.m in Sources */,
+				71221C9B1BF3531B0040BF2C /* STDFeedViewController.m in Sources */,
+				71221C9C1BF3531B0040BF2C /* STDownloadViewController.m in Sources */,
 				A79F45CF1B60DA84008D8A4B /* MeViewController.m in Sources */,
+				71221C261BF350650040BF2C /* SimplePing.m in Sources */,
 				71D8F9AD1BD4A90B0092C0A0 /* PlayView.m in Sources */,
+				71221C991BF3531B0040BF2C /* STDFeedImageView.m in Sources */,
 				A7714CC21B6A621F00611808 /* PlayerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -743,6 +886,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LoveMusic/Lib/Stkit",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LoveMusic/LoveMusic_Prefix.pch";
 				INFOPLIST_FILE = LoveMusic/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -764,6 +911,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LoveMusic/Lib/Stkit",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LoveMusic/LoveMusic_Prefix.pch";
 				INFOPLIST_FILE = LoveMusic/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
