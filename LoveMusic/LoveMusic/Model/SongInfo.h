@@ -10,16 +10,16 @@
 
 @interface SongInfo : NSObject
 @property int index;
-@property (nonatomic) NSString *title;
-@property (nonatomic) NSString *artist;
-@property (nonatomic) NSString *picture;
-@property (nonatomic) NSString *length;
-@property (nonatomic) NSString *like;
-@property (nonatomic) NSString *url;
-@property (nonatomic) NSString *sid;
-@property (nonatomic) NSInteger type;//1 fm //2 百度 //3 自己
-@property (nonatomic) BOOL isPlaying;
-@property (nonatomic) BOOL isDownload;
+@property (nonatomic,copy) NSString *title;
+@property (nonatomic,copy) NSString *artist;
+@property (nonatomic,copy) NSString *picture;
+@property (nonatomic,copy) NSString *length;
+@property (nonatomic,copy) NSString *like;
+@property (nonatomic,copy) NSString *url;
+@property (nonatomic,copy) NSString *sid;
+@property (nonatomic,assign) NSInteger type;//1 fm //2 百度 //3 自己
+@property (nonatomic,assign) BOOL isPlaying;
+@property (nonatomic,assign) BOOL isDownload;
 
 @property (nonatomic,strong)NSMutableArray *dataArray;
 

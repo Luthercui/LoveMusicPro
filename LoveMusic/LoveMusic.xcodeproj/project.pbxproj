@@ -41,6 +41,7 @@
 		715043DB1BEB40F300C00170 /* DownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 715043DA1BEB40F300C00170 /* DownloadManager.m */; };
 		715043F61BEB48F600C00170 /* DownloadModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 715043F31BEB48F600C00170 /* DownloadModel+CoreDataProperties.m */; };
 		715043F71BEB48F600C00170 /* DownloadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 715043F51BEB48F600C00170 /* DownloadModel.m */; };
+		7184413A1BF48165006B8ADF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 718441381BF48165006B8ADF /* Main.storyboard */; };
 		71CB4AB51BD77B6900F30D10 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CB4AB41BD77B6900F30D10 /* AboutViewController.m */; };
 		71D8F9AA1BD4A1A90092C0A0 /* RecommendSongListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D8F9A91BD4A1A90092C0A0 /* RecommendSongListViewController.m */; };
 		71D8F9AD1BD4A90B0092C0A0 /* PlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D8F9AC1BD4A90B0092C0A0 /* PlayView.m */; };
@@ -150,6 +151,7 @@
 		715043F41BEB48F600C00170 /* DownloadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DownloadModel.h; path = Model/DownloadModel.h; sourceTree = "<group>"; };
 		715043F51BEB48F600C00170 /* DownloadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DownloadModel.m; path = Model/DownloadModel.m; sourceTree = "<group>"; };
 		715043F81BEB5AE700C00170 /* DownloadManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadManagerDelegate.h; sourceTree = "<group>"; };
+		718441391BF48165006B8ADF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		71848F511BE314AB005BB1DF /* LoveMusic_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoveMusic_Prefix.pch; sourceTree = "<group>"; };
 		71CB4AB31BD77B6900F30D10 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = ViewController/AboutViewController.h; sourceTree = "<group>"; };
 		71CB4AB41BD77B6900F30D10 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = ViewController/AboutViewController.m; sourceTree = "<group>"; };
@@ -482,6 +484,7 @@
 				A79F45971B60D733008D8A4B /* AppDelegate.h */,
 				A79F45981B60D733008D8A4B /* AppDelegate.m */,
 				A79F45A31B60D733008D8A4B /* Images.xcassets */,
+				718441381BF48165006B8ADF /* Main.storyboard */,
 				A79F45A51B60D733008D8A4B /* LaunchScreen.xib */,
 				A79F45931B60D733008D8A4B /* Supporting Files */,
 			);
@@ -645,6 +648,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7184413A1BF48165006B8ADF /* Main.storyboard in Resources */,
 				A79F45A71B60D733008D8A4B /* LaunchScreen.xib in Resources */,
 				A79F45A41B60D733008D8A4B /* Images.xcassets in Resources */,
 			);
@@ -785,6 +789,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		718441381BF48165006B8ADF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				718441391BF48165006B8ADF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		A79F45A51B60D733008D8A4B /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -892,7 +904,7 @@
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LoveMusic/LoveMusic_Prefix.pch";
 				INFOPLIST_FILE = LoveMusic/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -917,7 +929,7 @@
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LoveMusic/LoveMusic_Prefix.pch";
 				INFOPLIST_FILE = LoveMusic/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

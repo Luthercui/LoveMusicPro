@@ -57,7 +57,7 @@
         
         UIImageView *defaultImageView = [self getLauchImageWithWindow:self.originWindow];
         assert(defaultImageView);
-        [self.view  addSubview:defaultImageView];
+        //[self.view  addSubview:defaultImageView];
         
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC);
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void)

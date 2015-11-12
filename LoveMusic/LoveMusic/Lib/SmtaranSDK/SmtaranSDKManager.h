@@ -7,9 +7,10 @@
 //
 
 #define MS_PublishID        @"vby9btIpMKeOQ4PnOg=="
-#define MS_SlotToken_Banner @"8/LzIJxkfunADc2pdFHkzn/V"//横幅广告位
+#define MS_paly_Banner @"8/LzIJxkfunADc2pdFHkzn/V"//横幅广告位
+#define MS_shezhi_Banner @"8/LzIJxkfunADc2pdFHkzn/V"//横幅广告位
 #define MS_Test_SlotToken_Poster @""//全屏广告位
-#define MS_SlotToken_Native @"TE1MnyPbwVZ/snIWy+9bccBo"//开广告位
+#define MS_Native @"Z2ZntAjw6n1UmVk94FZwWutJ"//开广告位
 
 #define MS_Audit_Flag   @"IOS_AppStore_V1.0"
 

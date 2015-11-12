@@ -33,7 +33,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
+    [[SmtaranSDKManager getInstance] setPublisherID:MS_PublishID withChannel:@"就是爱音乐" auditFlag:MS_Audit_Flag];
+    [self initLib];
     _playList = [[NSMutableArray alloc] init];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
@@ -80,13 +81,14 @@
     };
     
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.twitterPaggingViewer];
-    [self initLib];
-    [self initplayer];
-//    SmtaranSplashAd *sadVC = [[SmtaranSplashAd alloc] initWithSlottoken:MS_SlotToken_Native delegate:self rootVC:navigationController currentWindow:self.window];
-//    
-    self.window.rootViewController = navigationController;
     
-    [self.window makeKeyAndVisible];
+    [self initplayer];
+
+    SmtaranSplashAd *sadVC = [[SmtaranSplashAd alloc] initWithSlottoken:MS_Native delegate:self rootVC:navigationController currentWindow:self.window];
+    
+    self.window.rootViewController = sadVC;
+    
+    //[self.window makeKeyAndVisible];
     return YES;
 }
 -(void)initLib{
@@ -247,7 +249,7 @@
  */
 - (void)smtaranSplashAdFaildToShowAd:(nonnull SmtaranSplashAd*)adSplash withError:(nullable NSError*) error
 {
-    NSLog(@"%s", __func__);
+    NSLog(@"%s %@", __func__,error);
 }
 
 /**
