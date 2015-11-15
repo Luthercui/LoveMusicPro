@@ -10,8 +10,8 @@
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "backimage1.jpg"
+      "filename" : "backimage1.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

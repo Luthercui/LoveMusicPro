@@ -63,7 +63,7 @@ static NSString *CellIdentifier = @"Cell";
     self.currentPlayIndex = -1;
     [self addConstraints];
     UIImageView *header = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 400*XA)];
-    header.image = [UIImage imageNamed:@"backimage1"];
+    header.image = [UIImage imageNamed:@"player_backimage1"];
     _stretchableTableHeaderView = [HFStretchableTableHeaderView new];
     [_stretchableTableHeaderView stretchHeaderForTableView:self.tableView withView:header];
 
