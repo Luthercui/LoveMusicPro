@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SmtaranBannerAd.h"
-@interface PlayerViewController : UIViewController<SmtaranBannerAdDelegate>
-@property (nonatomic,strong) SmtaranBannerAd *smtaranBanner;
+#import <GoogleMobileAds/GoogleMobileAds.h>
+@interface PlayerViewController : UIViewController
+@property(nonatomic,strong)GADBannerView *bannerView;
 @end

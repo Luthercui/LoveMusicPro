@@ -29,8 +29,6 @@
 		71221CA81BF353BC0040BF2C /* STDRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 71221CA51BF353BC0040BF2C /* STDRefreshControl.m */; };
 		7124781E1BE3523D00FCC74A /* XHPaggingNavbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7124781B1BE3523D00FCC74A /* XHPaggingNavbar.m */; };
 		7124781F1BE3523D00FCC74A /* XHTwitterPaggingViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7124781D1BE3523D00FCC74A /* XHTwitterPaggingViewer.m */; };
-		715043A91BEB07C700C00170 /* libSmtaranSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 715043A11BEB07C700C00170 /* libSmtaranSDK.a */; };
-		715043AA1BEB07C700C00170 /* SmtaranSplashAd.m in Sources */ = {isa = PBXBuildFile; fileRef = 715043A81BEB07C700C00170 /* SmtaranSplashAd.m */; };
 		715043AC1BEB07F300C00170 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 715043AB1BEB07F300C00170 /* StoreKit.framework */; };
 		715043AE1BEB07FB00C00170 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 715043AD1BEB07FB00C00170 /* JavaScriptCore.framework */; };
 		715043B01BEB080300C00170 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 715043AF1BEB080300C00170 /* CoreTelephony.framework */; };
@@ -128,15 +126,6 @@
 		7124781B1BE3523D00FCC74A /* XHPaggingNavbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XHPaggingNavbar.m; path = Lib/Page/XHPaggingNavbar.m; sourceTree = "<group>"; };
 		7124781C1BE3523D00FCC74A /* XHTwitterPaggingViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XHTwitterPaggingViewer.h; path = Lib/Page/XHTwitterPaggingViewer.h; sourceTree = "<group>"; };
 		7124781D1BE3523D00FCC74A /* XHTwitterPaggingViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XHTwitterPaggingViewer.m; path = Lib/Page/XHTwitterPaggingViewer.m; sourceTree = "<group>"; };
-		715043A01BEB07C700C00170 /* FWBaseDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWBaseDownload.h; sourceTree = "<group>"; };
-		715043A11BEB07C700C00170 /* libSmtaranSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSmtaranSDK.a; sourceTree = "<group>"; };
-		715043A21BEB07C700C00170 /* SmtaranBannerAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmtaranBannerAd.h; sourceTree = "<group>"; };
-		715043A31BEB07C700C00170 /* SmtaranFactoryAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmtaranFactoryAd.h; sourceTree = "<group>"; };
-		715043A41BEB07C700C00170 /* SmtaranInterstitialAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmtaranInterstitialAd.h; sourceTree = "<group>"; };
-		715043A51BEB07C700C00170 /* SmtaranNativeAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmtaranNativeAd.h; sourceTree = "<group>"; };
-		715043A61BEB07C700C00170 /* SmtaranSDKManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmtaranSDKManager.h; sourceTree = "<group>"; };
-		715043A71BEB07C700C00170 /* SmtaranSplashAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmtaranSplashAd.h; sourceTree = "<group>"; };
-		715043A81BEB07C700C00170 /* SmtaranSplashAd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmtaranSplashAd.m; sourceTree = "<group>"; };
 		715043AB1BEB07F300C00170 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		715043AD1BEB07FB00C00170 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		715043AF1BEB080300C00170 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -228,7 +217,6 @@
 				715043AE1BEB07FB00C00170 /* JavaScriptCore.framework in Frameworks */,
 				715043AC1BEB07F300C00170 /* StoreKit.framework in Frameworks */,
 				4FAF16DE29D05F9C737FAB9E /* libPods.a in Frameworks */,
-				715043A91BEB07C700C00170 /* libSmtaranSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,23 +329,6 @@
 			name = Page;
 			sourceTree = "<group>";
 		};
-		7150439F1BEB07C700C00170 /* SmtaranSDK */ = {
-			isa = PBXGroup;
-			children = (
-				715043A01BEB07C700C00170 /* FWBaseDownload.h */,
-				715043A11BEB07C700C00170 /* libSmtaranSDK.a */,
-				715043A21BEB07C700C00170 /* SmtaranBannerAd.h */,
-				715043A31BEB07C700C00170 /* SmtaranFactoryAd.h */,
-				715043A41BEB07C700C00170 /* SmtaranInterstitialAd.h */,
-				715043A51BEB07C700C00170 /* SmtaranNativeAd.h */,
-				715043A61BEB07C700C00170 /* SmtaranSDKManager.h */,
-				715043A71BEB07C700C00170 /* SmtaranSplashAd.h */,
-				715043A81BEB07C700C00170 /* SmtaranSplashAd.m */,
-			);
-			name = SmtaranSDK;
-			path = Lib/SmtaranSDK;
-			sourceTree = "<group>";
-		};
 		715043D81BEB40CB00C00170 /* DataManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -447,7 +418,6 @@
 			children = (
 				71221B481BF350650040BF2C /* Stkit */,
 				71FF428C1BEC5016006CADF1 /* BAB */,
-				7150439F1BEB07C700C00170 /* SmtaranSDK */,
 				712478191BE3522E00FCC74A /* Page */,
 			);
 			name = Lib;
@@ -719,7 +689,6 @@
 				A7DA05CC1BA920B600C55B89 /* SongListModel.m in Sources */,
 				71F05DD91BE7659400DF7304 /* ClassViewController.m in Sources */,
 				A7DA05C91BA920A200C55B89 /* YFInputBar.m in Sources */,
-				715043AA1BEB07C700C00170 /* SmtaranSplashAd.m in Sources */,
 				A7DA05C21BA9206E00C55B89 /* Tool.m in Sources */,
 				7124781F1BE3523D00FCC74A /* XHTwitterPaggingViewer.m in Sources */,
 				71221CA61BF353BC0040BF2C /* STAlertView.m in Sources */,
@@ -899,18 +868,18 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LoveMusic/Lib/Stkit",
+					"$(PROJECT_DIR)/LoveMusic/Lib",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LoveMusic/LoveMusic_Prefix.pch";
 				INFOPLIST_FILE = LoveMusic/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/LoveMusic/Lib/SmtaranSDK",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xiaocui.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -926,18 +895,18 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LoveMusic/Lib/Stkit",
+					"$(PROJECT_DIR)/LoveMusic/Lib",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LoveMusic/LoveMusic_Prefix.pch";
 				INFOPLIST_FILE = LoveMusic/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/LoveMusic/Lib/SmtaranSDK",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xiaocui.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

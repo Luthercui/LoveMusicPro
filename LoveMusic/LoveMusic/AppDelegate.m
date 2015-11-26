@@ -20,8 +20,7 @@
 #import "XHTwitterPaggingViewer.h"
 
 #import "PlayView.h"
-#import "SmtaranSplashAd.h"
-@interface AppDelegate ()<PlayTouchDelegate,SmtaranSplashAdDelegate>{
+@interface AppDelegate ()<PlayTouchDelegate>{
     UITabBarController *tabBarController;
 }
 @property(nonatomic, strong) NSTimer *kTimer;
@@ -33,7 +32,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [[SmtaranSDKManager getInstance] setPublisherID:MS_PublishID withChannel:@"就是爱音乐" auditFlag:MS_Audit_Flag];
     [self initLib];
     _playList = [[NSMutableArray alloc] init];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -81,14 +79,11 @@
     };
     
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.twitterPaggingViewer];
-    
+    self.window.rootViewController = navigationController;
     [self initplayer];
 
-    SmtaranSplashAd *sadVC = [[SmtaranSplashAd alloc] initWithSlottoken:MS_Native delegate:self rootVC:navigationController currentWindow:self.window];
     
-    self.window.rootViewController = sadVC;
-    
-    //[self.window makeKeyAndVisible];
+    [self.window makeKeyAndVisible];
     return YES;
 }
 -(void)initLib{
@@ -225,41 +220,5 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
      [MagicalRecord cleanUp];
 }
-/**
- *  adSplash被点击
- *  @param adSplash
- */
-- (void)smtaranSplashAdClick:(nonnull SmtaranSplashAd*)adSplash
-{
-    NSLog(@"%s", __func__);
-}
-
-/**
- *  adSplash请求成功并展示广告
- *  @param adSplash
- */
-- (void)smtaranSplashAdSuccessToShowAd:(nonnull SmtaranSplashAd*)adSplash
-{
-    NSLog(@"%s", __func__);
-}
-
-/**
- *  adSplash请求失败
- *  @param adSplash
- */
-- (void)smtaranSplashAdFaildToShowAd:(nonnull SmtaranSplashAd*)adSplash withError:(nullable NSError*) error
-{
-    NSLog(@"%s %@", __func__,error);
-}
-
-/**
- *  AdSplash被关闭
- *  @param adSplash
- */
-- (void)smtaranSplashAdClose:(nonnull SmtaranSplashAd*)adSplash
-{
-    NSLog(@"%s", __func__);
-}
-
 
 @end

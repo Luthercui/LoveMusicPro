@@ -121,15 +121,18 @@
                     if ([[dictionary allKeys] count]>1) {
                         NSDictionary * data = [dictionary objectForKey:@"data"];
                         NSArray * songList = [data objectForKey:@"songList"];
-                        for (NSDictionary * sub in songList) {
-                            song.url = [sub objectForKey:@"showLink"];
-                            song.title = [sub objectForKey:@"songName"];
-                            song.picture = [sub objectForKey:@"songPicBig"];
-                            song.length = [[sub objectForKey:@"time"] stringValue];
-                            song.artist = [sub objectForKey:@"artistName"];
-                            song.sid = [[sub objectForKey:@"songId"]stringValue];
-                            song.type = 2;
+                        if (songList && [songList isKindOfClass:[NSArray class]]) {
+                            for (NSDictionary * sub in songList) {
+                                song.url = [sub objectForKey:@"showLink"];
+                                song.title = [sub objectForKey:@"songName"];
+                                song.picture = [sub objectForKey:@"songPicBig"];
+                                song.length = [[sub objectForKey:@"time"] stringValue];
+                                song.artist = [sub objectForKey:@"artistName"];
+                                song.sid = [[sub objectForKey:@"songId"]stringValue];
+                                song.type = 2;
+                            }
                         }
+
                     }else{
                         int errorcode = [[dictionary objectForKey:@"error_code"] intValue];
                         NSLog(@"%d",errorcode);
